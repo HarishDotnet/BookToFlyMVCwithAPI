@@ -21,12 +21,6 @@ namespace BookToFlyMVC.Controllers
             _client = clientFactory.CreateClient("FlightClient");
         }
 
-        // GET: Add Flight Page
-        public IActionResult AddFlight()
-        {
-            return View(); // Returns the AddFlight view
-        }
-
         // Default Show Flights
         [HttpGet]
         public IActionResult ShowFlights()
@@ -151,20 +145,6 @@ namespace BookToFlyMVC.Controllers
             return View("ShowFlights", flightList); // Ensure a view exists to display the list of flights
         }
 
-
-
-        [HttpPost]
-        public async Task<IActionResult> AddFlight(InternationalFlightModel flightModel)
-        {
-            if (ModelState.IsValid)
-            {
-                _dbContext.InternationalFlights.Add(flightModel);
-                await _dbContext.SaveChangesAsync();
-                return RedirectToAction("ManageFlights");
-            }
-            return View(flightModel);
-        }
-
         public IActionResult Dashboard()
         {
             return View("Dashboard");
@@ -172,8 +152,7 @@ namespace BookToFlyMVC.Controllers
 
         public IActionResult ManageFlights()
         {
-            var flights = _dbContext.InternationalFlights.ToList();
-            return View(flights);
+            return View("ShowFlights");
         }
 
         public IActionResult Profile()

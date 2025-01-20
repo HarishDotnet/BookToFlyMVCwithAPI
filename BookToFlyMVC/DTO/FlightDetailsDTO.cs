@@ -29,7 +29,6 @@ namespace BookToFlyMVC.DTO
 
         public List<string> AvailableDays { get; set; }
 
-        // public string LastModifiedBy { get; set; }
-
+        public string FlightType{get; set;}
     }
 }

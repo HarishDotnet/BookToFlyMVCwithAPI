@@ -5242,11 +5242,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\Flight Booking Console Aplication\\FlightDetailApi\\FlightDetailApi.csproj",
+      "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
       "projectName": "FlightDetailApi",
-      "projectPath": "C:\\Users\\harish.muthu\\Desktop\\Flight Booking Console Aplication\\FlightDetailApi\\FlightDetailApi.csproj",
+      "projectPath": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
       "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\harish.muthu\\Desktop\\Flight Booking Console Aplication\\FlightDetailApi\\obj\\",
+      "outputPath": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\FlightDetailApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"

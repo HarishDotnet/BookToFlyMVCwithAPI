@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1WWIb2PMaVE=",
+  "dgSpecHash": "QnwFR4RAmNU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\harish.muthu\\Desktop\\Flight Booking Console Aplication\\FlightDetailApi\\FlightDetailApi.csproj",
+  "projectFilePath": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\harish.muthu\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\harish.muthu\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

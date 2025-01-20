@@ -59,3 +59,7 @@ h2 {
   backdrop-filter: blur(10px); /* Apply blur to the background */
   color: black; /* Ensure the text color is not blurred */
 }
+.bg-blur {
+  backdrop-filter: blur(2px); /*Adjust the blur intensity*/
+  background-color: rgba(53, 53, 54, 0.726); /* Optional: Semi-transparent background */
+}

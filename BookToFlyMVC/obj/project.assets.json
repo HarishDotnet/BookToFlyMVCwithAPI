@@ -4934,11 +4934,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\harish.muthu\\Downloads\\BookToFlyMVC\\BookToFlyMVC.csproj",
+      "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
       "projectName": "BookToFlyMVC",
-      "projectPath": "C:\\Users\\harish.muthu\\Downloads\\BookToFlyMVC\\BookToFlyMVC.csproj",
+      "projectPath": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
       "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\harish.muthu\\Downloads\\BookToFlyMVC\\obj\\",
+      "outputPath": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"

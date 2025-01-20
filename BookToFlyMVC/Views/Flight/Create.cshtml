@@ -1,0 +1,82 @@
+@model BookToFlyMVC.DTO.FlightDetailsDTO
+
+@{
+    ViewData["Title"] = "Add New Flight";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+<div class="card mx-auto d-flex p-4 bg-blur">
+
+    <h4 class="text-center text-warning fw-bold">@ViewData["Title"]</h4>
+
+    <form asp-controller="Flight" asp-action="Create" method="post">
+        <div class="form-group mb-3 ">
+            <label class="text-info " asp-for="FlightId"></label>
+            <input asp-for="FlightId" class="form-control" />
+            <span asp-validation-for="FlightId" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="AirlineName"></label>
+            <input asp-for="AirlineName" class="form-control" />
+            <span asp-validation-for="AirlineName" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="Source"></label>
+            <input asp-for="Source" class="form-control" />
+            <span asp-validation-for="Source" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="Destination"></label>
+            <input asp-for="Destination" class="form-control" />
+            <span asp-validation-for="Destination" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="ArrivalTime"></label>
+            <input asp-for="ArrivalTime" type="time" class="form-control" />
+            <span asp-validation-for="ArrivalTime" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="DepartureTime"></label>
+            <input asp-for="DepartureTime" type="time" class="form-control" />
+            <span asp-validation-for="DepartureTime" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="Duration"></label>
+            <input asp-for="Duration" type="number" step="0.01" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="AvailableSeats"></label>
+            <input asp-for="AvailableSeats" type="number" class="form-control" />
+            <span asp-validation-for="AvailableSeats" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="TicketPrice"></label>
+            <input asp-for="TicketPrice" type="number" step="0.01" class="form-control" />
+            <span asp-validation-for="TicketPrice" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="AvailableDays"></label>
+            <input asp-for="AvailableDays" class="form-control" />
+            <span asp-validation-for="AvailableDays" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label class="text-info " asp-for="FlightType"></label>
+            <select asp-for="FlightType" class="form-control text-dark">
+                <option value="International">International</option>
+                <option value="Domestic">Domestic</option>
+            </select>
+            <span asp-validation-for="FlightType" class="text-danger"></span>
+        </div>
+
+        <!-- Button centered at the bottom -->
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Add Flight</button>
+        </div>
+    </form>
+
+</div>
