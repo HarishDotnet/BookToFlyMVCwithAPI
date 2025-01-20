@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gxv8qzLqUJe8UCmuQZuygFIjSkVjJAw9vmdE3jksQw8=",
+  "Source": "FlightDetailApi",
+  "BasePath": "_content/FlightDetailApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

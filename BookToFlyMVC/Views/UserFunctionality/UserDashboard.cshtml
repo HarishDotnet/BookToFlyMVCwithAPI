@@ -1,0 +1,120 @@
+@model BookToFlyMVC.Models.UserDashboardModel
+
+@{
+    ViewData["Title"] = "User Dashboard - Flight Booking";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">@ViewData["Title"]</h2>
+    <div class="row">
+        <!-- Flight Search -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <h4 class="text-center">Search Flights</h4>
+                <form method="get" asp-action="SearchFlights">
+                    <div class="mb-3">
+                        <label for="flightNumber" class="form-label">Flight Number:</label>
+                        <input type="text" id="flightNumber" name="FlightNumber" class="form-control" placeholder="Enter Flight Number" />
+                    </div>
+                    <h6 class="text-center">(OR)</h6>
+                    <div class="mb-3">
+                        <label for="fromPlace" class="form-label">From:</label>
+                        <input type="text" id="fromPlace" name="FromPlace" class="form-control" placeholder="Enter Departure City" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="toPlace" class="form-label">To:</label>
+                        <input type="text" id="toPlace" name="ToPlace" class="form-control" placeholder="Enter Destination City" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary d-block mx-auto">Search Flights</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- User Booked Tickets -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <h4 class="text-center">Your Booked Tickets</h4>
+                @* <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Flight Number</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Departure Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ticket in Model.BookedTickets)
+                        {
+                            <tr>
+                                <td>@ticket.FlightNumber</td>
+                                <td>@ticket.FromPlace</td>
+                                <td>@ticket.ToPlace</td>
+                                <td>@ticket.DepartureTime</td>
+                                <td>
+                                    <a href="@Url.Action("CancelBooking", "Flight", new { id = ticket.Id })" class="btn btn-danger btn-sm">Cancel</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table> *@
+            </div>
+        </div>
+    </div>
+
+    <!-- Available Flights List -->
+    @* @if (Model.Flights != null && Model.Flights.Any())
+    {
+        <div class="mt-5">
+            <h4>Available Flights</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Flight Number</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Departure Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var flight in Model.Flights)
+                    {
+                        <tr>
+                            <td>@flight.FlightId</td>
+                            <td>@flight.Source</td>
+                            <td>@flight.Destination</td>
+                            <td>@flight.DepartureTime</td>
+                            <td>
+                                <a href="@Url.Action("BookTicket", "Flight", new { flightNumber = flight.FlightId })" class="btn btn-success btn-sm">Book Ticket</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    } *@
+
+    <!-- Contact Customer Care Section -->
+    <div class="mt-5">
+        <h4>Contact Customer Care</h4>
+        <form method="post" asp-action="ContactCustomerCare" asp-controller="User">
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject:</label>
+                <input type="text" id="subject" name="Subject" class="form-control" placeholder="Enter subject" required />
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message:</label>
+                <textarea id="message" name="Message" class="form-control" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</div>
+
+@* @section Scripts {
+    <script>
+        // Optional JavaScript to handle form validations, etc.
+    </script>
+} *@

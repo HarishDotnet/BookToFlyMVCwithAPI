@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C#: BookToFlyMVC [http]",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\BookToFlyMVC.csproj",
+            "launchConfigurationId": "TargetFramework=;http"
+        },
+        {
+            "name": "C#: BookToFlyMVC [Default Configuration]",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\BookToFlyMVC.csproj"
+        }
+    ]
+}

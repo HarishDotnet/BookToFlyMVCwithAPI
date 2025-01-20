@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Manage Flights";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">@ViewData["Title"]</h2>
+    <hr />
+
+    <!-- CRUD Operation Buttons/Links -->
+
+    <div class="d-flex justify-content-between">
+        <!-- Create Flight -->
+        <a asp-controller="Admin" asp-action="AddFlight" class="btn btn-primary">Add New Flight</a>
+        
+        <!-- Manage Existing Flights -->
+        <a href="/Admin/ManageFlights" class="btn btn-secondary">Manage Flights</a>
+    </div>
+
+    <div class="mt-4">
+        <h3>Actions for Flights</h3>
+        
+        <!-- Edit Flight -->
+        <div class="mb-2">
+            <a href="/Admin/EditFlight/1" class="btn btn-warning">Edit Flight (ID: 1)</a>  <!-- Replace 1 with dynamic FlightId -->
+        </div>
+        
+        <!-- Delete Flight -->
+        <div class="mb-2">
+            <form method="post" action="/Admin/DeleteFlight" onsubmit="return confirm('Are you sure you want to delete this flight?');">
+                <input type="hidden" name="FlightId" value="1" />  <!-- Replace 1 with dynamic FlightId -->
+                <button type="submit" class="btn btn-danger">Delete Flight (ID: 1)</button>
+            </form>
+        </div>
+    </div>
+</div>
