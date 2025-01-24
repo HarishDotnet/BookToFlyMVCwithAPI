@@ -1,53 +1,254 @@
-@{
-    ViewData["Title"] = "Admin Dashboard";
+<style>
+    /* Ensure sidebar is properly positioned and visible */
+   #sideNav {
+    position: fixed;
+    top: 60px; /* Ensure it's just below the navbar */
+    left: 0;
+    width: 250px;
+    background-color: rgba(32, 33, 36, 0.85); /* Semi-transparent dark background */
+    padding: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Lighter border for contrast */
+    height: calc(100% - 40px); /* Full height minus navbar height */
+    display: none;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-250px); /* Hidden by default */
 }
 
-<div class="container-fluid p-0">
+#sideNav.show {
+    transform: translateX(0); /* Show the sidebar when active */
+    display: block;
+}
+
+/* Sidebar link styling */
+#sideNav a {
+    color: #f1f1f1; /* Light text for better contrast */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#sideNav a:hover {
+    color: #ffdd57; /* A vibrant yellow for hover effect */
+}
+
+/* Adjusting link container styles */
+#sideNav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sideNav li {
+    margin-bottom: 10px;
+}
+
+/* Adjust the left margin for content when sidebar is visible */
+.content-with-sidenav {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: rgba(32, 33, 36, 0.9); /* Darker navbar */
+}
+
+.navbar-brand {
+    color: #ffdd57 !important; /* Bright yellow for brand to stand out */
+}
+
+.navbar-toggler-icon {
+    background-color: #ffdd57; /* Make the toggle icon more visible */
+}
+
+/* User Profile Dropdown */
+.nav-item.dropdown .dropdown-menu {
+    background-color: rgba(32, 33, 36, 0.85); /* Darker background for dropdown */
+    border: 1px solid #444; /* Lighter border for contrast */
+}
+
+.nav-item.dropdown .dropdown-item {
+    color: #f1f1f1; /* Lighter text */
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/* Dashboard Content Styling */
+#dashboardContent {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the content area */
+    color: #f1f1f1; /* Light text for contrast */
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark card background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+}
+
+.card-title {
+    color: #ffdd57; /* Bright yellow card title */
+}
+
+.card-body {
+    color: #f1f1f1; /* Light text in card body */
+}
+
+.card .btn {
+    background-color: #ff5733; /* A bright, contrasting button color */
+    border-color: #ff5733; /* Matching border for button */
+}
+
+.card .btn:hover {
+    background-color: #c0392b; /* Darker shade on hover */
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: rgba(32, 33, 36, 0.85); /* Dark modal background */
+    color: #f1f1f1; /* Light text */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for modal */
+}
+
+.modal-header {
+    background-color: rgba(32, 33, 36, 0.95); /* Darker header background */
+    color: #ffdd57; /* Bright yellow text for the header */
+}
+
+.modal-body {
+    color: #f1f1f1; /* Light text in the modal body */
+}
+
+.modal-footer .btn {
+    background-color: #ff5733; /* Bright button color */
+    border-color: #ff5733; /* Matching button border */
+}
+
+.modal-footer .btn:hover {
+    background-color: #c0392b; /* Darker button on hover */
+}
+</style>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+ViewData["RenderHeader"] = false; 
+}
+
+<div class="vh-100 d-flex flex-column">
     <!-- Top Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#">Admin Dashboard</a>
-            <div class="d-flex">
-                <a href="/Admin/Profile" class="btn btn-link me-3">Profile</a>
-                <a href="/Admin/Logout" class="btn btn-danger">Logout</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container-fluid">
+            <!-- Left Option Icon -->
+            <div class="d-inline-block position-relative">
+                <i class="bi bi-list text-light fs-3" id="leftOptionIcon" style="cursor: pointer;"></i>
+                <nav id="sideNav" class="position-fixed vh-100" style="width: 250px; background-color: rgba(32, 33, 36, 0.85); padding: 15px; border-right: 1px solid rgba(255, 255, 255, 0.2); top: 65px; left: 0; z-index: 1000; overflow-y: auto;">
+                    <h4 class="text-warning mb-4 border-bottom pb-2">Flight Management</h4>
+                    <ul>
+                        <li class="mb-3"><a href="/Flight/Create" class="text-decoration-none text-light"><i class="bi bi-plus-circle me-2"></i>Add Flight</a></li>
+                        <li class="mb-3"><a href="/Flight/Edit" class="text-decoration-none text-light"><i class="bi bi-pencil-square me-2"></i>Edit Flight Details</a></li>
+                        <li class="mb-3"><a href="/Flight/Delete" class="text-decoration-none text-light"><i class="bi bi-trash-fill me-2"></i>Delete Flight</a></li>
+                        <li class="mb-3"><a href="#" data-bs-toggle="modal" data-bs-target="#flightTypeModal" class="text-decoration-none text-light"><i class="bi bi-gear-fill me-2"></i>Manage Flights</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <a class="navbar-brand text-warning" href="#" style="margin-left: 20px;"><i class="bi bi-speedometer2 me-2"></i>Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle text-warning"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/Admin/Profile"><i class="bi bi-person me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="/Admin/Settings"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="/Admin/Logout"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <!-- Dashboard Content -->
-    <div class="container mt-4">
-        <h2>Welcome, Admin!</h2>
-        <p class="text-muted">Use the navigation or quick actions below to manage the system.</p>
+    <div id="dashboardContent" class="flex-grow-1 d-flex main-content" style="background-color: rgba(0, 0, 0, 0.7);">
+        <div class="container mt-4">
+            <h2 class="text-warning"><i class="bi bi-house-door-fill me-2"></i>Welcome, Admin!</h2>
+            <p class="text-muted">Use the navigation or quick actions below to manage the system.</p>
 
-        <!-- Example Quick Actions -->
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Manage Flights</h5>
-                        <p class="card-text">View, add, or update flight schedules.</p>
-                        <a asp-controller="Admin" asp-action="ManageFlights" class="btn btn-primary">Go to Flights</a>
+            <!-- Example Quick Actions -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-warning">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i>Manage Flights</h5>
+                            <p class="card-text">View, add, or update flight schedules.</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#flightTypeModal" class="btn btn-warning">Go to Flights</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Manage Users</h5>
-                        <p class="card-text">View and manage user accounts.</p>
-                        <a href="/Admin/Users" class="btn btn-primary">Go to Users</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">View Reports</h5>
-                        <p class="card-text">Analyze system usage and flight bookings.</p>
-                        <a href="/Admin/Reports" class="btn btn-primary">View Reports</a>
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-success">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><i class="bi bi-people-fill me-2"></i>Manage Users</h5>
+                            <p class="card-text">View or manage system users.</p>
+                            <a asp-controller="Admin" asp-action="YetToDevelop" class="btn btn-success">Go to Users</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="flightTypeModal" tabindex="-1" aria-labelledby="flightTypeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title" id="flightTypeModalLabel"><i class="bi bi-funnel-fill me-2"></i>Select Flight Type</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form id="flightTypeForm" asp-controller="Flight" asp-action="GetFlightsByType" method="post">
+                    <div class="mb-3">
+                        <label for="flightType" class="form-label">Flight Type</label>
+                        <select class="form-select" id="flightType" name="FlightType" required>
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="International">International</option>
+                            <option value="Domestic">Domestic</option>
+                        </select>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success"><i class="bi bi-check-circle me-2"></i>Select</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const sideNav = document.getElementById('sideNav');
+    const leftOptionIcon = document.getElementById('leftOptionIcon');
+    const dashboardContent = document.getElementById('dashboardContent');
+
+    // Toggle sidebar visibility when clicking the menu icon
+    leftOptionIcon.addEventListener('click', function () {
+        sideNav.classList.toggle('show'); // Toggle sidebar visibility
+        dashboardContent.classList.toggle('content-with-sidenav'); // Adjust content layout
+    });
+
+    // Optional: Sidebar will hide automatically when mouse leaves the sidebar
+    sideNav.addEventListener('mouseleave', function () {
+        sideNav.classList.remove('show');
+        dashboardContent.classList.remove('content-with-sidenav');
+    });
+</script>

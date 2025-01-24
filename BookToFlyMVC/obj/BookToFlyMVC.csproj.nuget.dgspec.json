@@ -1,17 +1,106 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {}
+    "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {
+    "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
+        "projectUniqueName": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
         "projectName": "BookToFlyMVC",
-        "projectPath": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
+        "projectPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
         "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\harish.muthu\\Desktop\\BookToFlyMVCwithAPI\\BookToFlyMVC\\obj\\",
+        "outputPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
+                "projectPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Cookies": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.EntityFrameWorkCore": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameWorkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameWorkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.405/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
+        "projectName": "FlightDetailApi",
+        "projectPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
+        "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -47,23 +136,29 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
-            "Microsoft.AspNetCore.Authentication.Cookies": {
+            "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[2.3.0, )"
+              "version": "[8.0.11, )"
             },
-            "Microsoft.EntityFrameWorkCore": {
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameWorkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameWorkCore.Tools": {
+            "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
             }
           },
           "imports": [

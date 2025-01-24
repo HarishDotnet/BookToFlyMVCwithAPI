@@ -1,34 +1,11 @@
-@model BookToFlyMVC.Models.UserDashboardModel
 
 @{
     ViewData["Title"] = "User Dashboard - Flight Booking";
 }
 
-<div class="container mt-5">
-    <h2 class="text-center">@ViewData["Title"]</h2>
-    <div class="row">
-        <!-- Flight Search -->
-        <div class="col-md-6">
-            <div class="card shadow-sm p-4">
-                <h4 class="text-center">Search Flights</h4>
-                <form method="get" asp-action="SearchFlights">
-                    <div class="mb-3">
-                        <label for="flightNumber" class="form-label">Flight Number:</label>
-                        <input type="text" id="flightNumber" name="FlightNumber" class="form-control" placeholder="Enter Flight Number" />
-                    </div>
-                    <h6 class="text-center">(OR)</h6>
-                    <div class="mb-3">
-                        <label for="fromPlace" class="form-label">From:</label>
-                        <input type="text" id="fromPlace" name="FromPlace" class="form-control" placeholder="Enter Departure City" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="toPlace" class="form-label">To:</label>
-                        <input type="text" id="toPlace" name="ToPlace" class="form-control" placeholder="Enter Destination City" required />
-                    </div>
-                    <button type="submit" class="btn btn-primary d-block mx-auto">Search Flights</button>
-                </form>
-            </div>
-        </div>
+<div class="container mt-5 d-flex">
+    @await Html.PartialAsync("~/Views/Flight/SearchFlights.cshtml")
+        
 
         <!-- User Booked Tickets -->
         <div class="col-md-6">
@@ -62,7 +39,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <!-- Available Flights List -->
     @* @if (Model.Flights != null && Model.Flights.Any())
     {

@@ -1,35 +1,28 @@
-@{
+@* @{
     ViewData["Title"] = "Manage Flights";
 }
 
-<div class="container mt-5">
-    <h2 class="text-center">@ViewData["Title"]</h2>
-    <hr />
+<div style="display: flex; height: 100vh;">
+    <!-- Left Side Navigation -->
+    <nav style="width: 200px; background-color: #f8f9fa; padding: 10px; border-right: 1px solid #ddd;">
+        <h4>Flight Management</h4>
+        <ul style="list-style-type: none; padding: 0;">
+            <li><a href="/Flight/Create" style="text-decoration: none; color: #007bff;">Add Flight</a></li>
+            <li><a href="/Flight/Edit" style="text-decoration: none; color: #007bff;">Edit Flight Details</a></li>
+            <li><a href="/Flight/Delete" style="text-decoration: none; color: #007bff;">Delete Flight</a></li>
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#flightTypeModal"
+                    style="text-decoration: none; color: #007bff;">Manage Flights</a></li>
+        </ul>
+    </nav>
 
-    <!-- CRUD Operation Buttons/Links -->
+    <!-- Main Content Area -->
+    <div style="flex: 1; padding: 20px;">
+        <h2>Welcome to the Manage Flights Page</h2>
+        <p>Use the navigation on the left to perform flight management tasks.</p>
 
-    <div class="d-flex justify-content-between">
-        <!-- Create Flight -->
-        <a asp-controller="Admin" asp-action="AddFlight" class="btn btn-primary">Add New Flight</a>
-        
-        <!-- Manage Existing Flights -->
-        <a href="/Admin/ManageFlights" class="btn btn-secondary">Manage Flights</a>
-    </div>
-
-    <div class="mt-4">
-        <h3>Actions for Flights</h3>
-        
-        <!-- Edit Flight -->
-        <div class="mb-2">
-            <a href="/Admin/EditFlight/1" class="btn btn-warning">Edit Flight (ID: 1)</a>  <!-- Replace 1 with dynamic FlightId -->
-        </div>
-        
-        <!-- Delete Flight -->
-        <div class="mb-2">
-            <form method="post" action="/Admin/DeleteFlight" onsubmit="return confirm('Are you sure you want to delete this flight?');">
-                <input type="hidden" name="FlightId" value="1" />  <!-- Replace 1 with dynamic FlightId -->
-                <button type="submit" class="btn btn-danger">Delete Flight (ID: 1)</button>
-            </form>
+        <div style="margin-top: 20px;">
+            <h3>Placeholder Content</h3>
+            <p>This is the main area where you can show details or add functionality for the selected task.</p>
         </div>
     </div>
-</div>
+</div> *@

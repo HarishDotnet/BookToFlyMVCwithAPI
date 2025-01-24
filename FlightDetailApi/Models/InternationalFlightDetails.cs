@@ -1,4 +1,3 @@
-
 using System.ComponentModel.DataAnnotations;
 
 namespace FlightDetailsApi.Models
@@ -46,11 +45,6 @@ namespace FlightDetailsApi.Models
         [Required(ErrorMessage = "Available days are required.")]
         [MinLength(1, ErrorMessage = "There must be at least one available day.")]
         public List<string> AvailableDays { get; set; }
-
-        
-        // Last updated by admin name
-        public string LastModifiedBy { get; set; }
-
 
     }
 }

@@ -4,7 +4,6 @@ using FlightDetailsApi.Models;
 using FlightDetailsApi.Data;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-
 namespace FlightDetailsApi.Controllers
 {
     [Route("api/[controller]")]
@@ -66,36 +65,40 @@ namespace FlightDetailsApi.Controllers
             }
         }
 
-        // Delete a flight by flight number
         [HttpDelete("DeleteFlight/{flightId}")]
         public async Task<IActionResult> DeleteFlight(string flightId)
         {
-            var Iflight = await _context.InternationalFlightDetails
-                .FirstOrDefaultAsync(f => f.FlightId == flightId);
+            object flightToDelete = null;
+            string successMessage = "Flight deleted successfully.";
 
-            if (Iflight != null)
+            // Determine the flight type and fetch the corresponding flight
+            if (flightId.StartsWith("IF"))
             {
-                _context.InternationalFlightDetails.Remove(Iflight);
-                await _context.SaveChangesAsync();
-                return Ok("International flight deleted successfully.");
+                flightToDelete = await _context.InternationalFlightDetails
+                    .FirstOrDefaultAsync(f => f.FlightId == flightId);
+            }
+            else if (flightId.StartsWith("DF"))
+            {
+                flightToDelete = await _context.DomesticFlightDetails
+                    .FirstOrDefaultAsync(f => f.FlightId == flightId);
             }
 
-            var Dflight = await _context.DomesticFlightDetails
-                .FirstOrDefaultAsync(f => f.FlightId == flightId);
-
-            if (Dflight != null)
+            // If the flight exists, delete it
+            if (flightToDelete != null)
             {
-                _context.DomesticFlightDetails.Remove(Dflight);
+                _context.Remove(flightToDelete);
                 await _context.SaveChangesAsync();
-                return Ok("Domestic flight deleted successfully.");
+                return Ok(new { success = true, message = successMessage });
             }
 
-            return NotFound("Flight not found.");
+            return Ok(new { success = false, message = "Flight Not Deleted." });
         }
+
 
         [HttpPut("UpdateFlight/{flightId}")]
         public async Task<IActionResult> UpdateFlight(string flightId, [FromBody] FlightInputDTO flightInput)
         {
+            Console.WriteLine("Hi " + flightInput.AirlineName);
             Object flight = await _context.InternationalFlightDetails
                 .FirstOrDefaultAsync(f => f.FlightId == flightId);
 
@@ -127,64 +130,101 @@ namespace FlightDetailsApi.Controllers
             await _context.SaveChangesAsync();
             return Ok("Flight updated successfully.");
         }
-[HttpGet("DisplayFlightByType")]
-public async Task<IActionResult> DisplayFlightByType([FromQuery] string FlightType, [FromQuery] string flightNumber)
-{
-    Console.WriteLine("Hi I am FlightType and/or FlightNumber");
-
-    // Ensure FlightType is provided
-    if (string.IsNullOrEmpty(FlightType))
-    {
-        return BadRequest("FlightType is required.");
-    }
-
-    // Declare the list for flight details
-    List<FlightOutputDTO> flightLists = null;
-
-    // Determine the correct DbSet based on FlightType
-    if (FlightType.Equals("International", StringComparison.OrdinalIgnoreCase))
-    {
-        var flightList = await _context.InternationalFlightDetails.ToListAsync(); // Fetch all International flights
-        flightLists=_mapper.Map<List<FlightOutputDTO>>(flightList);
-    }
-    else if (FlightType.Equals("Domestic", StringComparison.OrdinalIgnoreCase))
-    {
-        var flightList = await _context.DomesticFlightDetails.ToListAsync(); // Fetch all Domestic flights
-        flightLists=_mapper.Map<List<FlightOutputDTO>>(flightList);
-    }
-    else
-    {
-        return BadRequest("Invalid FlightType. Please specify 'International' or 'Domestic'.");
-    }
-
-    // If flightNumber is provided, search for that specific flight number in the fetched list
-    if (!string.IsNullOrEmpty(flightNumber))
-    {
-        var flight = flightLists
-            .FirstOrDefault(f => f.FlightId.Equals(flightNumber, StringComparison.OrdinalIgnoreCase));
-
-        if (flight == null)
+        [HttpGet("DisplayFlightByType")]
+        public async Task<IActionResult> DisplayFlightByType([FromQuery] string FlightType, [FromQuery] string flightNumber)
         {
-            return NotFound("Flight not found with the provided Flight Number.");
+            Console.WriteLine($"Hi I am FlightType{FlightType} and/or FlightNumber{flightNumber}");
+
+            // Ensure FlightType is provided
+            if (string.IsNullOrEmpty(FlightType))
+            {
+                return BadRequest("FlightType is required.");
+            }
+
+            // Declare the list for flight details
+            List<FlightOutputDTO> flightLists = null;
+
+            // Determine the correct DbSet based on FlightType
+            if (FlightType.Equals("International", StringComparison.OrdinalIgnoreCase))
+            {
+                var flightList = await _context.InternationalFlightDetails.ToListAsync(); // Fetch all International flights
+                flightLists = _mapper.Map<List<FlightOutputDTO>>(flightList);
+            }
+            else if (FlightType.Equals("Domestic", StringComparison.OrdinalIgnoreCase))
+            {
+                var flightList = await _context.DomesticFlightDetails.ToListAsync(); // Fetch all Domestic flights
+                flightLists = _mapper.Map<List<FlightOutputDTO>>(flightList);
+            }
+            else
+            {
+                return BadRequest("Invalid FlightType. Please specify 'International' or 'Domestic'.");
+            }
+
+            // If flightNumber is provided, search for that specific flight number in the fetched list
+            if (!string.IsNullOrEmpty(flightNumber))
+            {
+                var flight = flightLists
+                    .FirstOrDefault(f => f.FlightId.Equals(flightNumber, StringComparison.OrdinalIgnoreCase));
+
+                if (flight == null)
+                {
+                    return NotFound("Flight not found with the provided Flight Number.");
+                }
+
+                // Map to DTO and return the flight details
+                var flightOutput = _mapper.Map<FlightOutputDTO>(flight);
+                return Ok(flightOutput);
+            }
+
+            // If flightNumber is not provided, return all flights of the specified type
+            if (flightLists != null)
+            {
+                // Map the list of flights to DTOs
+                var flightOutput = _mapper.Map<List<FlightOutputDTO>>(flightLists);
+                return Ok(flightOutput);
+            }
+            else
+            {
+                return NotFound("No flights found for the specified Flight Type.");
+            }
         }
+        [HttpGet("DisplayFlightByType/{FlightType}")]
+        public async Task<IActionResult> DisplayFlightByType(string FlightType)
+        {
 
-        // Map to DTO and return the flight details
-        var flightOutput = _mapper.Map<FlightOutputDTO>(flight);
-        return Ok(flightOutput);
-    }
+            // Ensure FlightType is provided
+            if (string.IsNullOrEmpty(FlightType))
+            {
+                return BadRequest("FlightType is required.");
+            }
 
-    // If flightNumber is not provided, return all flights of the specified type
-    if (flightLists != null)
-    {
-        // Map the list of flights to DTOs
-        var flightOutput = _mapper.Map<List<FlightOutputDTO>>(flightLists);
-        return Ok(flightOutput);
-    }
-    else
-    {
-        return NotFound("No flights found for the specified Flight Type.");
-    }
-}
+            // Declare the list for flight details
+            List<FlightOutputDTO> flightLists = null;
+
+            // Determine the correct DbSet based on FlightType
+            if (FlightType.Equals("International", StringComparison.OrdinalIgnoreCase))
+            {
+                var flightList = await _context.InternationalFlightDetails.ToListAsync(); // Fetch all International flights
+                flightLists = _mapper.Map<List<FlightOutputDTO>>(flightList);
+                if (flightLists != null)
+                    return Ok(flightLists);
+                else
+                    return NoContent();
+            }
+            else if (FlightType.Equals("Domestic", StringComparison.OrdinalIgnoreCase))
+            {
+                var flightList = await _context.DomesticFlightDetails.ToListAsync(); // Fetch all Domestic flights
+                flightLists = _mapper.Map<List<FlightOutputDTO>>(flightList);
+                if (flightLists != null)
+                    return Ok(flightLists);
+                else
+                    return NoContent();
+            }
+            else
+            {
+                return BadRequest("Invalid FlightType. Please specify 'International' or 'Domestic'.");
+            }
+        }
 
 
         [HttpPost("DisplayFlightBySourceAndDestination")]
@@ -226,6 +266,50 @@ public async Task<IActionResult> DisplayFlightByType([FromQuery] string FlightTy
             }
 
             return Ok(allFlights);
+        }
+
+        [HttpGet("DisplayAllFlightNumbersByType")]
+        public async Task<IActionResult> DisplayAllFlightNumbersByType([FromQuery] string FlightType)
+        {
+            Console.WriteLine("hi");
+            // Ensure FlightType is provided
+            if (string.IsNullOrEmpty(FlightType))
+            {
+                return BadRequest("FlightType is required.");
+            }
+
+            List<string> flightNumbers = new List<string>();
+
+            // Fetch flight numbers based on FlightType
+            if (FlightType.Equals("International", StringComparison.OrdinalIgnoreCase))
+            {
+                var flightList = await _context.InternationalFlightDetails
+                    .Select(f => f.FlightId) // Get only the FlightId (Flight Number)
+                    .ToListAsync();
+
+                flightNumbers.AddRange(flightList);
+            }
+            else if (FlightType.Equals("Domestic", StringComparison.OrdinalIgnoreCase))
+            {
+                var flightList = await _context.DomesticFlightDetails
+                    .Select(f => f.FlightId) // Get only the FlightId (Flight Number)
+                    .ToListAsync();
+
+                flightNumbers.AddRange(flightList);
+            }
+            else
+            {
+                return BadRequest("Invalid FlightType. Please specify 'International' or 'Domestic'.");
+            }
+
+            if (flightNumbers.Any())
+            {
+                return Ok(flightNumbers);
+            }
+            else
+            {
+                return Ok(new {message="No flights found for the specified Flight Type."});
+            }
         }
 
 

@@ -1,0 +1,138 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    ViewData["RenderHeader"] = false;
+}
+<div class="card shadow-sm">
+    <div class="card-header text-center">
+        <h5 class="card-title mb-0">Edit Flight</h5>
+    </div>
+
+
+    <div class="text-left mt-4">
+        <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Edit" asp-controller="Flight" method="post" class="needs-validation" novalidate>
+
+            <!-- Flight Type Selection -->
+            <div class="mb-3">
+                <label for="FlightType" class="form-label">Flight Type <span class="text-danger">*</span></label>
+                <select id="FlightType" name="FlightType" class="form-select" required onchange="loadFlightNumbers()">
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="International">International</option>
+                    <option value="Domestic">Domestic</option>
+                </select>
+                <div class="invalid-feedback">Please select a flight type.</div>
+            </div>
+
+            <!-- Flight Number Input with Suggestions -->
+            <div class="mb-3">
+                <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
+                <input type="text" id="flightNumber" name="flightNumber" class="form-control"
+                    placeholder="Start typing flight number" oninput="filterFlightNumbers()" required
+                    autocomplete="off" />
+                <div class="invalid-feedback">Please select a flight number.</div>
+                <div id="flightNumberSuggestions" class="dropdown-menu"
+                    style="max-height: 150px; overflow-y: auto; display: none;"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-sm w-100">
+                <i class="bi bi-pencil-square"></i> Edit Flight
+            </button>
+        </form>
+    </div>
+</div>
+<script>
+    let allFlightNumbers = []; // Store all flight numbers
+
+    // Function to load flight numbers based on FlightType
+    async function loadFlightNumbers() {
+        const flightType = document.getElementById('FlightType').value;
+        const flightNumberInput = document.getElementById('flightNumber');
+        const flightNumberSuggestions = document.getElementById('flightNumberSuggestions');
+
+        // Clear the flight number input and hide suggestions initially
+        flightNumberInput.value = '';
+        flightNumberSuggestions.innerHTML = '';
+        flightNumberSuggestions.style.display = 'none';
+
+        if (!flightType) return; // Don't proceed if no flight type is selected
+
+        try {
+            const response = await fetch(
+                `http://localhost:5087/api/Flight/DisplayAllFlightNumbersByType?FlightType=${encodeURIComponent(flightType)}`
+            );
+
+            if (response.ok) {
+                allFlightNumbers = await response.json(); // Load flight numbers
+            } else {
+                console.error('Failed to fetch flight numbers:', response.status);
+                allFlightNumbers = [];
+            }
+        } catch (error) {
+            console.error('Error loading flight numbers:', error);
+            allFlightNumbers = [];
+        }
+    }
+
+    // Function to filter flight numbers as user types
+    function filterFlightNumbers() {
+        const input = document.getElementById('flightNumber').value.trim().toLowerCase();
+        const flightNumberSuggestions = document.getElementById('flightNumberSuggestions');
+
+        // Clear any previous suggestions
+        flightNumberSuggestions.innerHTML = '';
+        flightNumberSuggestions.style.display = 'none'; // Hide dropdown initially
+
+        if (input.length === 0 || allFlightNumbers.length === 0) {
+            // Hide dropdown if input is empty or no flight numbers are loaded
+            return;
+        }
+
+        // Filter flight numbers based on user input
+        const filteredFlights = allFlightNumbers.filter(flight =>
+            flight.toLowerCase().includes(input)
+        );
+
+        if (filteredFlights.length > 0) {
+            // Populate dropdown with filtered suggestions
+            filteredFlights.forEach(flight => {
+                const suggestionItem = document.createElement('a');
+                suggestionItem.classList.add('dropdown-item');
+                suggestionItem.textContent = flight;
+                suggestionItem.addEventListener('click', () => {
+                    document.getElementById('flightNumber').value = flight;
+                    flightNumberSuggestions.innerHTML = '';
+                    flightNumberSuggestions.style.display = 'none';
+                });
+                flightNumberSuggestions.appendChild(suggestionItem);
+            });
+            flightNumberSuggestions.style.display = 'block'; // Show dropdown
+        } else {
+            // Show "No flights available" if no matches found
+            const noFlightsOption = document.createElement('a');
+            noFlightsOption.classList.add('dropdown-item');
+            noFlightsOption.textContent = 'No flights available';
+            noFlightsOption.style.cursor = 'default';
+            flightNumberSuggestions.appendChild(noFlightsOption);
+            flightNumberSuggestions.style.display = 'block'; // Show dropdown
+        }
+    }
+
+    // Handle custom form validation
+    (function () {
+        'use strict';
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>

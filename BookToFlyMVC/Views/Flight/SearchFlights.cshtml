@@ -1,0 +1,41 @@
+@model FlightDetailsApi.Models.FlightSearchInput;
+<div class="text-left mt-4">
+            <a href="@Url.Action("", "")" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+<div class="card shadow-sm p-4 blurred-box mx-auto">
+    <h4 class="text-center">Search Flights</h4>
+    <form method="post" asp-controller="Flight" asp-action="SearchFlights">
+        
+        <!-- Flight Type Selection -->
+        <div class="mb-3">
+            <label for="flightType" class="form-label">Flight Type:</label>
+            <select id="flightType" name="FlightType" class="form-select" required>
+                <option value="International">International</option>
+                <option value="Domestic">Domestic</option>
+            </select>
+        </div>
+        
+ 
+        <!-- Flight Number (Optional) -->
+        <div class="mb-3">
+            <label for="flightNumber" class="form-label">Flight Number:</label>
+            <input type="text" id="flightNumber" name="FlightNumber" class="form-control" placeholder="Enter Flight Number" />
+        </div>
+
+        <h6 class="text-center">(OR)</h6>
+
+        <!-- From Place (Optional) -->
+        <div class="mb-3">
+            <label for="fromPlace" class="form-label">From:</label>
+            <input type="text" id="fromPlace" name="Source" class="form-control" placeholder="Enter Departure City" />
+        </div>
+
+        <!-- To Place (Optional) -->
+        <div class="mb-3">
+            <label for="toPlace" class="form-label">To:</label>
+            <input type="text" id="toPlace" name="Destination" class="form-control" placeholder="Enter Destination City" />
+        </div>
+
+        <button type="submit" class="btn btn-primary d-block mx-auto">Search Flights</button>
+    </form>
+</div>

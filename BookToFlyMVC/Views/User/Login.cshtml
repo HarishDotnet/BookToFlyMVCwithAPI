@@ -26,9 +26,19 @@
                 <input type="text" id="username" name="Username" class="form-control" placeholder="Enter your username" required />
             </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input type="password" id="password" name="Password" class="form-control" placeholder="Enter your password" required />
+             <div class="mb-3 position-relative">
+                <label for="Password" class="form-label">Password</label>
+                <div class="input-group">
+                    <input type="password" id="Password" name="Password" class="form-control" asp-for="Password"
+                        required>
+                    <span class="input-group-text" style="cursor: pointer;"
+                        onmousedown="togglePasswordVisibility(true, this)"
+                        onmouseup="togglePasswordVisibility(false, this)"
+                        onmouseleave="togglePasswordVisibility(false, this)">
+                        <i class="bi bi-eye"></i> <!-- Bootstrap eye icon -->
+                    </span>
+                </div>
+                <span class="text-danger" asp-validation-for="Password"></span>
             </div>
 
             <div class="mb-3">

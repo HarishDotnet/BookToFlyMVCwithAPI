@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace BookToFlyMVC.DTO
 {
     public class FlightDetailsDTO

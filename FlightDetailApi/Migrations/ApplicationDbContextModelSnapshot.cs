@@ -59,6 +59,7 @@ namespace FlightDetailApi.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("TicketPrice")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("FlightId");
@@ -97,15 +98,13 @@ namespace FlightDetailApi.Migrations
                     b.Property<double>("Duration")
                         .HasColumnType("float");
 
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Source")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("TicketPrice")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("FlightId");

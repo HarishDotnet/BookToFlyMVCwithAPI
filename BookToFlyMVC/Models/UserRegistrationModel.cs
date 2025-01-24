@@ -20,11 +20,6 @@ namespace BookToFlyMVC.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        // [Required(ErrorMessage = "Confirm Password is required.")]
-        // [DataType(DataType.Password)]
-        // [Compare("Password", ErrorMessage = "Passwords do not match.")]
-        // public string ConfirmPassword { get; set; }
-
         [StringLength(100, ErrorMessage = "Full Name cannot exceed 100 characters.")]
         public string FullName { get; set; }
 

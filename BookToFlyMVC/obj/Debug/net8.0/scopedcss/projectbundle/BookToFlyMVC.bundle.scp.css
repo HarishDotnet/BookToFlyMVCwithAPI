@@ -1,7 +1,4 @@
 /* _content/BookToFlyMVC/Views/Shared/_Layout.cshtml.rz.scp.css */
-/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
 a.navbar-brand[b-v51akyi7xv] {
   white-space: normal;
   text-align: center;
@@ -40,11 +37,11 @@ button.accept-policy[b-v51akyi7xv] {
   line-height: inherit;
 }
 
-.footer[b-v51akyi7xv] {
-
-  position: fixed;
+footer[b-v51akyi7xv] {
   bottom: 0;
   width: 100%;
-  white-space: nowrap;
+  white-space: nowrap; 
   line-height: 60px;
+  backdrop-filter: blur(2px); /*Adjust the blur intensity*/
+  background-color: rgba(255, 145, 206, 0.854); /* Optional: Semi-transparent background */
 }

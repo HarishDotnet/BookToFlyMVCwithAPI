@@ -17,8 +17,7 @@ namespace FlightDetailsApi.MappingDTO
                 .ReverseMap(); // Enable reverse mapping
 
             // Map between FlightInputDTO and InternationalFlightDetails
-            CreateMap<FlightInputDTO, InternationalFlightDetails>()
-                .ForMember(dest => dest.LastModifiedBy, opt => opt.Ignore()); // Ignore unmapped fields
+            CreateMap<FlightInputDTO, InternationalFlightDetails>(); // Ignore unmapped fields
 
             // Map between FlightInputDTO and DomesticFlightDetails
             CreateMap<FlightInputDTO, DomesticFlightDetails>();
