@@ -19,6 +19,77 @@ namespace FlightDetailsApi.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost("AddFlights")]
+        public async Task<IActionResult> AddFlights([FromBody] List<FlightInputDTO> flightInputs)
+        {
+            if (flightInputs == null || !flightInputs.Any())
+            {
+                return BadRequest("The flight list cannot be empty.");
+            }
+
+            var invalidFlights = new List<string>();
+            foreach (var flightInput in flightInputs)
+            {
+                if (!ModelState.IsValid)
+                {
+                    invalidFlights.Add(flightInput.FlightId ?? "Unknown FlightId");
+                    continue;
+                }
+
+                // Check if the FlightId already exists in the database
+                bool flightExists = await _context.InternationalFlightDetails
+                    .AnyAsync(f => f.FlightId == flightInput.FlightId) ||
+                    await _context.DomesticFlightDetails
+                    .AnyAsync(f => f.FlightId == flightInput.FlightId);
+
+                if (flightExists)
+                {
+                    invalidFlights.Add(flightInput.FlightId);
+                    continue;
+                }
+
+                // Add the flight based on FlightType
+                if (flightInput.FlightId.StartsWith("IF"))
+                {
+                    flightInput.FlightType = "International";
+                    var flight = _mapper.Map<InternationalFlightDetails>(flightInput);
+                    _context.InternationalFlightDetails.Add(flight);
+                }
+                else if (flightInput.FlightId.StartsWith("DF"))
+                {
+                    flightInput.FlightType = "Domestic";
+                    var flight = _mapper.Map<DomesticFlightDetails>(flightInput);
+                    _context.DomesticFlightDetails.Add(flight);
+                }
+                else
+                {
+                    invalidFlights.Add(flightInput.FlightId);
+                }
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, $"An error occurred while saving the flights: {ex.Message}");
+            }
+
+            if (invalidFlights.Any())
+            {
+                return Ok(new
+                {
+                    success = true,
+                    message = "Some flights could not be added due to validation errors or duplication.",
+                    invalidFlights
+                });
+            }
+
+            return Ok("All flights added successfully.");
+        }
+
+
         [HttpPost("AddFlight")]
         public async Task<IActionResult> AddFlight([FromBody] FlightInputDTO flightInput)
         {
@@ -308,7 +379,7 @@ namespace FlightDetailsApi.Controllers
             }
             else
             {
-                return Ok(new {message="No flights found for the specified Flight Type."});
+                return Ok(new { message = "No flights found for the specified Flight Type." });
             }
         }
 
