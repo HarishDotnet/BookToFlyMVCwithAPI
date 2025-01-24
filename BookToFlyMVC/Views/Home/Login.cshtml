@@ -1,0 +1,118 @@
+ <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center text-warning" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-airplane-engines-fill me-2"></i>
+                    BookToFlyMVC
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-muted " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link text-light">Welcome, @User.Identity.Name</span>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-controller="User" asp-action="Logout">
+                                    <button type="submit" class="btn btn-link nav-link">Logout</button>
+                                </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="UserFunctionality" asp-action="UserDashboard">Dashboard</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-info" asp-controller="User" asp-action="Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-info" asp-controller="User" asp-action="Register">Register</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</header>
+@model BookToFlyMVC.Models.LoginViewModel;
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-sm p-4" style="width: 30rem;">
+        <h2 class="text-center mt-4">@ViewData["Title"]</h2>
+        <hr/>
+        
+        <!-- Display error messages -->
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger p-2 m-0">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            </div>
+        }
+
+        <!-- Login Form -->
+        <form method="post" asp-controller="Home" asp-action="Login">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" name="Username" class="form-control" placeholder="Enter your username" required />
+            </div>
+
+             <div class="mb-3 position-relative">
+                <label for="Password" class="form-label">Password</label>
+                <div class="input-group">
+                    <input type="password" id="Password" name="Password" class="form-control" asp-for="Password"
+                        required>
+                    <span class="input-group-text" style="cursor: pointer;"
+                        onmousedown="togglePasswordVisibility(true, this)"
+                        onmouseup="togglePasswordVisibility(false, this)"
+                        onmouseleave="togglePasswordVisibility(false, this)">
+                        <i class="bi bi-eye"></i> <!-- Bootstrap eye icon -->
+                    </span>
+                </div>
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>
+
+            <div class="mb-3">
+                <!-- User/Admin Selection -->
+                <label for="role" class="form-label">Login as:</label>
+                <select id="role" name="Role" class="form-select" required>
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+
+        <hr class="my-4" />
+
+        <!-- Register Button (Visible Only for Users) -->
+        <div class="text-center">
+            <p>Don't have an account?</p>
+            <form method="post" asp-action="Register" asp-controller="User">
+                <button type="submit" class="btn btn-outline-secondary">Register as User</button>
+            </form>
+        </div>
+    </div>
+</div>

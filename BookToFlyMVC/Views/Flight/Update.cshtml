@@ -1,0 +1,120 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    ViewData["RenderHeader"] = false;
+}
+@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+<div class="container mt-5">
+    <div class="d-grid gap-2 d-md-flex justify-content-md">
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Back</a>
+    </div>
+    <hr />
+    <div class="card shadow-sm">
+        <div class="card-header text-center">
+            <h5 class="card-title mb-0">Update Flight</h5>
+        </div>
+        <div class="card-body">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+            }
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+            }
+
+            <div class="mb-3">
+                <label for="FlightType" class="form-label">Flight Type <span class="text-danger">*</span></label>
+                <select id="FlightType" name="FlightType" class="form-select" required>
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="International">International</option>
+                    <option value="Domestic">Domestic</option>
+                </select>
+                <div class="invalid-feedback">Please select a flight type.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
+                <input type="text" id="flightNumber" name="flightNumber" class="form-control"
+                    placeholder="Enter flight number" required autocomplete="off" onclick="showFlightSuggestions()" />
+                <div class="invalid-feedback">Please enter a flight number.</div>
+
+                <!-- Dropdown for flight number suggestions -->
+                <ul id="flightSuggestionsList" class="list-group position-absolute w-100"
+                    style="display: none; max-height: 200px; overflow-y: auto; z-index: 1000; background-color: white; border: 1px solid #ccc;">
+                </ul>
+            </div>
+
+            <!-- Button to trigger popup -->
+            <!-- Edit Flight Button -->
+            <a href="" id="showCardBtn" class="btn btn-primary btn-sm w-100" onclick="updateFlightIdAndNavigate(event)">
+                <i class="bi bi-trash"></i> Edit Flight
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateFlightIdAndNavigate(event) {
+        var flightId = document.getElementById('flightNumber').value;  // Get value from input field
+        if (!flightId) {
+            alert('Please enter a flight number.');
+            return;  // Prevent navigation if flightId is empty
+        }
+
+        var link = document.getElementById('showCardBtn');
+        link.href = '@Url.Action("EditGetDetail", "Flight")/' + flightId;  // Set the correct URL with flightId
+
+        // Proceed with the navigation
+        window.location.href = link.href;
+    }
+    // Function to show flight suggestions based on flight type
+    async function showFlightSuggestions() {
+        const flightType = document.getElementById('FlightType').value;
+        const flightNumberInput = document.getElementById('flightNumber');
+        const suggestionsList = document.getElementById('flightSuggestionsList');
+
+        if (!flightType) {
+            alert('Please select a flight type first.');
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                `http://localhost:5087/api/Flight/DisplayAllFlightNumbersByType?FlightType=${encodeURIComponent(flightType)}`
+            );
+            if (response.ok) {
+                const flightNumbers = await response.json();
+                if (flightNumbers?.length > 0) {
+                    suggestionsList.innerHTML = ''; // Clear previous suggestions
+                    flightNumbers.forEach((flight) => {
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('list-group-item', 'list-group-item-action');
+                        listItem.textContent = flight;
+                        listItem.onclick = function () {
+                            flightNumberInput.value = flight;
+                            suggestionsList.style.display = 'none'; // Hide suggestions after selection
+                        };
+                        suggestionsList.appendChild(listItem);
+                    });
+                    suggestionsList.style.display = 'block'; // Show suggestions
+                } else {
+                    suggestionsList.style.display = 'none'; // Hide suggestions if no data
+                }
+            } else {
+                alert('Failed to fetch flight numbers.');
+            }
+        } catch (error) {
+            alert('Error loading flight numbers: ' + error);
+        }
+    }
+
+    // Close the suggestions list when clicking outside
+    document.addEventListener('click', function (event) {
+        const suggestionsList = document.getElementById('flightSuggestionsList');
+        const flightNumberInput = document.getElementById('flightNumber');
+        if (!suggestionsList.contains(event.target) && event.target !== flightNumberInput) {
+            suggestionsList.style.display = 'none';
+        }
+    });
+</script>

@@ -1,0 +1,162 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+<style>
+    /* Sidebar Styling */
+    #sideNav {
+        transform: translateX(-100%);
+        /* Initially hidden */
+        transition: transform 0.3s ease;
+        /* Smooth transition */
+    }
+
+    #sideNav.show {
+        transform: translateX(0);
+        /* Fully visible when toggled */
+    }
+
+    /* Navbar Styling */
+    .navbar {
+        background-color: rgba(32, 33, 36, 0.9);
+        /* Darker navbar */
+    }
+
+    .navbar-brand {
+        color: #ffdd57 !important;
+        /* Bright yellow for brand to stand out */
+    }
+
+    .navbar-toggler-icon {
+        background-color: #ffdd57;
+        /* Make the toggle icon more visible */
+    }
+
+    /* User Profile Dropdown */
+    .nav-item.dropdown .dropdown-menu {
+        background-color: rgba(32, 33, 36, 0.85);
+        /* Darker background for dropdown */
+        border: 1px solid #444;
+        /* Lighter border for contrast */
+    }
+
+    .nav-item.dropdown .dropdown-item {
+        color: #f1f1f1;
+        /* Lighter text */
+    }
+
+    .nav-item.dropdown .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        /* Subtle hover effect */
+    }
+</style>
+<div>
+    
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container-fluid">
+        <!-- Left Option Icon -->
+        <div class="d-inline-block position-relative">
+            <i class="bi bi-list text-light fs-3" id="leftOptionIcon" style="cursor: pointer;"></i>
+        </div>
+
+        <a class="navbar-brand text-warning" href="#" style="margin-left: 20px;">
+            <i class="bi bi-speedometer2 me-2"></i>Admin Dashboard
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle text-warning"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/Admin/Profile"><i class="bi bi-person me-2"></i>Profile</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/Admin/Settings"><i class="bi bi-gear me-2"></i>Settings</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="/Admin/Logout"><i
+                                    class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Sidebar -->
+<nav id="sideNav" class="position-fixed vh-100"
+    style="width: 250px; background-color: rgba(32, 33, 36, 0.85); padding: 15px; border-right: 1px solid rgba(255, 255, 255, 0.2); top: 65px; left: 0; z-index: 1000; overflow-y: auto;">
+    <h4 class="text-warning mb-4 border-bottom pb-2">Flight Management</h4>
+    <ul>
+        <li class="mb-3"><a href="/Flight/Create" class="text-decoration-none text-light"><i
+                    class="bi bi-plus-circle me-2"></i>Add Flight</a></li>
+        <li class="mb-3"><a href="/Flight/Update" class="text-decoration-none text-light"><i
+                    class="bi bi-pencil-square me-2"></i>Edit Flight Details</a></li>
+        <li class="mb-3"><a href="/Flight/Delete" class="text-decoration-none text-light"><i
+                    class="bi bi-trash-fill me-2"></i>Delete Flight</a></li>
+        <li class="mb-3"><a href="#" data-bs-toggle="modal" data-bs-target="#flightTypeModal"
+                class="text-decoration-none text-light"><i class="bi bi-gear-fill me-2"></i>Manage Flights</a></li>
+    </ul>
+</nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="flightTypeModal" tabindex="-1" aria-labelledby="flightTypeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="flightTypeModalLabel"><i class="bi bi-funnel-fill me-2"></i>Select
+                        Flight
+                        Type</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <form id="flightTypeForm" asp-controller="Flight" asp-action="GetFlightsByType" method="post">
+                        <div class="mb-3">
+                            <label for="flightType" class="form-label">Flight Type</label>
+                            <select class="form-select" id="flightType" name="FlightType" required>
+                                <option value="" selected disabled>Select an option</option>
+                                <option value="International">International</option>
+                                <option value="Domestic">Domestic</option>
+                            </select>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-success"><i
+                                    class="bi bi-check-circle me-2"></i>Select</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const sideNav = document.getElementById('sideNav');
+    const leftOptionIcon = document.getElementById('leftOptionIcon');
+
+    // Toggle sidebar visibility when clicking the menu icon
+    leftOptionIcon.addEventListener('click', function () {
+        sideNav.classList.toggle('show'); // Toggle sidebar visibility
+    });
+
+    // Keep the sidebar open while hovering
+    sideNav.addEventListener('mouseenter', function () {
+        sideNav.classList.add('show');
+    });
+
+    // Hide the sidebar when the mouse leaves
+    sideNav.addEventListener('mouseleave', function () {
+        sideNav.classList.remove('show');
+    });
+
+</script>

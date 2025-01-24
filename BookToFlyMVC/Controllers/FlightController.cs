@@ -325,6 +325,7 @@ using BookToFlyMVC.DTO;
 using System.Text.Json;
 using FlightDetailsApi.Models;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BookToFlyAPI.Controllers
 {
@@ -452,7 +453,7 @@ namespace BookToFlyAPI.Controllers
             return View("ShowFlights", flightList);
         }
 
-        [HttpGet("ShowflightCard/Details/{flightNumber}")]
+        [HttpGet]
         public async Task<IActionResult> ShowflightCard(string flightNumber)
         {
             var flightdetails = await GetFlightDetailsFromApi(flightNumber); // Use await here
@@ -466,13 +467,38 @@ namespace BookToFlyAPI.Controllers
                 return View();
             }
         }
+        public IActionResult Update()
+        {
+            // This action renders the view to delete the flight
+            return View();
+        }
+
+        [HttpGet("Flight/EditGetDetail/{flightId}")]
+        public async Task<IActionResult> EditGetDetail(string flightId)
+        {
+            if(flightId!=null){
+                var flight = await GetFlightDetailsFromApi(flightId);
+                TempData["FlightDetails"] = JsonSerializer.Serialize(flight);
+                return View("EditPage",flight);
+                
+            }
+            else{
+                 return View("Update"); // return a view or redirect as per your logic
+            }
+        }
+
+        [HttpGet]
+        public  IActionResult EditPage(){
+
+            return  View();
+        }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateFlight(FlightDetailsDTO flightDetails)
+        public async Task<IActionResult> EditPage(FlightDetailsDTO flightDetails)
         {
             if (!ModelState.IsValid)
             {
-                return View(flightDetails);
+                return View("EditPage",flightDetails);
             }
 
             var jsonContent = JsonSerializer.Serialize(flightDetails);
@@ -501,6 +527,8 @@ namespace BookToFlyAPI.Controllers
 
             return View(flightDetails);
         }
+
+       
         public IActionResult Delete()
         {
             // This action renders the view to delete the flight
@@ -548,10 +576,13 @@ namespace BookToFlyAPI.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<FlightDetailsDTO>();
+                var flight= await response.Content.ReadFromJsonAsync<FlightDetailsDTO>();
+                flight.FlightType=flightType;
+                return flight;
             }
 
             return null;
         }
+        
     }
 }

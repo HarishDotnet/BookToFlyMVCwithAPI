@@ -1,9 +1,9 @@
 @model List<BookToFlyMVC.DTO.FlightDetailsDTO>
-
+@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
 <div class="container mt-5">
     <!-- Back Button -->
     <div class="mb-4">
-        <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-outline-primary">
+        <a href="@Url.Action("Index", "Admin")" class="btn btn-outline-primary">
             <i class="bi bi-box-arrow-in-left"></i> Back
         </a>
     </div>

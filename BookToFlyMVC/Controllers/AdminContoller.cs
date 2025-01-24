@@ -20,9 +20,9 @@ namespace BookToFlyMVC.Controllers
 
         // Default Show Flights
 
-        public IActionResult Dashboard()
+        public IActionResult Index()
         {
-            return View("Dashboard");
+            return View("Index");
         }
 
         public IActionResult ManageFlights()

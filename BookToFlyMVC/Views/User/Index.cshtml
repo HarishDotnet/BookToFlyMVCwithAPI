@@ -1,12 +1,11 @@
-
 @{
     ViewData["Title"] = "User Dashboard - Flight Booking";
+    @* ViewData["RenderHeader"]=false; *@
 }
-
+@* @await Html.PartialAsync("~/Views/User/Header.cshtml") *@
 <div class="container mt-5 d-flex">
-    @await Html.PartialAsync("~/Views/Flight/SearchFlights.cshtml")
-        
-
+    @await Html.PartialAsync("~/Views/User/SearchFlight.cshtml")
+    
         <!-- User Booked Tickets -->
         <div class="col-md-6">
             <div class="card shadow-sm p-4">
@@ -73,22 +72,7 @@
         </div>
     } *@
 
-    <!-- Contact Customer Care Section -->
-    <div class="mt-5">
-        <h4>Contact Customer Care</h4>
-        <form method="post" asp-action="ContactCustomerCare" asp-controller="User">
-            <div class="mb-3">
-                <label for="subject" class="form-label">Subject:</label>
-                <input type="text" id="subject" name="Subject" class="form-control" placeholder="Enter subject" required />
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message:</label>
-                <textarea id="message" name="Message" class="form-control" placeholder="Enter your message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-    </div>
-</div>
+    
 
 @* @section Scripts {
     <script>

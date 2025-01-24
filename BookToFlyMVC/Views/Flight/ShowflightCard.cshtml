@@ -1,5 +1,5 @@
 @model BookToFlyMVC.DTO.FlightDetailsDTO;
-
+@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
 @if (Model != null)
 {
     <div class="container mt-5">
@@ -53,11 +53,8 @@
             </div>
             <div class="card-footer text-center">
                 <a  data-bs-toggle="modal" data-bs-target="#flightTypeModal" class="btn btn-secondary">
-                    <i class="bi bi-arrow-left"></i> Back to Flights
+                    <i class="bi bi-arrow-left"></i> Go to Manage Flight
                 </a>
-                @* <a  data-bs-toggle="modal" data-bs-target="#flightTypeModal" class="btn btn-secondary">
-                    <i class="bi bi-arrow-left"></i> Back to Flights
-                </a> *@
             </div>
         </div>
     </div>
@@ -68,7 +65,7 @@ else
         No flight details are available to display.
     </div>
 } 
-@*
+
 <div class="modal-body">
                 <form id="flightTypeForm" asp-controller="Flight" asp-action="GetFlightsByType" method="post">
                     <div class="mb-3">
@@ -111,4 +108,4 @@ else
             </div>
         </div>
     </div>
-</div> *@
+</div>

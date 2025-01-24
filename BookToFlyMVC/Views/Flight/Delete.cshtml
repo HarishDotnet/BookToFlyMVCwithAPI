@@ -1,97 +1,94 @@
-@{
-    ViewData["Title"] = "Admin Dashboard";
-    ViewData["RenderHeader"] = false;
-}
-
-<div class="card shadow-sm">
-    <div class="card-header text-center">
-        <h5 class="card-title mb-0">Delete Flight</h5>
+@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+<div class="container mt-5">
+    <div class="d-grid gap-2 d-md-flex justify-content-md">
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Back</a>
     </div>
-
-    <div class="text-left mt-4">
-        <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-secondary">Back to Dashboard</a>
-    </div>
-
-    <div class="card-body">
-        @if (TempData["SuccessMessage"] != null)
-        {
-            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-        }
-
-        @if (TempData["ErrorMessage"] != null)
-        {
-            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
-        }
-
-        <div class="mb-3">
-            <label for="FlightType" class="form-label">Flight Type <span class="text-danger">*</span></label>
-            <select id="FlightType" name="FlightType" class="form-select" required>
-                <option value="" disabled selected>Select Type</option>
-                <option value="International">International</option>
-                <option value="Domestic">Domestic</option>
-            </select>
-            <div class="invalid-feedback">Please select a flight type.</div>
+    <hr />
+    <div class="card shadow-sm">
+        <div class="card-header text-center">
+            <h5 class="card-title mb-0">Delete Flight</h5>
         </div>
+        <div class="card-body">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+            }
 
-        <!-- Flight Number Input -->
-        @* <div class="mb-3">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+            }
+
+            <div class="mb-3">
+                <label for="FlightType" class="form-label">Flight Type <span class="text-danger">*</span></label>
+                <select id="FlightType" name="FlightType" class="form-select" required>
+                    <option value="" disabled selected>Select Type</option>
+                    <option value="International">International</option>
+                    <option value="Domestic">Domestic</option>
+                </select>
+                <div class="invalid-feedback">Please select a flight type.</div>
+            </div>
+
+            <!-- Flight Number Input -->
+            @* <div class="mb-3">
                 <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
                 <input type="text" id="flightNumber" name="flightNumber" class="form-control"
                        placeholder="Enter flight number" required autocomplete="off" />
                 <div class="invalid-feedback">Please enter a flight number.</div>
             </div> *@
-        <div class="mb-3">
-            <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
-            <input type="text" id="flightNumber" name="flightNumber" class="form-control"
-                placeholder="Enter flight number" required autocomplete="off" onclick="showFlightSuggestions()" />
-            <div class="invalid-feedback">Please enter a flight number.</div>
+            <div class="mb-3">
+                <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
+                <input type="text" id="flightNumber" name="flightNumber" class="form-control"
+                    placeholder="Enter flight number" required autocomplete="off" onclick="showFlightSuggestions()" />
+                <div class="invalid-feedback">Please enter a flight number.</div>
 
-            <!-- Dropdown for flight number suggestions -->
-            <ul id="flightSuggestionsList" class="list-group position-absolute w-100"
-                style="display: none; max-height: 200px; overflow-y: auto; z-index: 1000; background-color: white; border: 1px solid #ccc;">
-            </ul>
-        </div>
+                <!-- Dropdown for flight number suggestions -->
+                <ul id="flightSuggestionsList" class="list-group position-absolute w-100"
+                    style="display: none; max-height: 200px; overflow-y: auto; z-index: 1000; background-color: white; border: 1px solid #ccc;">
+                </ul>
+            </div>
 
-        <!-- Button to trigger popup -->
-        <a id="showCardBtn" class="btn btn-danger btn-sm w-100" onclick="flightDetailsLink()">
-            <i class="bi bi-trash"></i> Delete Flight
-        </a>
+            <!-- Button to trigger popup -->
+            <a id="showCardBtn" class="btn btn-danger btn-sm w-100" onclick="flightDetailsLink()">
+                <i class="bi bi-trash"></i> Delete Flight
+            </a>
 
-        <!-- Overlay -->
-        <div class="overlay d-none position-fixed top-0 start-0 w-100 h-100 bg-dark opacity-50" id="overlay"></div>
+            <!-- Overlay -->
+            <div class="overlay d-none position-fixed top-0 start-0 w-100 h-100 bg-dark opacity-50" id="overlay"></div>
 
-        <!-- Flight Details Popup -->
-        <div class="popup position-fixed top-50 start-50 translate-middle d-none" id="profilePopup">
-            <div class="card" style="width: 25rem;">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Flight Details</h5>
-                    <div id="flightDetailsContent">
-                        <!-- Dynamic flight details will be populated here -->
-                        <p>Flight Number: <span id="popupFlightNumber"></span></p>
-                        <p>Flight Type: <span id="popupFlightType"></span></p>
-                        <p>Airline: <span id="popupAirlineName"></span></p>
-                        <p>Source: <span id="popupSource"></span></p>
-                        <p>Destination: <span id="popupDestination"></span></p>
-                        <p>Arrival Time: <span id="popupArrivalTime"></span></p>
-                        <p>Departure Time: <span id="popupDepartureTime"></span></p>
-                        <p>Duration: <span id="popupDuration"></span></p>
-                        <p>Available Seats: <span id="popupAvailableSeats"></span></p>
-                        <p>Ticket Price: <span id="popupTicketPrice"></span></p>
-                        <p>Available Days: <span id="popupAvailableDays"></span></p>
-                    </div>
-                    <div class="text-center">
-                        <form id="confirmDeleteForm" asp-action="ConfirmDelete" asp-controller="Flight" method="post">
-                            <input type="hidden" name="flightId" id="hiddenFlightId" />
-                            <button type="submit" class="btn btn-danger me-2">Confirm Deletion</button>
-                            <button type="button" class="btn btn-secondary" onclick="closePopup()">Cancel</button>
-                        </form>
+            <!-- Flight Details Popup -->
+            <div class="popup position-fixed top-50 start-50 translate-middle d-none" id="profilePopup">
+                <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Flight Details</h5>
+                        <div id="flightDetailsContent">
+                            <!-- Dynamic flight details will be populated here -->
+                            <p>Flight Number: <span id="popupFlightNumber"></span></p>
+                            <p>Flight Type: <span id="popupFlightType"></span></p>
+                            <p>Airline: <span id="popupAirlineName"></span></p>
+                            <p>Source: <span id="popupSource"></span></p>
+                            <p>Destination: <span id="popupDestination"></span></p>
+                            <p>Arrival Time: <span id="popupArrivalTime"></span></p>
+                            <p>Departure Time: <span id="popupDepartureTime"></span></p>
+                            <p>Duration: <span id="popupDuration"></span></p>
+                            <p>Available Seats: <span id="popupAvailableSeats"></span></p>
+                            <p>Ticket Price: <span id="popupTicketPrice"></span></p>
+                            <p>Available Days: <span id="popupAvailableDays"></span></p>
+                        </div>
+                        <div class="text-center">
+                            <form id="confirmDeleteForm" asp-action="ConfirmDelete" asp-controller="Flight"
+                                method="post">
+                                <input type="hidden" name="flightId" id="hiddenFlightId" />
+                                <button type="submit" class="btn btn-danger me-2">Confirm Deletion</button>
+                                <button type="button" class="btn btn-secondary" onclick="closePopup()">Cancel</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <script>
     let flightDetails = {};
 
@@ -194,7 +191,7 @@
     }
 
     // Close the suggestions list when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const suggestionsList = document.getElementById('flightSuggestionsList');
         const flightNumberInput = document.getElementById('flightNumber');
         if (!suggestionsList.contains(event.target) && event.target !== flightNumberInput) {

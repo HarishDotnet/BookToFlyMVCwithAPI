@@ -1,79 +1,88 @@
 @model List<BookToFlyMVC.DTO.FlightDetailsDTO>
-<div class="text-left mt-4">
-    <a href="@Url.Action("SearchFlights", "Flight")" class="btn btn-secondary">Back to Dashboard</a>
-</div>
-@if (Model != null && Model.Any())
-{
-    <div class="mt-5">
-        <h4>Available Flights</h4>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Flight Number</th>
-                    <th>Airline Name</th>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Departure Time</th>
-                    <th>Arrival Time</th>
-                    <th>Duration</th>
-                    <th>Available Seats</th>
-                    <th>Ticket Price</th>
-                    <th>Available Days</th>
-                    <th>Flight Type</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var flight in Model)
-                {
+@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+<div class="container mt-5">
+    <h2 class="text-center">@ViewData["Title"]</h2>
+    <div class="d-grid gap-2 d-md-flex justify-content-md">
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Back</a>
+    </div>
+    <hr />
+    <div class="text-left mt-4">
+        <a href="@Url.Action("SearchFlights", "Flight")" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+    @if (Model != null && Model.Any())
+    {
+        <div class="mt-5">
+            <h4>Available Flights</h4>
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>@flight.FlightId</td>
-                        <td>@flight.AirlineName</td>
-                        <td>@flight.Source</td>
-                        <td>@flight.Destination</td>
-                        <td>@flight.DepartureTime.ToString(@"hh\:mm")</td>  <!-- Format the TimeSpan -->
-                        <td>@flight.ArrivalTime.ToString(@"hh\:mm")</td>    <!-- Format the TimeSpan -->
-                        <td>@flight.Duration.ToString("0.0") hrs</td>      <!-- Duration formatting -->
-                        <td>@flight.AvailableSeats</td>
-                        <td>@flight.TicketPrice.ToString("C")</td>         <!-- Formatting currency -->
-                        <td>@string.Join(", ", flight.AvailableDays)</td>   <!-- List formatting for AvailableDays -->
-                        <td>@flight.FlightType</td>
-                        <td>
-                            <a href="@Url.Action("BookTicket", "Flight", new { flightNumber = flight.FlightId })" class="btn btn-success btn-sm">Book Ticket</a>
+                        <th>Flight Number</th>
+                        <th>Airline Name</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Duration</th>
+                        <th>Available Seats</th>
+                        <th>Ticket Price</th>
+                        <th>Available Days</th>
+                        <th>Flight Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var flight in Model)
+                    {
+                        <tr>
+                            <td>@flight.FlightId</td>
+                            <td>@flight.AirlineName</td>
+                            <td>@flight.Source</td>
+                            <td>@flight.Destination</td>
+                            <td>@flight.DepartureTime.ToString(@"hh\:mm")</td> <!-- Format the TimeSpan -->
+                            <td>@flight.ArrivalTime.ToString(@"hh\:mm")</td> <!-- Format the TimeSpan -->
+                            <td>@flight.Duration.ToString("0.0") hrs</td> <!-- Duration formatting -->
+                            <td>@flight.AvailableSeats</td>
+                            <td>@flight.TicketPrice.ToString("C")</td> <!-- Formatting currency -->
+                            <td>@string.Join(", ", flight.AvailableDays)</td> <!-- List formatting for AvailableDays -->
+                            <td>@flight.FlightType</td>
+                            <td>
+                                <a href="@Url.Action("BookTicket", "Flight", new { flightNumber = flight.FlightId })"
+                                    class="btn btn-success btn-sm">Book Ticket</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="mt-5">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Flight Number</th>
+                        <th>Airline Name</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Duration</th>
+                        <th>Available Seats</th>
+                        <th>Ticket Price</th>
+                        <th>Available Days</th>
+                        <th>Flight Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="12" class="text-danger text-center text-bold">
+                            No flights available at the moment.
                         </td>
                     </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-}
-else
-{
-    <div class="mt-5">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Flight Number</th>
-                    <th>Airline Name</th>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Departure Time</th>
-                    <th>Arrival Time</th>
-                    <th>Duration</th>
-                    <th>Available Seats</th>
-                    <th>Ticket Price</th>
-                    <th>Available Days</th>
-                    <th>Flight Type</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="12" class="text-danger text-center text-bold">
-                        No flights available at the moment.
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-}
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

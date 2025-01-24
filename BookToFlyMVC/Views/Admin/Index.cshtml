@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    ViewData["RenderHeader"] = true;
+}
+<div id="index">
+    @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+
+    <div class="vh-100 d-flex flex-column">
+        <!-- Dashboard Content -->
+        <div id="dashboardContent" class="flex-grow-1 d-flex main-content"
+            style="background-color: rgba(0, 0, 0, 0.7);">
+            <div class="container mt-4">
+                <h2 class="text-warning"><i class="bi bi-house-door-fill me-2"></i>Welcome, Admin!</h2>
+                <p class="text-muted">Use the navigation or quick actions below to manage the system.</p>
+
+                <!-- Example Quick Actions -->
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="card shadow-sm border-warning">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i>Manage Flights</h5>
+                                <p class="card-text">View, add, or update flight schedules.</p>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#flightTypeModal"
+                                    class="btn btn-warning">Go to Flights</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm border-success">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><i class="bi bi-people-fill me-2"></i>Manage Users</h5>
+                                <p class="card-text">View or manage system users.</p>
+                                <a asp-controller="Admin" asp-action="YetToDevelop" class="btn btn-success">Go to
+                                    Users</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
