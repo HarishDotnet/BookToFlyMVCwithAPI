@@ -49,9 +49,28 @@
         /* Subtle hover effect */
     }
 </style>
-<div>
-    
-</div>
+<script>
+    const sideNav = document.getElementById('sideNav');
+    const leftOptionIcon = document.getElementById('leftOptionIcon');
+
+    // Toggle sidebar visibility when clicking the menu icon
+    leftOptionIcon.addEventListener('click', function () {
+        sideNav.classList.toggle('show'); // Toggle sidebar visibility
+    });
+
+    // Keep the sidebar open while hovering
+    sideNav.addEventListener('mouseenter', function () {
+        sideNav.classList.add('show');
+    });
+
+    // Hide the sidebar when the mouse leaves
+    sideNav.addEventListener('mouseleave', function () {
+        sideNav.classList.remove('show');
+    });
+
+</script>
+
+@if (Context.Session.GetString("JWT_TOKEN") != null){
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
         <!-- Left Option Icon -->
@@ -105,58 +124,39 @@
     </ul>
 </nav>
 
-    <!-- Modal -->
-    <div class="modal fade" id="flightTypeModal" tabindex="-1" aria-labelledby="flightTypeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header bg-dark text-light">
-                    <h5 class="modal-title" id="flightTypeModalLabel"><i class="bi bi-funnel-fill me-2"></i>Select
-                        Flight
-                        Type</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="flightTypeModal" tabindex="-1" aria-labelledby="flightTypeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-dark text-light">
+                <h5 class="modal-title" id="flightTypeModalLabel"><i class="bi bi-funnel-fill me-2"></i>Select
+                    Flight
+                    Type</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
 
-                <!-- Modal Body -->
-                <div class="modal-body">
-                    <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="post">
-                        <div class="mb-3">
-                            <label for="flightType" class="form-label">Flight Type</label>
-                            <select class="form-select" id="flightType" name="FlightType" required>
-                                <option value="" selected disabled>Select an option</option>
-                                <option value="International">International</option>
-                                <option value="Domestic">Domestic</option>
-                            </select>
-                        </div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-success"><i
-                                    class="bi bi-check-circle me-2"></i>Select</button>
-                        </div>
-                    </form>
-                </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="post">
+                    <div class="mb-3">
+                        <label for="flightType" class="form-label">Flight Type</label>
+                        <select class="form-select" id="flightType" name="FlightType" required>
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="International">International</option>
+                            <option value="Domestic">Domestic</option>
+                        </select>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-success"><i
+                                class="bi bi-check-circle me-2"></i>Select</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    const sideNav = document.getElementById('sideNav');
-    const leftOptionIcon = document.getElementById('leftOptionIcon');
-
-    // Toggle sidebar visibility when clicking the menu icon
-    leftOptionIcon.addEventListener('click', function () {
-        sideNav.classList.toggle('show'); // Toggle sidebar visibility
-    });
-
-    // Keep the sidebar open while hovering
-    sideNav.addEventListener('mouseenter', function () {
-        sideNav.classList.add('show');
-    });
-
-    // Hide the sidebar when the mouse leaves
-    sideNav.addEventListener('mouseleave', function () {
-        sideNav.classList.remove('show');
-    });
-
-</script>
+}
+else{
+    
+}

@@ -290,6 +290,7 @@ using BookToFlyMVC.DTO;
 using System.Text.Json;
 using FlightDetailsApi.Models;
 using System.Text;
+using System.Net.Http.Headers;
 
 namespace BookToFlyAPI.Controllers
 {
@@ -298,7 +299,7 @@ namespace BookToFlyAPI.Controllers
         private readonly HttpClient _client;
         private readonly IMapper _mapper;
 
-        public FlightController( IMapper mapper, IHttpClientFactory clientFactory)
+        public FlightController(IMapper mapper, IHttpClientFactory clientFactory)
         {
             _mapper = mapper;
             _client = clientFactory.CreateClient("FlightClient");
@@ -324,6 +325,8 @@ namespace BookToFlyAPI.Controllers
 
             try
             {
+                var token = HttpContext.Session.GetString("JWT_TOKEN");
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var response = await _client.PostAsync(_client.BaseAddress + "Flight/AddFlight", httpContent);
 
                 if (response.IsSuccessStatusCode)
@@ -371,6 +374,7 @@ namespace BookToFlyAPI.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         string flightData = await response.Content.ReadAsStringAsync();
+                        //properties without considering case between api and mvc models
                         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                         flightList = JsonSerializer.Deserialize<List<FlightDetailsDTO>>(flightData, options);
                     }
@@ -471,6 +475,8 @@ namespace BookToFlyAPI.Controllers
 
             try
             {
+                var token = HttpContext.Session.GetString("JWT_TOKEN");
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var response = await _client.PutAsync(_client.BaseAddress + $"Flight/UpdateFlight/{flightDetails.FlightId}", httpContent);
 
                 if (response.IsSuccessStatusCode)
@@ -500,6 +506,15 @@ namespace BookToFlyAPI.Controllers
 
         public async Task<IActionResult> ConfirmDelete(string flightId)
         {
+            var token = HttpContext.Session.GetString("JWT_TOKEN");
+            if (string.IsNullOrEmpty(token))
+            {
+                TempData["DeleteErrorMessage"] = "Token is missing or expired.";
+                return RedirectToAction("Delete");
+            }
+
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
             if (string.IsNullOrEmpty(flightId))
             {
                 TempData["DeleteErrorMessage"] = "Invalid flight ID.";
@@ -508,23 +523,24 @@ namespace BookToFlyAPI.Controllers
 
             try
             {
-                using (var httpClient = new HttpClient())
+                // Use the injected _client instead of creating a new HttpClient
+                var response = await _client.DeleteAsync($"Flight/DeleteFlight/{flightId}");
+
+                if (response.IsSuccessStatusCode)
                 {
-                    var response = await httpClient.DeleteAsync($"{_client.BaseAddress}Flight/DeleteFlight/{flightId}");
-                    if (response.IsSuccessStatusCode)
-                    {
-                        TempData["DeleteSuccessMessage"] = "Flight deleted successfully.";
-                    }
-                    else
-                    {
-                        // Optionally log the response status code or message for debugging
-                        TempData["DeleteErrorMessage"] = "Failed to delete the flight.";
-                    }
+                    TempData["DeleteSuccessMessage"] = "Flight deleted successfully.";
+                }
+                else
+                {
+                    // Optionally log the response status code or message for debugging
+                    TempData["DeleteErrorMessage"] = "Failed to delete the flight. Status code: " + response.StatusCode;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message); // You can log this error as well
+                // Log exception using a proper logging framework
+                // _logger.LogError(ex, "An error occurred while deleting the flight.");
+                Console.WriteLine(ex);
                 TempData["DeleteErrorMessage"] = "An error occurred while deleting the flight.";
             }
 
@@ -568,7 +584,6 @@ namespace BookToFlyAPI.Controllers
                     string flightData = await respose.Content.ReadAsStringAsync();
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                     flightList = JsonSerializer.Deserialize<List<FlightDetailsDTO>>(flightData, options);
-
                 }
                 else
                 {

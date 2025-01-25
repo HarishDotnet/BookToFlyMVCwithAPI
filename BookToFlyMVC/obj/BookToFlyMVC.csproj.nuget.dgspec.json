@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {}
+    "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {}
   },
   "projects": {
-    "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {
+    "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
+        "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
         "projectName": "BookToFlyMVC",
-        "projectPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
+        "projectPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\BookToFlyMVC.csproj",
         "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\obj\\",
+        "outputPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\BookToFlyMVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
-                "projectPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj"
+              "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
+                "projectPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj"
               }
             }
           }
@@ -68,6 +68,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.3.1, )"
             }
           },
           "imports": [
@@ -93,14 +97,14 @@
         }
       }
     },
-    "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
+    "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
+        "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
         "projectName": "FlightDetailApi",
-        "projectPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
+        "projectPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
         "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\obj\\",
+        "outputPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"

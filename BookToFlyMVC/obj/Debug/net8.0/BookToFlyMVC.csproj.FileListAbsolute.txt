@@ -600,8 +600,10 @@ C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\De
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Humanizer.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Build.Locator.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -773,4 +775,3 @@ C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\De
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\Debug\net8.0\BookToFlyMVC.pdb
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\Debug\net8.0\BookToFlyMVC.genruntimeconfig.cache
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\Debug\net8.0\ref\BookToFlyMVC.dll
-C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

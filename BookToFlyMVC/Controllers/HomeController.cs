@@ -4,6 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using BookToFlyMVC.Models;
 using BookToFlyMVC.Data;
 using Microsoft.EntityFrameworkCore;
+using BookToFlyMVC.DTO;
+using AutoMapper;
+using System.Text.Json;
+using System.Text;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Net.Http.Headers;
 
 namespace BookToFlyMVC.Controllers;
 
@@ -11,14 +17,16 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly ApplicationDbContext _dbContext;
-
-    public HomeController(ILogger<HomeController> logger, ApplicationDbContext dbContext)
+    private readonly HttpClient _client;
+    private readonly IMapper _mapper;
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext dbContext, IHttpClientFactory client, IMapper mapper)
     {
         _logger = logger;
         _dbContext = dbContext;
+        _mapper = mapper;
+        _client = client.CreateClient("FlightClient");
     }
 
-    [HttpGet]
     public IActionResult Login()
     {
         return View();
@@ -30,23 +38,32 @@ public class HomeController : Controller
     {
         if (!ModelState.IsValid)
         {
-            // If model validation fails, return the view with errors
             return View(loginDetails);
         }
 
         try
         {
-            // Check the Role and query the corresponding table
             if (loginDetails.Role == "Admin")
             {
-                // Query the Admin table
-                var admin = await _dbContext.Admin
-                    .FirstOrDefaultAsync(a => a.Username == loginDetails.Username && a.Password == loginDetails.Password);
+                var admin = _mapper.Map<LoginDTO>(loginDetails);
+                var jsonContent = JsonSerializer.Serialize(admin);
+                var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-                if (admin != null)
+                var response = await _client.PostAsync(_client.BaseAddress + "Admin/Login", httpContent);
+                if (response.IsSuccessStatusCode)
                 {
-                    // Login successful - Redirect to Admin Dashboard
+                    // Deserialize the response to get the token
+                    var token = await response.Content.ReadAsStringAsync();
+
+                    // Save the token in the session
+                    HttpContext.Session.SetString("JWT_TOKEN", token);
+
+                    // Redirect to Admin Dashboard
                     return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login credentials.");
                 }
             }
             else if (loginDetails.Role == "User")
@@ -57,31 +74,29 @@ public class HomeController : Controller
 
                 if (user != null)
                 {
-                    // Login successful - Redirect to User Home Page
                     return RedirectToAction("Index", "User");
                 }
             }
 
-            // If no match is found, add a model error
             ModelState.AddModelError(string.Empty, "Invalid username, password, or role.");
         }
         catch (Exception ex)
         {
-            // Log the exception and return a generic error message
             ModelState.AddModelError(string.Empty, "An error occurred while processing your request.");
             Console.WriteLine(ex.Message);
         }
 
-        // If login fails, return the view with the login details and errors
         return View(loginDetails);
     }
+
 
     // Logout Action
     [HttpPost]
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        return RedirectToAction("Login", "Home"); // Redirect to home after logout
+        HttpContext.Session.Remove("JWT_TOKEN"); // Clear login status
+        return RedirectToAction("Login");
     }
 
     public IActionResult Index()

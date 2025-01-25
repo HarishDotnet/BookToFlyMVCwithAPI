@@ -21,7 +21,6 @@ namespace FlightDetailsApi.Controllers
         }
 
         [HttpPost("AddFlights")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddFlights([FromBody] List<FlightInputDTO> flightInputs)
         {
             if (flightInputs == null || !flightInputs.Any())
@@ -140,7 +139,6 @@ namespace FlightDetailsApi.Controllers
         }
 
         [HttpDelete("DeleteFlight/{flightId}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteFlight(string flightId)
         {
             object flightToDelete = null;
@@ -209,7 +207,7 @@ namespace FlightDetailsApi.Controllers
         [HttpGet("DisplayFlightByType")]
         public async Task<IActionResult> DisplayFlightByType([FromQuery] string FlightType, [FromQuery] string flightNumber)
         {
-            Console.WriteLine($"Hi I am FlightType{FlightType} and/or FlightNumber{flightNumber}");
+            
 
             // Ensure FlightType is provided
             if (string.IsNullOrEmpty(FlightType))

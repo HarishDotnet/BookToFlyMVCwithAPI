@@ -13,6 +13,7 @@ namespace BookToFlyMVC.Models
 
     [Required]
     public string Role { get; set; }  // 'User' or 'Admin'
+
 }
 
 }

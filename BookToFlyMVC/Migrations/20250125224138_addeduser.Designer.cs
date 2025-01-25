@@ -4,6 +4,7 @@ using BookToFlyMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookToFlyMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250125224138_addeduser")]
+    partial class addeduser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,16 +64,6 @@ namespace BookToFlyMVC.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("bookedTickets");
-                });
-
-            modelBuilder.Entity("BookToFlyMVC.Models.LoggedUsers", b =>
-                {
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Name");
-
-                    b.ToTable("LoggedUsers");
                 });
 
             modelBuilder.Entity("BookToFlyMVC.Models.UserRegistrationViewModel", b =>
