@@ -59,7 +59,7 @@
             <i class="bi bi-list text-light fs-3" id="leftOptionIcon" style="cursor: pointer;"></i>
         </div>
 
-        <a class="navbar-brand text-warning" href="#" style="margin-left: 20px;">
+        <a class="navbar-brand text-warning" href="/Admin/Index" style="margin-left: 20px;">
             <i class="bi bi-speedometer2 me-2"></i>Admin Dashboard
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -120,7 +120,7 @@
 
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    <form id="flightTypeForm" asp-controller="Flight" asp-action="GetFlightsByType" method="post">
+                    <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="post">
                         <div class="mb-3">
                             <label for="flightType" class="form-label">Flight Type</label>
                             <select class="form-select" id="flightType" name="FlightType" required>

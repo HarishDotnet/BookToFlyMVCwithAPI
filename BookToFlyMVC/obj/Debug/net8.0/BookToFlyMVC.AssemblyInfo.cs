@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookToFlyMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+18b692fe6d1b747c18fea5ae8ab0fa8d93434b14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c134fbc39190a57f19c5e99689d250d9c1719c5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookToFlyMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookToFlyMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -25,11 +25,6 @@ namespace BookToFlyMVC.Controllers
             return View("Index");
         }
 
-        public IActionResult ManageFlights()
-        {
-            return View("ManageFlights");
-        }
-
         public IActionResult Profile()
         {
             return View();
@@ -42,7 +37,7 @@ namespace BookToFlyMVC.Controllers
         public IActionResult YetToDevelop()
         {
             // Define the URL or string that will be passed to the view (you can modify this to whatever you want)
-            string redirectUrl = "/Admin/Dashboard"; // Example URL to redirect to the Dashboard
+            string redirectUrl = "/Admin/Index"; // Example URL to redirect to the Dashboard
 
             // Return the _YetToDevelop.cshtml view with the string model (redirect URL)
             return View("~/Views/Shared/_YetToDevelop.cshtml", redirectUrl);

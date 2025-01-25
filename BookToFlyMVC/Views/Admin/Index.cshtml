@@ -4,7 +4,6 @@
 }
 <div id="index">
     @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
-
     <div class="vh-100 d-flex flex-column">
         <!-- Dashboard Content -->
         <div id="dashboardContent" class="flex-grow-1 d-flex main-content"
@@ -20,8 +19,9 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title"><i class="bi bi-calendar-check-fill me-2"></i>Manage Flights</h5>
                                 <p class="card-text">View, add, or update flight schedules.</p>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#flightTypeModal"
-                                    class="btn btn-warning">Go to Flights</a>
+                                <a class="btn btn-success" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#flightTypeModal" class="text-decoration-none text-light">Select
+                                    Flight Type</a></li>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,54 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-sm border-success">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"><i class="bi bi-ticket-fill me-2"></i>Show Booked Tickets</h5>
+                                <p class="card-text">View or manage booked tickets.</p>
+                                <a asp-controller="Tickets" asp-action="ShowBookedTickets" class="btn btn-success">Go to
+                                    Tickets</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="flightTypeModal" tabindex="-1" aria-labelledby="flightTypeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="flightTypeModalLabel"><i class="bi bi-funnel-fill me-2"></i>Select
+                        Flight
+                        Type</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="post">
+                        <div class="mb-3">
+                            <label for="flightType" class="form-label">Flight Type</label>
+                            <select class="form-select" id="flightType" name="FlightType" required>
+                                <option value="" selected disabled>Select an option</option>
+                                <option value="International">International</option>
+                                <option value="Domestic">Domestic</option>
+                            </select>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-success"><i
+                                    class="bi bi-check-circle me-2"></i>Select</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

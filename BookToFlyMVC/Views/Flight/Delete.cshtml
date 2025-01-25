@@ -1,5 +1,10 @@
 @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+
 <div class="container mt-5">
+    <div id="popupMessage" class="position-fixed top-0 start-50 translate-middle-x p-3 d-none" style="z-index: 1050;">
+        <div id="popupContent" class="alert alert-dismissible fade show" role="alert"></div>
+    </div>
+
     <div class="d-grid gap-2 d-md-flex justify-content-md">
         <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Back</a>
     </div>
@@ -9,16 +14,6 @@
             <h5 class="card-title mb-0">Delete Flight</h5>
         </div>
         <div class="card-body">
-            @if (TempData["SuccessMessage"] != null)
-            {
-                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-            }
-
-            @if (TempData["ErrorMessage"] != null)
-            {
-                <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
-            }
-
             <div class="mb-3">
                 <label for="FlightType" class="form-label">Flight Type <span class="text-danger">*</span></label>
                 <select id="FlightType" name="FlightType" class="form-select" required>
@@ -29,40 +24,28 @@
                 <div class="invalid-feedback">Please select a flight type.</div>
             </div>
 
-            <!-- Flight Number Input -->
-            @* <div class="mb-3">
-                <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
-                <input type="text" id="flightNumber" name="flightNumber" class="form-control"
-                       placeholder="Enter flight number" required autocomplete="off" />
-                <div class="invalid-feedback">Please enter a flight number.</div>
-            </div> *@
             <div class="mb-3">
                 <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
                 <input type="text" id="flightNumber" name="flightNumber" class="form-control"
                     placeholder="Enter flight number" required autocomplete="off" onclick="showFlightSuggestions()" />
                 <div class="invalid-feedback">Please enter a flight number.</div>
 
-                <!-- Dropdown for flight number suggestions -->
                 <ul id="flightSuggestionsList" class="list-group position-absolute w-100"
                     style="display: none; max-height: 200px; overflow-y: auto; z-index: 1000; background-color: white; border: 1px solid #ccc;">
                 </ul>
             </div>
 
-            <!-- Button to trigger popup -->
             <a id="showCardBtn" class="btn btn-danger btn-sm w-100" onclick="flightDetailsLink()">
                 <i class="bi bi-trash"></i> Delete Flight
             </a>
 
-            <!-- Overlay -->
             <div class="overlay d-none position-fixed top-0 start-0 w-100 h-100 bg-dark opacity-50" id="overlay"></div>
 
-            <!-- Flight Details Popup -->
             <div class="popup position-fixed top-50 start-50 translate-middle d-none" id="profilePopup">
                 <div class="card" style="width: 25rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center">Flight Details</h5>
                         <div id="flightDetailsContent">
-                            <!-- Dynamic flight details will be populated here -->
                             <p>Flight Number: <span id="popupFlightNumber"></span></p>
                             <p>Flight Type: <span id="popupFlightType"></span></p>
                             <p>Airline: <span id="popupAirlineName"></span></p>
@@ -89,8 +72,43 @@
         </div>
     </div>
 </div>
+
 <script>
     let flightDetails = {};
+
+    // Function to show the popup message (with automatic hide after 2 seconds)
+    function showPopupMessage(message, alertClass) {
+        const popupContainer = document.getElementById('popupMessage');
+        const popupContent = document.getElementById('popupContent');
+
+        // Set the message and alert class
+        popupContent.textContent = message;
+        popupContent.className = `alert ${alertClass} alert-dismissible fade show`;
+
+        // Show the popup
+        popupContainer.classList.remove('d-none');
+        popupContainer.classList.add('show');
+
+        // Automatically hide after 2 seconds with smooth fade out
+        setTimeout(() => {
+            popupContainer.classList.remove('show');
+            setTimeout(() => popupContainer.classList.add('d-none'), 300);
+        }, 2000);
+    }
+
+    // Check for TempData messages and show the popup if present
+    document.addEventListener("DOMContentLoaded", function() {
+        const successMessage = '@TempData["DeleteSuccessMessage"]';
+        const errorMessage = '@TempData["DeleteErrorMessage"]';
+
+        if (successMessage) {
+            showPopupMessage(successMessage, 'alert-success');
+        }
+
+        if (errorMessage) {
+            showPopupMessage(errorMessage, 'alert-danger');
+        }
+    });
 
     // Function to load flight details and display the popup
     async function loadFlightDetails(flightNumber) {
@@ -126,13 +144,13 @@
                     document.getElementById('profilePopup').classList.remove('d-none');
                     document.getElementById('overlay').classList.remove('d-none');
                 } else {
-                    alert('Flight details not found.');
+                    showPopupMessage('Flight details not found.', 'alert-danger');
                 }
             } else {
-                alert('Failed to fetch flight details.');
+                showPopupMessage('Failed to fetch flight details.', 'alert-danger');
             }
         } catch (error) {
-            alert('Error loading flight details: ' + error);
+            showPopupMessage('Error loading flight details: ' + error, 'alert-danger');
         }
     }
 
@@ -142,7 +160,7 @@
         if (flightNumber) {
             loadFlightDetails(flightNumber);
         } else {
-            alert('Please enter a flight number.');
+            showPopupMessage('Please enter a flight number.', 'alert-warning');
         }
     }
 
@@ -151,14 +169,15 @@
         document.getElementById('profilePopup').classList.add('d-none');
         document.getElementById('overlay').classList.add('d-none');
     }
+
+    // Function to show flight suggestions
     async function showFlightSuggestions() {
         const flightType = document.getElementById('FlightType').value;
         const flightNumberInput = document.getElementById('flightNumber');
         const suggestionsList = document.getElementById('flightSuggestionsList');
 
-        // Check if FlightType is selected
         if (!flightType) {
-            alert('Please select a flight type first.');
+            showPopupMessage('Please select a flight type first.', 'alert-warning');
             return;
         }
 
@@ -167,26 +186,26 @@
             if (response.ok) {
                 const flightNumbers = await response.json();
                 if (flightNumbers && flightNumbers.length > 0) {
-                    suggestionsList.innerHTML = '';  // Clear previous suggestions
+                    suggestionsList.innerHTML = '';
                     flightNumbers.forEach(flight => {
                         const listItem = document.createElement('li');
                         listItem.classList.add('list-group-item', 'list-group-item-action');
                         listItem.textContent = flight;
                         listItem.onclick = function () {
                             flightNumberInput.value = flight;
-                            suggestionsList.style.display = 'none'; // Hide suggestions after selection
+                            suggestionsList.style.display = 'none';
                         };
                         suggestionsList.appendChild(listItem);
                     });
-                    suggestionsList.style.display = 'block'; // Show suggestions list
+                    suggestionsList.style.display = 'block';
                 } else {
-                    suggestionsList.style.display = 'none'; // Hide suggestions if no data
+                    suggestionsList.style.display = 'none';
                 }
             } else {
-                alert('Failed to fetch flight numbers.');
+                showPopupMessage('Failed to fetch flight numbers.', 'alert-danger');
             }
         } catch (error) {
-            alert('Error loading flight numbers: ' + error);
+            showPopupMessage('Error loading flight numbers: ' + error, 'alert-danger');
         }
     }
 
@@ -198,4 +217,7 @@
             suggestionsList.style.display = 'none';
         }
     });
+
+    // Ensure suggestions show when clicking input field
+    document.getElementById('flightNumber').addEventListener('click', showFlightSuggestions);
 </script>

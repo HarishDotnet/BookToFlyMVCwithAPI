@@ -144,34 +144,7 @@
 //         }
 
 
-//         //Used to display the flight details with Actions for Admin
-//         [HttpPost("GetFlightsByType")]
-//         public async Task<IActionResult> GetFlightsByType([FromForm] string FlightType)
-//         {
-//             HttpResponseMessage respose = await _client.GetAsync($"Flight/DisplayFlightByType/{FlightType}");
-//             List<FlightDetailsDTO> flightList = new List<FlightDetailsDTO>();
-//             try
-//             {
-//                 if (respose.IsSuccessStatusCode)
-//                 {
-//                     string flightData = await respose.Content.ReadAsStringAsync();
-//                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-//                     flightList = JsonSerializer.Deserialize<List<FlightDetailsDTO>>(flightData, options);
-//                     Console.WriteLine("Hi");
-
-//                 }
-//                 else
-//                 {
-//                     return View("Error to get the data from the api");
-//                 }
-//             }
-//             catch (Exception ex)
-//             {
-//                 return View("Error" + ex.Message);
-//             }
-
-//             return View("ShowFlightWithOptions", flightList);
-//         }
+//         
 //         [HttpGet]
 //         public IActionResult Edit()
 //         {
@@ -216,15 +189,7 @@
 
 
 
-//         [HttpGet("ShowflightCard/Details/{flightNumber}")]
-//         public IActionResult ShowflightCard(string flightNumber)
-//         {
-//             var flightdetails=GetFlightDetailsFromApi(flightNumber);
-//             if(flightdetails!=null)
-//                 return View(flightdetails);
-//             else 
-//                 return View();
-//         }
+//        
 //         [HttpPost]
 //         public async Task<IActionResult> UpdateFlight(FlightDetailsDTO flightDetails)
 //         {
@@ -366,7 +331,7 @@ namespace BookToFlyAPI.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["SuccessMessage"] = "Flight added successfully!";
+                    TempData["CreateSuccessMessage"] = "Flight added successfully!";
                     return RedirectToAction("Create");
                 }
                 else
@@ -476,21 +441,24 @@ namespace BookToFlyAPI.Controllers
         [HttpGet("Flight/EditGetDetail/{flightId}")]
         public async Task<IActionResult> EditGetDetail(string flightId)
         {
-            if(flightId!=null){
+            if (flightId != null)
+            {
                 var flight = await GetFlightDetailsFromApi(flightId);
                 TempData["FlightDetails"] = JsonSerializer.Serialize(flight);
-                return View("EditPage",flight);
-                
+                return View("EditPage", flight);
+
             }
-            else{
-                 return View("Update"); // return a view or redirect as per your logic
+            else
+            {
+                return View("Update"); // return a view or redirect as per your logic
             }
         }
 
         [HttpGet]
-        public  IActionResult EditPage(){
+        public IActionResult EditPage()
+        {
 
-            return  View();
+            return View();
         }
 
         [HttpPost]
@@ -498,7 +466,7 @@ namespace BookToFlyAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("EditPage",flightDetails);
+                return View("EditPage", flightDetails);
             }
 
             var jsonContent = JsonSerializer.Serialize(flightDetails);
@@ -527,43 +495,43 @@ namespace BookToFlyAPI.Controllers
 
             return View(flightDetails);
         }
-
-       
         public IActionResult Delete()
         {
-            // This action renders the view to delete the flight
             return View();
         }
-        [HttpPost]
+
         public async Task<IActionResult> ConfirmDelete(string flightId)
         {
             if (string.IsNullOrEmpty(flightId))
             {
-                return BadRequest("Invalid flight ID.");
+                TempData["DeleteErrorMessage"] = "Invalid flight ID.";
+                return RedirectToAction("Delete");
             }
 
             try
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var response = await _client.DeleteAsync($"{_client.BaseAddress}Flight/DeleteFlight/{flightId}");
+                    var response = await httpClient.DeleteAsync($"{_client.BaseAddress}Flight/DeleteFlight/{flightId}");
                     if (response.IsSuccessStatusCode)
                     {
-                        TempData["SuccessMessage"] = "Flight deleted successfully.";
-                        return RedirectToAction("Delete"); // Redirect to the same page
+                        TempData["DeleteSuccessMessage"] = "Flight deleted successfully.";
+                    }
+                    else
+                    {
+                        // Optionally log the response status code or message for debugging
+                        TempData["DeleteErrorMessage"] = "Failed to delete the flight.";
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                TempData["ErrorMessage"] = "An error occurred while deleting the flight.";
+                Console.WriteLine(ex.Message); // You can log this error as well
+                TempData["DeleteErrorMessage"] = "An error occurred while deleting the flight.";
             }
 
-            return RedirectToAction("Delete"); // Redirect to the same page
+            return RedirectToAction("Delete"); // Redirect to the same page to show success or error message
         }
-
-
         private async Task<FlightDetailsDTO> GetFlightDetailsFromApi(string flightNumber)
         {
             string flightType = flightNumber.StartsWith("IF") ? "International" :
@@ -576,13 +544,48 @@ namespace BookToFlyAPI.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                var flight= await response.Content.ReadFromJsonAsync<FlightDetailsDTO>();
-                flight.FlightType=flightType;
+                var flight = await response.Content.ReadFromJsonAsync<FlightDetailsDTO>();
+                flight.FlightType = flightType;
                 return flight;
             }
 
             return null;
         }
-        
+
+        [HttpGet]
+        public IActionResult ManageFlights()
+        {
+            return View();
+        }
+        //Used to display the flight details with Actions for Admin
+        [HttpPost]
+        public async Task<IActionResult> ManageFlights([FromForm] string FlightType)
+        {
+            HttpResponseMessage respose = await _client.GetAsync($"Flight/DisplayFlightByType/{FlightType}");
+            List<FlightDetailsDTO> flightList = new List<FlightDetailsDTO>();
+            try
+            {
+                if (respose.IsSuccessStatusCode)
+                {
+                    string flightData = await respose.Content.ReadAsStringAsync();
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    flightList = JsonSerializer.Deserialize<List<FlightDetailsDTO>>(flightData, options);
+                    Console.WriteLine("Hi");
+
+                }
+                else
+                {
+                    return View("Error to get the data from the api");
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error" + ex.Message);
+            }
+
+            return View("ManageFlights", flightList);
+        }
+
+
     }
 }

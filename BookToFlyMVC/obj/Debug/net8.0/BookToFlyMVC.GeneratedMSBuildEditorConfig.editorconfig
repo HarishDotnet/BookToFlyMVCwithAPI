@@ -34,10 +34,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Admin/ManageFlights.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlRmxpZ2h0cy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XEVkaXRQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ManageFlights.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XE1hbmFnZUZsaWdodHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/SearchFlights.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFNlYXJjaEZsaWdodHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,10 +60,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ShowFlights.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFNob3dGbGlnaHRzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ShowFlightWithOptions.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFNob3dGbGlnaHRXaXRoT3B0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Update.cshtml]
