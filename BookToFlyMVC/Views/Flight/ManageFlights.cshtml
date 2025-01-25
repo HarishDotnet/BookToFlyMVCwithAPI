@@ -45,15 +45,10 @@
                                 class="btn btn-success btn-sm me-2">
                                 <i class="bi bi-bookmark-plus"></i> Book Ticket
                             </a>
-
-                            <form asp-action="GetFlightnumber" asp-controller="Flight" method="GET" class="d-inline-block me-2">
-                                <input type="hidden" name="FlightType"
-                                    value="@(flight.FlightId.StartsWith("IF") ? "International" : "Domestic")" />
-                                <input type="hidden" name="flightNumber" value="@flight.FlightId" />
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="bi bi-pencil"></i> Edit
-                                </button>
-                            </form>
+                            <a href="EditGetDetail/@flight.FlightId"
+                                class="btn btn-primary btn-sm me-2">
+                               <i class="bi bi-pencil"></i> Edit
+                            </a>
 
                             <input type="hidden" name="FlightId" id="flightIdToDelete" />
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"

@@ -27,6 +27,7 @@ namespace FlightDetailsApi.MappingDTO
                 .ConvertUsing((source, destination, context) =>
                     source.Select(flight => context.Mapper.Map<FlightOutputDTO>(flight)).ToList());
 
+            // CreateMap<AdminModel,AdminLoginDTO>().ReverseMap();
             // Map List<DomesticFlightDetails> to List<FlightOutputDTO>
             CreateMap<List<DomesticFlightDetails>, List<FlightOutputDTO>>()
                 .ConvertUsing((source, destination, context) =>

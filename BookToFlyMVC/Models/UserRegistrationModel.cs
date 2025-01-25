@@ -8,7 +8,7 @@ namespace BookToFlyMVC.Models
         [Key]
         [Required(ErrorMessage = "Username is required.")]
         [StringLength(50, ErrorMessage = "Username cannot exceed 50 characters.")]
-        [CheckUserName("User Name Already Exist")]
+        // [CheckUserName("User Name Already Exist")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Email is required.")]

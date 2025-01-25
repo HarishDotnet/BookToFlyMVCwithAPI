@@ -1,9 +1,7 @@
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using BookToFlyMVC.Data;
+using FlightDetailsApi.Data;
 
-namespace BookToFlyAPI.Controllers
+namespace FlightDetailsApi.Validations
 {
     public class CheckUserNameAttribute : ValidationAttribute
     {
@@ -25,14 +23,14 @@ namespace BookToFlyAPI.Controllers
             string username = value.ToString();
 
             // Get the ApplicationDbContext from the ValidationContext's service provider
-            var dbContext = (ApplicationDbContext)validationContext.GetService(typeof(ApplicationDbContext));
+            var dbContext = (ApplicationDbContextMVC)validationContext.GetService(typeof(ApplicationDbContextMVC));
             if (dbContext == null)
             {
                 return new ValidationResult("Database context is unavailable.");
             }
 
             // Check if the username exists in the Users table
-            bool userExists = dbContext.User.Any(u => u.Username == username);  // Corrected the logic
+            bool userExists = dbContext.admin.Any(u => u.Username == username);  // Corrected the logic
             if (userExists)
             {
                 return new ValidationResult(_errorMessage); // If username exists, return the error message

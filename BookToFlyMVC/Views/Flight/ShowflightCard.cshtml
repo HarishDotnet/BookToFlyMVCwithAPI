@@ -1,5 +1,7 @@
 @model BookToFlyMVC.DTO.FlightDetailsDTO;
+
 @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+
 @if (Model != null)
 {
     <div class="container mt-5">
@@ -28,8 +30,7 @@
                         <p><i class="bi bi-currency-dollar"></i> <strong>Ticket Price:</strong> $@Model.TicketPrice</p>
                     </div>
                     <div class="col-md-6">
-                        <p><i class="bi bi-check-circle-fill"></i> <strong>Available Seats:</strong> @Model.AvailableSeats
-                        </p>
+                        <p><i class="bi bi-check-circle-fill"></i> <strong>Available Seats:</strong> @Model.AvailableSeats</p>
                         <p><i class="bi bi-card-list"></i> <strong>Flight Type:</strong> @Model.FlightType</p>
                     </div>
                 </div>
@@ -52,7 +53,7 @@
                 </div>
             </div>
             <div class="card-footer text-center">
-                <a  data-bs-toggle="modal" data-bs-target="#flightTypeModal" class="btn btn-secondary">
+                <a data-bs-toggle="modal" data-bs-target="#flightTypeModal" class="btn btn-secondary">
                     <i class="bi bi-arrow-left"></i> Go to Manage Flight
                 </a>
             </div>
@@ -64,33 +65,17 @@ else
     <div class="alert alert-warning">
         No flight details are available to display.
     </div>
-} 
+}
 
-<div class="modal-body">
-                <form id="flightTypeForm" asp-controller="Flight" asp-action="GetFlightsByType" method="post">
-                    <div class="mb-3">
-                        <label for="flightType" class="form-label">Flight Type</label>
-                        <select class="form-select" id="flightType" name="FlightType" required>
-                            <option value="" selected disabled>Select an option</option>
-                            <option value="International">International</option>
-                            <option value="Domestic">Domestic</option>
-                        </select>
-                    </div>
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-success">Select</button>
-                    </div>
-                </form>
-</div>
+<!-- Modal for Flight Type -->
 <div class="modal fade" id="flightTypeModal" tabindex="-1" aria-labelledby="flightTypeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <!-- Modal Header -->
             <div class="modal-header">
                 <h5 class="modal-title" id="flightTypeModalLabel">Select Flight Type</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <!-- Modal Body -->
             <div class="modal-body">
                 <form id="flightTypeForm" asp-controller="Flight" asp-action="GetFlightsByType" method="post">
                     <div class="mb-3">
@@ -109,3 +94,44 @@ else
         </div>
     </div>
 </div>
+
+<!-- Toast Message Container -->
+<div id="toastContainer" class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 11; border-0">
+    <div id="tempDataToast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body" id="toastMessageBody">
+                <!-- The message will be set dynamically by JS -->
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var message = '@TempData["UpdateErrorMessage"]' || '@TempData["UpdateSuccessMessage"]';
+        var messageClass = '';
+
+        if ('@TempData["UpdateErrorMessage"]') {
+            messageClass = 'text-bg-danger';  // Error message class
+        } else if ('@TempData["UpdateSuccessMessage"]') {
+            messageClass = 'text-bg-primary';  // Success message class
+        } else {
+            messageClass = 'text-bg-secondary'; // Default message class
+        }
+
+        if (message) {
+            // Set the toast message content and class
+            var toastMessageBody = document.getElementById('toastMessageBody');
+            var toast = document.getElementById('tempDataToast');
+            var toastContainer = document.getElementById('toastContainer');
+
+            toastMessageBody.innerHTML = message;
+            toast.classList.add(messageClass);  // Add the appropriate background color class
+
+            // Show the toast
+            var bootstrapToast = new bootstrap.Toast(toast, { delay: 2000 }); // 2000ms = 2 seconds
+            bootstrapToast.show();
+        }
+    });
+</script>

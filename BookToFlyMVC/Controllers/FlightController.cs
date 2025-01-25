@@ -290,7 +290,6 @@ using BookToFlyMVC.DTO;
 using System.Text.Json;
 using FlightDetailsApi.Models;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BookToFlyAPI.Controllers
 {
@@ -298,11 +297,9 @@ namespace BookToFlyAPI.Controllers
     {
         private readonly HttpClient _client;
         private readonly IMapper _mapper;
-        private readonly ApplicationDbContext _dbContext;
 
-        public FlightController(ApplicationDbContext dbContext, IMapper mapper, IHttpClientFactory clientFactory)
+        public FlightController( IMapper mapper, IHttpClientFactory clientFactory)
         {
-            _dbContext = dbContext;
             _mapper = mapper;
             _client = clientFactory.CreateClient("FlightClient");
         }
@@ -480,10 +477,10 @@ namespace BookToFlyAPI.Controllers
                 {
                     TempData["FlightDetails"] = JsonSerializer.Serialize(flightDetails);
                     TempData["SuccessMessage"] = "Flight updated successfully!";
-                    return RedirectToAction("ShowflightCard", new { flightNumber = flightDetails.FlightId });
                 }
                 else
                 {
+                    TempData["ErrorMessage"] = "You Can't Add Flight Sorry, because You are not Authorized!";
                     var errorMessage = await response.Content.ReadAsStringAsync();
                     ModelState.AddModelError("", $"Error: {errorMessage}");
                 }
@@ -493,7 +490,8 @@ namespace BookToFlyAPI.Controllers
                 ModelState.AddModelError("", $"HTTP Request Error: {ex.Message}");
             }
 
-            return View(flightDetails);
+            return RedirectToAction("ShowflightCard", new { flightNumber = flightDetails.FlightId });
+
         }
         public IActionResult Delete()
         {
@@ -570,7 +568,6 @@ namespace BookToFlyAPI.Controllers
                     string flightData = await respose.Content.ReadAsStringAsync();
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                     flightList = JsonSerializer.Deserialize<List<FlightDetailsDTO>>(flightData, options);
-                    Console.WriteLine("Hi");
 
                 }
                 else

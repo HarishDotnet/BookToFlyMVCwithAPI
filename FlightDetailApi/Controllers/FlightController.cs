@@ -4,6 +4,7 @@ using FlightDetailsApi.Models;
 using FlightDetailsApi.Data;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 namespace FlightDetailsApi.Controllers
 {
     [Route("api/[controller]")]
@@ -20,6 +21,7 @@ namespace FlightDetailsApi.Controllers
         }
 
         [HttpPost("AddFlights")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddFlights([FromBody] List<FlightInputDTO> flightInputs)
         {
             if (flightInputs == null || !flightInputs.Any())
@@ -91,6 +93,7 @@ namespace FlightDetailsApi.Controllers
 
 
         [HttpPost("AddFlight")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddFlight([FromBody] FlightInputDTO flightInput)
         {
             if (!ModelState.IsValid)
@@ -137,6 +140,7 @@ namespace FlightDetailsApi.Controllers
         }
 
         [HttpDelete("DeleteFlight/{flightId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteFlight(string flightId)
         {
             object flightToDelete = null;
@@ -167,6 +171,7 @@ namespace FlightDetailsApi.Controllers
 
 
         [HttpPut("UpdateFlight/{flightId}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateFlight(string flightId, [FromBody] FlightInputDTO flightInput)
         {
             Console.WriteLine("Hi " + flightInput.AirlineName);
@@ -259,6 +264,7 @@ namespace FlightDetailsApi.Controllers
                 return NotFound("No flights found for the specified Flight Type.");
             }
         }
+
         [HttpGet("DisplayFlightByType/{FlightType}")]
         public async Task<IActionResult> DisplayFlightByType(string FlightType)
         {
