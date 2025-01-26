@@ -1,16 +1,3 @@
-
-<script>
-    // Hide the success message after 3 seconds
-    window.onload = function() {
-        var successMessage = document.getElementById("successMessage");
-        if (successMessage) {
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 1000); // 3000 milliseconds = 3 seconds
-        }
-    };
-</script>
-
 @{
     ViewData["Title"] = "Add Flight";
 }
@@ -19,13 +6,22 @@
     <div class="container mt-5" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); min-height: 10vh; padding: 20px; max-width: 900px; margin: 0 auto;">
         <h2 class="text-center">@ViewData["Title"]</h2>
         <div class="d-grid gap-2 d-md-flex justify-content-md">
-            <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Back</a>
+            <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
         </div>
         <hr />
+        
+        <!-- Success Message -->
         @if (TempData["CreateSuccessMessage"] != null)
         {
             <div id="successMessage" class="alert alert-success">@TempData["CreateSuccessMessage"]</div>
         }
+
+        <!-- Error Message -->
+        @if (TempData["CreateErrorMessage"] != null)
+        {
+            <div id="errorMessage" class="alert alert-danger">@TempData["CreateErrorMessage"]</div>
+        }
+
         <form asp-controller="Flight" asp-action="Create" method="post">
             <!-- Flight Type -->
             <div class="mb-3">
@@ -36,6 +32,7 @@
                     <option value="International">International</option>
                 </select>
             </div>
+
             <!-- Flight Id -->
             <div class="mb-3">
                 <label for="flightId" class="form-label">Flight Id:</label>
@@ -110,7 +107,26 @@
             </div>
         </form>
     </div>
-    }
-    else{
-         @Html.PartialAsync("~Views/Home/Login")
-    }
+} else {
+    @Html.PartialAsync("~Views/Home/Login")
+}
+
+<script>
+    // Hide success message after 3 seconds
+    window.onload = function() {
+        var successMessage = document.getElementById("successMessage");
+        if (successMessage) {
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 2000); // 1000 milliseconds = 1 second
+        }
+
+        // Hide error message after 3 seconds
+        var errorMessage = document.getElementById("errorMessage");
+        if (errorMessage) {
+            setTimeout(function() {
+                errorMessage.style.display = 'none';
+            }, 2000); // 1000 milliseconds = 1 second
+        }
+    };
+</script>

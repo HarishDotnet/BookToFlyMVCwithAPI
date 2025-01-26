@@ -49,28 +49,6 @@
         /* Subtle hover effect */
     }
 </style>
-<script>
-    const sideNav = document.getElementById('sideNav');
-    const leftOptionIcon = document.getElementById('leftOptionIcon');
-
-    // Toggle sidebar visibility when clicking the menu icon
-    leftOptionIcon.addEventListener('click', function () {
-        sideNav.classList.toggle('show'); // Toggle sidebar visibility
-    });
-
-    // Keep the sidebar open while hovering
-    sideNav.addEventListener('mouseenter', function () {
-        sideNav.classList.add('show');
-    });
-
-    // Hide the sidebar when the mouse leaves
-    sideNav.addEventListener('mouseleave', function () {
-        sideNav.classList.remove('show');
-    });
-
-</script>
-
-@if (Context.Session.GetString("JWT_TOKEN") != null){
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
         <!-- Left Option Icon -->
@@ -156,7 +134,23 @@
         </div>
     </div>
 </div>
-}
-else{
-    
-}
+<script>
+    const sideNav = document.getElementById('sideNav');
+    const leftOptionIcon = document.getElementById('leftOptionIcon');
+
+    // Toggle sidebar visibility when clicking the menu icon
+    leftOptionIcon.addEventListener('click', function () {
+        sideNav.classList.toggle('show'); // Toggle sidebar visibility
+    });
+
+    // Keep the sidebar open while hovering
+    sideNav.addEventListener('mouseenter', function () {
+        sideNav.classList.add('show');
+    });
+
+    // Hide the sidebar when the mouse leaves
+    sideNav.addEventListener('mouseleave', function () {
+        sideNav.classList.remove('show');
+    });
+
+</script>

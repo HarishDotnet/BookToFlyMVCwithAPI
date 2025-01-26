@@ -588,6 +588,7 @@ C:\Users\harish.muthu\Desktop\BookToFlyMVCwithAPI\BookToFlyMVC\obj\Debug\net8.0\
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\FlightDetailApi.deps.json
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\FlightDetailApi.runtimeconfig.json
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\FlightDetailApi.exe
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\web.config
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\appsettings.json
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\BookToFlyMVC.staticwebassets.runtime.json

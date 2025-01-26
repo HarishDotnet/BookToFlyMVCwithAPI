@@ -1,8 +1,8 @@
 using AutoMapper;
-using FlightDetailsApi.DTO;
-using FlightDetailsApi.Models;
+using FlightDetailApi.DTO;
+using FlightDetailApi.Models;
 
-namespace FlightDetailsApi.MappingDTO
+namespace FlightDetailApi.MappingDTO
 {
     public class FlightMapper : Profile
     {
@@ -17,10 +17,13 @@ namespace FlightDetailsApi.MappingDTO
                 .ReverseMap(); // Enable reverse mapping
 
             // Map between FlightInputDTO and InternationalFlightDetails
-            CreateMap<FlightInputDTO, InternationalFlightDetails>(); // Ignore unmapped fields
+            CreateMap<FlightInputDTO, InternationalFlightDetails>().ReverseMap(); // Ignore unmapped fields
 
             // Map between FlightInputDTO and DomesticFlightDetails
-            CreateMap<FlightInputDTO, DomesticFlightDetails>();
+            CreateMap<FlightInputDTO, DomesticFlightDetails>().ReverseMap();
+
+            CreateMap<Object,InternationalFlightDetails>().ReverseMap();
+            CreateMap<Object,DomesticFlightDetails>().ReverseMap();
 
             // Map List<InternationalFlightDetails> to List<FlightOutputDTO>
             CreateMap<List<InternationalFlightDetails>, List<FlightOutputDTO>>()

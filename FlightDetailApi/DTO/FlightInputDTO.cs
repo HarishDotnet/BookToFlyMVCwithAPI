@@ -1,4 +1,4 @@
-namespace FlightDetailsApi.DTO
+namespace FlightDetailApi.DTO
 {
     public class FlightInputDTO
     {

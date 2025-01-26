@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
-using FlightDetailsApi.Validations;
+using FlightDetailApi.Validations;
 
 
-namespace FlightDetailsApi.Models
+namespace FlightDetailApi.Models
 {
     public class AdminModel
     {

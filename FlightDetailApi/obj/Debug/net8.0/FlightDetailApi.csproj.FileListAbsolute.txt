@@ -341,7 +341,6 @@ C:\Users\harish.muthu\Desktop\BookToFlyMVCwithAPI\FlightDetailApi\obj\Debug\net8
 C:\Users\harish.muthu\Desktop\BookToFlyMVCwithAPI\FlightDetailApi\obj\Debug\net8.0\ref\FlightDetailApi.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\FlightDetailApi.exe
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\FlightDetailApi.dll
-C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\FlightDetailApi.pdb
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
@@ -378,6 +377,7 @@ C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\FlightDetailApi.pdb
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\appsettings.json
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\FlightDetailApi.deps.json

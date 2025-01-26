@@ -5,24 +5,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookToFlyMVC.Controllers
 {
-    public class AdminController : Controller
-    {
-        private readonly HttpClient _client;
-        private readonly IMapper _mapper;
+     public class AdminController : Controller{
+        private readonly ILogger _logger;
         private readonly ApplicationDbContext _dbContext;
-
-        public AdminController(ApplicationDbContext dbContext, IMapper mapper, IHttpClientFactory clientFactory)
-        {
-            _dbContext = dbContext;
-            _mapper = mapper;
-            _client = clientFactory.CreateClient("FlightClient");
+        private readonly  IHttpClientFactory _client;
+        private readonly IMapper _mapper;
+        // Default Show Flights
+        public AdminController(ILogger<UserController> logger,ApplicationDbContext dbContext, IHttpClientFactory client, IMapper mapper){
+            _mapper=mapper;
+            _logger=logger;
+            _client=client;
+            _dbContext=dbContext;
         }
 
-        // Default Show Flights
-
-        public IActionResult Index()
+        public IActionResult Dashboard()
         {
-            return View("Index");
+            return View("Dashboard");
         }
 
         public IActionResult Profile()
@@ -37,7 +35,7 @@ namespace BookToFlyMVC.Controllers
         public IActionResult YetToDevelop()
         {
             // Define the URL or string that will be passed to the view (you can modify this to whatever you want)
-            string redirectUrl = "/Admin/Index"; // Example URL to redirect to the Dashboard
+            string redirectUrl = "/Admin/Dashboard"; // Example URL to redirect to the Dashboard
 
             // Return the _YetToDevelop.cshtml view with the string model (redirect URL)
             return View("~/Views/Shared/_YetToDevelop.cshtml", redirectUrl);

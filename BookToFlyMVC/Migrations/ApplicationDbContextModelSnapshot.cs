@@ -22,6 +22,19 @@ namespace BookToFlyMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("BookToFlyMVC.DTO.LoginDTO", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("admin");
+                });
+
             modelBuilder.Entity("BookToFlyMVC.Models.BookedTicket", b =>
                 {
                     b.Property<int>("Id")

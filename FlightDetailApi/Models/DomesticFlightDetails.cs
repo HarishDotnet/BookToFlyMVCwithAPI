@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace FlightDetailsApi.Models
+namespace FlightDetailApi.Models
 {
     public class DomesticFlightDetails
     {

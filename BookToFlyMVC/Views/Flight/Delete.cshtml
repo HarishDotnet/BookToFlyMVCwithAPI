@@ -1,12 +1,12 @@
 @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
-
+@if (Context.Session.GetString("JWT_TOKEN") != null){
 <div class="container mt-5">
     <div id="popupMessage" class="position-fixed top-0 start-50 translate-middle-x p-3 d-none" style="z-index: 1050;">
         <div id="popupContent" class="alert alert-dismissible fade show" role="alert"></div>
     </div>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md">
-        <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Back</a>
+        <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
     </div>
     <hr />
     <div class="card shadow-sm">
@@ -72,6 +72,10 @@
         </div>
     </div>
 </div>
+}
+else{
+         @Html.PartialAsync("~/Views/Home/Login")
+}
 
 <script>
     let flightDetails = {};
@@ -117,7 +121,7 @@
 
         try {
             const response = await fetch(
-                `http://localhost:5087/api/Flight/DisplayFlightByType?FlightType=${encodeURIComponent(flightType)}&flightNumber=${encodeURIComponent(flightNumber)}`
+                `http://localhost:5087/api/Flight/MatchFlightByNumberAndType?FlightType=${encodeURIComponent(flightType)}&flightNumber=${encodeURIComponent(flightNumber)}`
             );
 
             if (response.ok) {

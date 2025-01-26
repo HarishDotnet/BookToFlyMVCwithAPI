@@ -1,7 +1,7 @@
-using FlightDetailsApi.Models;
+using FlightDetailApi.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlightDetailsApi.Data
+namespace FlightDetailApi.Data
 {
     public class ApplicationDbContextMVC : DbContext
     {

@@ -1,7 +1,7 @@
 using AutoMapper;
 using BookToFlyMVC.DTO;
 using BookToFlyMVC.Models;
-using FlightDetailsApi.Models;
+using FlightDetailApi.Models;
 namespace BookToFlyMVC.MappingDTO{
     public class FlightDTOMapping: Profile
     {

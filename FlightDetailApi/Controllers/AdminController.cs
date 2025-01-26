@@ -1,11 +1,11 @@
 using AutoMapper;
-using FlightDetailsApi.Data;
-using FlightDetailsApi.Models;
-using FlightDetailsApi.Services;
+using FlightDetailApi.Data;
+using FlightDetailApi.Models;
+using FlightDetailApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
-[Route("api/[controller]")]
+namespace FlightDetailApi.Controllers{
+    [Route("api/[controller]")]
 [ApiController]
 public class AdminController : ControllerBase
 {
@@ -64,4 +64,6 @@ public class AdminController : ControllerBase
 
         return Ok(new { success = true, message = "Registration successful" });
     }
+}
+
 }

@@ -27,6 +27,12 @@ public class HomeController : Controller
         _client = client.CreateClient("FlightClient");
     }
 
+    public IActionResult Error(int? code = null)
+    {
+        ViewData["ErrorCode"] = code ?? 500; // Default to 500 if no code is provided
+        return View("Error"); // Use a single view for all errors
+    }
+
     public IActionResult Login()
     {
         return View();
@@ -59,7 +65,7 @@ public class HomeController : Controller
                     HttpContext.Session.SetString("JWT_TOKEN", token);
 
                     // Redirect to Admin Dashboard
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Dashboard", "Admin");
                 }
                 else
                 {

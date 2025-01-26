@@ -5,7 +5,7 @@
 namespace BookToFlyMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class addedusers : Migration
+    public partial class Addedusers : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

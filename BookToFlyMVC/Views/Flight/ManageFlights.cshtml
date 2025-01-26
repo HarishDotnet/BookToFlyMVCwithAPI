@@ -1,4 +1,5 @@
 @model List<BookToFlyMVC.DTO.FlightDetailsDTO>
+@if (Context.Session.GetString("JWT_TOKEN") != null){
 @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
 <div class="container-5" id="manageflight" style="max-width: 95%; margin: 0 auto; padding: 20px;">
 
@@ -7,7 +8,7 @@
         style="max-height: auto; overflow-y: auto; background: rgba(124, 255, 251, 0.463); backdrop-filter: blur(5px); border-radius: 10px; padding: 16px;">
     <!-- Back Button -->
     <div class="mb-4">
-        <a href="@Url.Action("Index", "Admin")" class="btn btn-outline-primary">
+        <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-outline-primary">
             <i class="bi bi-box-arrow-in-left"></i> Back
         </a>
     </div>
@@ -146,3 +147,8 @@
         }
     }
 </script>
+}
+ }
+    else{
+         @Html.PartialAsync("~/Views/Home/Login")
+    }

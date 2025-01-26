@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using FlightDetailsApi.Data;
+using FlightDetailApi.Data;
 
-namespace FlightDetailsApi.Validations
+namespace FlightDetailApi.Validations
 {
     public class CheckUserNameAttribute : ValidationAttribute
     {

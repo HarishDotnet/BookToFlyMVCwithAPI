@@ -13,7 +13,7 @@ namespace BookToFlyMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250125225250_addedusers")]
-    partial class addedusers
+    partial class Addedusers
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
