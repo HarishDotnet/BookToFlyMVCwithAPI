@@ -1,6 +1,12 @@
 using FlightDetailApi.Configurations;
+using FlightDetailApi.Data;
+using FlightDetailApi.Controllers.HelperMethods;
 using FlightDetailApi.MappingDTO;
+using FlightDetailApi.Models;
+using FlightDetailApi.Repositories;
 using FlightDetailApi.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,9 +17,24 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerConfiguration();
 builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(FlightMapper)); // AutoMapper profile registration
-builder.Services.AddDatabaseContexts(builder.Configuration);
+builder.Services.AddDatabaseContexts(builder.Configuration); // Ensure this method correctly configures your DbContext
 builder.Services.AddScoped<JWTTokenService>();
 builder.Services.AddCorsPolicy();
+builder.Host.ConfigureLogging();
+builder.Services.AddScoped<IFlightHelper, FlightHelper>();
+
+// Registering IRepository and other services
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<AdminService>();
+builder.Services.AddScoped<IGenericRepository<AdminModel>, GenericRepository<AdminModel>>();
+builder.Services.AddScoped<DbContext, ApplicationDbContextMVC>(); // Ensure that ApplicationDbContextMVC is only registered once
+
+// Ensure you have registered FlightHelper (if used in controllers)
+builder.Services.AddScoped<FlightHelper>(); // Add this line to register FlightHelper if used
+
+// Register the DbContext with the correct connection string
+builder.Services.AddDbContext<ApplicationDbContextMVC>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionMVC")));
 
 var app = builder.Build();
 

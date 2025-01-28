@@ -1,69 +1,70 @@
-using AutoMapper;
-using FlightDetailApi.Data;
 using FlightDetailApi.Models;
 using FlightDetailApi.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-namespace FlightDetailApi.Controllers{
-    [Route("api/[controller]")]
-[ApiController]
-public class AdminController : ControllerBase
+using Microsoft.Extensions.Logging;
+
+namespace FlightDetailApi.Controllers
 {
-    private readonly ApplicationDbContextMVC _mvcContext; // MVC database context
-    private readonly JWTTokenService _jwtTokenService; // JWT Service
-    private readonly IMapper _mapper;
-    public AdminController(ApplicationDbContextMVC mvcContext, JWTTokenService jwtTokenService,IMapper mapper)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AdminController : ControllerBase
     {
-        _mvcContext = mvcContext;
-        _mapper=mapper;
-        _jwtTokenService = jwtTokenService;
+        private readonly AdminService _adminService;
+        private readonly JWTTokenService _jwtTokenService;
+        private readonly ILogger<AdminController> _logger;
+
+        public AdminController(Data.ApplicationDbContextMVC @object, AdminService adminService, JWTTokenService jwtTokenService, ILogger<AdminController> logger)
+        {
+            _adminService = adminService;
+            _jwtTokenService = jwtTokenService;
+            _logger = logger;
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] AdminLoginDTO login)
+        {
+            _logger.LogInformation("Login attempt for user: {Username}", login?.Username);
+
+            if (login == null || string.IsNullOrEmpty(login.Username))
+            {
+                _logger.LogWarning("Login failed: Username or password is null or empty.");
+                return BadRequest(new { success = false, message = "Username or password should not be null." });
+            }
+
+            var admin = await _adminService.LoginAsync(login.Username, login.Password);
+            if (admin == null)
+            {
+                _logger.LogWarning("Login failed: Invalid username or password.");
+                return Unauthorized(new { success = false, message = "Invalid username or password." });
+            }
+
+            var token = _jwtTokenService.GenerateJWTToken(admin.Username, "Admin");
+            _logger.LogInformation("Login successful for user: {Username}. JWT token generated.", login.Username);
+
+            return Ok(token);
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] AdminModel register)
+        {
+            _logger.LogInformation("Registration attempt for user: {Username}", register?.Username);
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList();
+                _logger.LogWarning("Registration failed: Invalid model state. Errors: {Errors}", string.Join(", ", errors));
+                return BadRequest(new { success = false, errors });
+            }
+
+            var success = await _adminService.RegisterAsync(register);
+            if (!success)
+            {
+                _logger.LogWarning("Registration failed: Username {Username} is already taken.", register.Username);
+                return Conflict(new { success = false, message = "Username is already taken." });
+            }
+
+            _logger.LogInformation("Registration successful for user: {Username}", register.Username);
+            return Ok(new { success = true, message = "Registration successful." });
+        }
     }
-
-    [HttpPost("login")]
-    public async Task<ActionResult> Login([FromBody] AdminLoginDTO login)
-    {
-        if (login == null || string.IsNullOrEmpty(login.Username))
-        {
-            return BadRequest(new { success = false, message = "username or password should not be null" });
-        }
-        // Check if the user exists
-        var user = await _mvcContext.admin.FirstOrDefaultAsync(u => u.Username == login.Username);
-        if (user == null)
-        {
-            return Unauthorized( "Invalid username or password." );
-        }
-        // Verify the password
-        if (!login.Password.Equals( user.Password))
-        {
-            return Unauthorized( "Invalid username or password." );
-        }
-        // Generate JWT Token
-        var token = _jwtTokenService.GenerateJWTToken(user.Username, "Admin");
-
-        return Ok(token);
-    }
-
-    [HttpPost("register")]
-    public async Task<ActionResult> Register([FromBody] AdminModel register)
-    {
-        // Validate the model
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
-        }
-
-        // Check if the username already exists
-        var existingUser = await _mvcContext.admin.FirstOrDefaultAsync(u => u.Username == register.Username);
-        if (existingUser != null)
-        {
-            return Conflict(new { success = false, message = "Username is already taken." });
-        }
-
-        _mvcContext.admin.Add(register);
-        await _mvcContext.SaveChangesAsync();
-
-        return Ok(new { success = true, message = "Registration successful" });
-    }
-}
-
 }

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using BookToFlyMVC.Data;
 using AutoMapper;
 using BookToFlyMVC.DTO;
 using System.Text.Json;
@@ -30,6 +29,8 @@ namespace BookToFlyAPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] FlightDetailsDTO flightDetails)
         {
+            flightDetails.FlightId=flightDetails.FlightType.Equals("International")
+                        ?flightDetails.FlightId="IF"+flightDetails.FlightId:"DF"+flightDetails.FlightId;
             if (!ModelState.IsValid)
             {
                 return View(flightDetails);
@@ -74,12 +75,11 @@ namespace BookToFlyAPI.Controllers
         {
             List<FlightDetailsDTO> flightList = new List<FlightDetailsDTO>();
             var flightSearchData = new FlightSearchDTO();
-
             try
             {
                 HttpResponseMessage response = null;
 
-                if (!string.IsNullOrEmpty(searchInput.FlightType) && string.IsNullOrEmpty(searchInput.FlightNumber) &&
+                if (!string.IsNullOrEmpty(searchInput.FlightType) &&
                     !string.IsNullOrEmpty(searchInput.Source) && !string.IsNullOrEmpty(searchInput.Destination))
                 {
                     flightSearchData = _mapper.Map<FlightSearchDTO>(searchInput);
@@ -93,28 +93,31 @@ namespace BookToFlyAPI.Controllers
                         //properties without considering case between api and mvc models
                         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                         flightList = JsonSerializer.Deserialize<List<FlightDetailsDTO>>(flightData, options);
+                        if(flightList.Count==1){
+                            RedirectToAction("ShowflightCard",new { flightNumber = flightList[0].FlightId });
+                        }
                     }
                     else
                     {
                         ModelState.AddModelError(string.Empty, "Failed to fetch flight data.");
                     }
                 }
-                else if (!string.IsNullOrEmpty(searchInput.FlightType) && !string.IsNullOrEmpty(searchInput.FlightNumber))
-                {
-                    response = await _client.GetAsync($"Flight/DisplayFlightByType?FlightType={searchInput.FlightType}&flightNumber={searchInput.FlightNumber}");
+                // else if (!string.IsNullOrEmpty(searchInput.FlightType) && !string.IsNullOrEmpty(searchInput.FlightNumber))
+                // {
+                //     response = await _client.GetAsync($"Flight/DisplayFlightByType?FlightType={searchInput.FlightType}&flightNumber={searchInput.FlightNumber}");
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string flightData = await response.Content.ReadAsStringAsync();
-                        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                        var flight = JsonSerializer.Deserialize<FlightDetailsDTO>(flightData, options);
-                        flightList.Add(flight);
-                    }
-                    else
-                    {
-                        ModelState.AddModelError(string.Empty, "Failed to fetch flight data.");
-                    }
-                }
+                //     if (response.IsSuccessStatusCode)
+                //     {
+                //         string flightData = await response.Content.ReadAsStringAsync();
+                //         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                //         var flight = JsonSerializer.Deserialize<FlightDetailsDTO>(flightData, options);
+                //         flightList.Add(flight);
+                //     }
+                //     else
+                //     {
+                //         ModelState.AddModelError(string.Empty, "Failed to fetch flight data.");
+                //     }
+                // }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid search parameters.");

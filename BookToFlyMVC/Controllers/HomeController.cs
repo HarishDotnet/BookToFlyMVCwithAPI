@@ -8,8 +8,6 @@ using BookToFlyMVC.DTO;
 using AutoMapper;
 using System.Text.Json;
 using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Net.Http.Headers;
 
 namespace BookToFlyMVC.Controllers;
 
@@ -80,6 +78,7 @@ public class HomeController : Controller
 
                 if (user != null)
                 {
+                    ViewBag.ViewData["RenderHeader"]=true;
                     return RedirectToAction("Index", "User");
                 }
             }
@@ -88,7 +87,7 @@ public class HomeController : Controller
         }
         catch (Exception ex)
         {
-            ModelState.AddModelError(string.Empty, "An error occurred while processing your request.");
+            ModelState.AddModelError(string.Empty, "An error occurred while processing your request from API.");
             Console.WriteLine(ex.Message);
         }
 

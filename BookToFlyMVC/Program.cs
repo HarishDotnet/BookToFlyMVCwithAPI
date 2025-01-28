@@ -32,7 +32,7 @@ else
 
 app.UseStatusCodePagesWithReExecute("/Home/Error", "?code={0}");
 app.ConfigureMiddleware(); // Use the custom middleware here
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();

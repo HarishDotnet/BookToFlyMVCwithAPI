@@ -1,80 +1,82 @@
-@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
-@if (Context.Session.GetString("JWT_TOKEN") != null){
-<div class="container mt-5">
-    <div id="popupMessage" class="position-fixed top-0 start-50 translate-middle-x p-3 d-none" style="z-index: 1050;">
-        <div id="popupContent" class="alert alert-dismissible fade show" role="alert"></div>
-    </div>
-
-    <div class="d-grid gap-2 d-md-flex justify-content-md">
-        <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
-    </div>
-    <hr />
-    <div class="card shadow-sm">
-        <div class="card-header text-center">
-            <h5 class="card-title mb-0">Delete Flight</h5>
+@if (Context.Session.GetString("JWT_TOKEN") != null)
+{
+    @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+    <div class="container mt-5">
+        <div id="popupMessage" class="position-fixed top-0 start-50 translate-middle-x p-3 d-none" style="z-index: 1050;">
+            <div id="popupContent" class="alert alert-dismissible fade show" role="alert"></div>
         </div>
-        <div class="card-body">
-            <div class="mb-3">
-                <label for="FlightType" class="form-label">Flight Type <span class="text-danger">*</span></label>
-                <select id="FlightType" name="FlightType" class="form-select" required>
-                    <option value="" disabled selected>Select Type</option>
-                    <option value="International">International</option>
-                    <option value="Domestic">Domestic</option>
-                </select>
-                <div class="invalid-feedback">Please select a flight type.</div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md">
+            <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
+        </div>
+        <hr />
+        <div class="card shadow-sm">
+            <div class="card-header text-center">
+                <h5 class="card-title mb-0">Delete Flight</h5>
             </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="FlightType" class="form-label"><span class="text-danger">*</span></label>
+                    <select id="FlightType" name="FlightType" class="form-select" required>
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="International">International</option>
+                        <option value="Domestic">Domestic</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a flight type.</div>
+                </div>
 
-            <div class="mb-3">
-                <label for="flightNumber" class="form-label">Flight Number <span class="text-danger">*</span></label>
-                <input type="text" id="flightNumber" name="flightNumber" class="form-control"
-                    placeholder="Enter flight number" required autocomplete="off" onclick="showFlightSuggestions()" />
-                <div class="invalid-feedback">Please enter a flight number.</div>
+                <div class="mb-3">
+                    <label for="flightNumber" class="form-label"><span class="text-danger">*</span></label>
+                    <input type="text" id="flightNumber" name="flightNumber" class="form-control"
+                        placeholder="Enter flight number" required autocomplete="off" onclick="showFlightSuggestions()" />
+                    <div class="invalid-feedback">Please enter a flight number.</div>
 
-                <ul id="flightSuggestionsList" class="list-group position-absolute w-100"
-                    style="display: none; max-height: 200px; overflow-y: auto; z-index: 1000; background-color: white; border: 1px solid #ccc;">
-                </ul>
-            </div>
+                    <ul id="flightSuggestionsList" class="list-group position-absolute w-100"
+                        style="display: none; max-height: 200px; overflow-y: auto; z-index: 1000; background-color: white; border: 1px solid #ccc;">
+                    </ul>
+                </div>
 
-            <a id="showCardBtn" class="btn btn-danger btn-sm w-100" onclick="flightDetailsLink()">
-                <i class="bi bi-trash"></i> Delete Flight
-            </a>
+                <a id="showCardBtn" class="btn btn-danger btn-sm w-100" onclick="flightDetailsLink()">
+                    <i class="bi bi-trash"></i> Delete Flight
+                </a>
 
-            <div class="overlay d-none position-fixed top-0 start-0 w-100 h-100 bg-dark opacity-50" id="overlay"></div>
+                <div class="overlay d-none position-fixed top-0 start-0 w-100 h-100 bg-dark opacity-50" id="overlay"></div>
 
-            <div class="popup position-fixed top-50 start-50 translate-middle d-none" id="profilePopup">
-                <div class="card" style="width: 25rem;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Flight Details</h5>
-                        <div id="flightDetailsContent">
-                            <p>Flight Number: <span id="popupFlightNumber"></span></p>
-                            <p>Flight Type: <span id="popupFlightType"></span></p>
-                            <p>Airline: <span id="popupAirlineName"></span></p>
-                            <p>Source: <span id="popupSource"></span></p>
-                            <p>Destination: <span id="popupDestination"></span></p>
-                            <p>Arrival Time: <span id="popupArrivalTime"></span></p>
-                            <p>Departure Time: <span id="popupDepartureTime"></span></p>
-                            <p>Duration: <span id="popupDuration"></span></p>
-                            <p>Available Seats: <span id="popupAvailableSeats"></span></p>
-                            <p>Ticket Price: <span id="popupTicketPrice"></span></p>
-                            <p>Available Days: <span id="popupAvailableDays"></span></p>
-                        </div>
-                        <div class="text-center">
-                            <form id="confirmDeleteForm" asp-action="ConfirmDelete" asp-controller="Flight"
-                                method="post">
-                                <input type="hidden" name="flightId" id="hiddenFlightId" />
-                                <button type="submit" class="btn btn-danger me-2">Confirm Deletion</button>
-                                <button type="button" class="btn btn-secondary" onclick="closePopup()">Cancel</button>
-                            </form>
+                <div class="popup position-fixed top-50 start-50 translate-middle d-none" id="profilePopup">
+                    <div class="card" style="width: 25rem;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Flight Details</h5>
+                            <div id="flightDetailsContent">
+                                <p>Flight Number: <span id="popupFlightNumber"></span></p>
+                                <p>Flight Type: <span id="popupFlightType"></span></p>
+                                <p>Airline: <span id="popupAirlineName"></span></p>
+                                <p>Source: <span id="popupSource"></span></p>
+                                <p>Destination: <span id="popupDestination"></span></p>
+                                <p>Arrival Time: <span id="popupArrivalTime"></span></p>
+                                <p>Departure Time: <span id="popupDepartureTime"></span></p>
+                                <p>Duration: <span id="popupDuration"></span></p>
+                                <p>Available Seats: <span id="popupAvailableSeats"></span></p>
+                                <p>Ticket Price: <span id="popupTicketPrice"></span></p>
+                                <p>Available Days: <span id="popupAvailableDays"></span></p>
+                            </div>
+                            <div class="text-center">
+                                <form id="confirmDeleteForm" asp-action="ConfirmDelete" asp-controller="Flight"
+                                    method="post">
+                                    <input type="hidden" name="flightId" id="hiddenFlightId" />
+                                    <button type="submit" class="btn btn-danger me-2">Confirm Deletion</button>
+                                    <button type="button" class="btn btn-secondary" onclick="closePopup()">Cancel</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 }
-else{
-         @Html.PartialAsync("~/Views/Home/Login")
+else
+{
+    @await Html.PartialAsync("~/Views/Home/Login")
 }
 
 <script>
@@ -101,7 +103,7 @@ else{
     }
 
     // Check for TempData messages and show the popup if present
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const successMessage = '@TempData["DeleteSuccessMessage"]';
         const errorMessage = '@TempData["DeleteErrorMessage"]';
 
@@ -225,3 +227,155 @@ else{
     // Ensure suggestions show when clicking input field
     document.getElementById('flightNumber').addEventListener('click', showFlightSuggestions);
 </script>
+<style>
+   /* General Container Styling */
+.container {
+    background: rgba(245, 245, 245, 0.9); /* Light gray background */
+    backdrop-filter: blur(12px); /* Slightly stronger blur effect */
+    min-height: 10vh;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Typography */
+h2 {
+    color: #007bff; /* Primary blue for headings */
+    text-align: center;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #28a745; /* Green */
+    border-color: #28a745;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn-primary:active {
+    background-color: #1e7e34; /* Even darker green on click */
+    transform: scale(1);
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red */
+    border-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn-danger:active {
+    background-color: #bd2130; /* Even darker red on click */
+    transform: scale(1);
+}
+
+/* Alerts */
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Dropdown and Suggestions */
+#flightSuggestionsList {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 200px;
+    z-index: 1000;
+}
+
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Popup */
+#profilePopup {
+    width: 25rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1050;
+    padding: 20px;
+}
+
+#overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Success and Error Messages */
+#successMessage, #errorMessage {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Duration Field */
+#duration {
+    background-color: #e9ecef;
+    color: #495057;
+    pointer-events: none; /* Read-only appearance */
+}
+
+/* Responsive Design */
+.container {
+    padding: 15px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+</style>

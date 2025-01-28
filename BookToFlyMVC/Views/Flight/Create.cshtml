@@ -1,15 +1,16 @@
 @{
     ViewData["Title"] = "Add Flight";
 }
-@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
-@if (Context.Session.GetString("JWT_TOKEN") != null){
-    <div class="container mt-5" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); min-height: 10vh; padding: 20px; max-width: 900px; margin: 0 auto;">
+@if (Context.Session.GetString("JWT_TOKEN") != null)
+{
+    @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+    <div class="container flight-form">
         <h2 class="text-center">@ViewData["Title"]</h2>
         <div class="d-grid gap-2 d-md-flex justify-content-md">
             <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
         </div>
         <hr />
-        
+
         <!-- Success Message -->
         @if (TempData["CreateSuccessMessage"] != null)
         {
@@ -33,65 +34,77 @@
                 </select>
             </div>
 
-            <!-- Flight Id -->
+            <!-- Modified Flight Id with prefix handling -->
             <div class="mb-3">
                 <label for="flightId" class="form-label">Flight Id:</label>
-                <input type="text" id="flightId" name="FlightId" class="form-control" placeholder="Enter Flight Id" required />
+                <div class="input-group">
+                    <span class="input-group-text" id="prefixDisplay">--</span>
+                    <input type="text" id="flightId" name="FlightId" class="form-control" placeholder="Enter Flight Number"
+                        required />
+                </div>
             </div>
 
             <!-- Airline Name -->
             <div class="mb-3">
                 <label for="airlineName" class="form-label">Airline Name:</label>
-                <input type="text" id="airlineName" name="AirlineName" class="form-control" placeholder="Enter Airline Name" required />
+                <input type="text" id="airlineName" name="AirlineName" class="form-control" placeholder="Enter Airline Name"
+                    required />
             </div>
 
             <!-- Source -->
             <div class="mb-3">
                 <label for="source" class="form-label">Source:</label>
-                <input type="text" id="source" name="Source" class="form-control" placeholder="Enter Source Airport Code (e.g., JFK)" required />
+                <input type="text" id="source" name="Source" class="form-control"
+                    placeholder="Enter Source Airport Code (e.g., JFK)" required />
             </div>
 
             <!-- Destination -->
             <div class="mb-3">
                 <label for="destination" class="form-label">Destination:</label>
-                <input type="text" id="destination" name="Destination" class="form-control" placeholder="Enter Destination Airport Code (e.g., LHR)" required />
+                <input type="text" id="destination" name="Destination" class="form-control"
+                    placeholder="Enter Destination Airport Code (e.g., LHR)" required />
             </div>
 
-            <!-- Arrival Time -->
-            <div class="mb-3">
-                <label for="arrivalTime" class="form-label">Arrival Time:</label>
-                <input type="time" id="arrivalTime" name="ArrivalTime" class="form-control" required />
-            </div>
 
             <!-- Departure Time -->
             <div class="mb-3">
-                <label for="departureTime" class="form-label">Departure Time:</label>
+                <label for="departureTime" class="form-label">Flight Starting Time:</label>
                 <input type="time" id="departureTime" name="DepartureTime" class="form-control" required />
             </div>
 
-            <!-- Duration -->
+
+            <!-- Araival Time -->
             <div class="mb-3">
-                <label for="duration" class="form-label">Duration (in hours):</label>
-                <input type="number" id="duration" name="Duration" class="form-control" placeholder="Enter Flight Duration (e.g., 5.5)" step="0.1" required />
+                <label for="arrivalTime" class="form-label">Flight Reaching Time:</label>
+                <input type="time" id="arrivalTime" name="ArrivalTime" class="form-control" required />
             </div>
 
-            <!-- Ticket Price -->
+
+            <!-- Modified Duration field -->
+            <div class="mb-3">
+                <label for="duration" class="form-label">Duration (in hours):</label>
+                <input type="number" id="duration" name="Duration" class="form-control" step="0.1" required readonly />
+            </div>
+
             <div class="mb-3">
                 <label for="ticketPrice" class="form-label">Price (in Rupees):</label>
-                <input type="number" id="ticketPrice" name="TicketPrice" class="form-control" placeholder="Enter Ticket Price" step="0.01" required />
+                <input type="number" id="ticketPrice" name="TicketPrice" class="form-control"
+                    placeholder="Enter Ticket Price" step="0.01" required />
             </div>
 
             <!-- Available Seats -->
             <div class="mb-3">
                 <label for="availableSeats" class="form-label">Available Seats:</label>
-                <input type="number" id="availableSeats" name="AvailableSeats" class="form-control" placeholder="Enter Number of Available Seats" required />
+                <input type="number" id="availableSeats" name="AvailableSeats" class="form-control"
+                    placeholder="Enter Number of Available Seats" required />
             </div>
 
             <!-- Available Days -->
             <div class="mb-3">
                 <label class="form-label">Available Days:</label>
                 <div class="d-flex flex-wrap gap-2 mt-2">
-                    @foreach (var day in new[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" })
+                    @foreach (var day in new[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+                "Sunday" })
                     {
                         <div class="form-check">
                             <input type="checkbox" id="@day" name="AvailableDays" value="@day" class="form-check-input" />
@@ -107,26 +120,12 @@
             </div>
         </form>
     </div>
-} else {
-    @Html.PartialAsync("~Views/Home/Login")
+}
+else
+{
+    @await Html.PartialAsync("~/Views/Home/Login.cshtml")
 }
 
-<script>
-    // Hide success message after 3 seconds
-    window.onload = function() {
-        var successMessage = document.getElementById("successMessage");
-        if (successMessage) {
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 2000); // 1000 milliseconds = 1 second
-        }
-
-        // Hide error message after 3 seconds
-        var errorMessage = document.getElementById("errorMessage");
-        if (errorMessage) {
-            setTimeout(function() {
-                errorMessage.style.display = 'none';
-            }, 2000); // 1000 milliseconds = 1 second
-        }
-    };
-</script>
+<style>
+    
+</style>

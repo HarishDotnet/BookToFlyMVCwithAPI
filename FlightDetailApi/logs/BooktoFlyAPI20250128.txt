@@ -1,0 +1,353 @@
+2025-01-28 00:42:50.555 +05:30 [INF] AddFlight request received for FlightId: DF200
+2025-01-28 00:42:51.072 +05:30 [INF] Flight added successfully: DF200
+2025-01-28 01:31:13.534 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 01:31:13.909 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 01:31:15.428 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 01:32:37.271 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 01:32:37.312 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 01:36:04.043 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 01:36:04.288 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 01:36:05.192 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 01:36:57.018 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 01:36:57.098 +05:30 [INF] No flights found for Source: Mumbai, Destination: Madurai, FlightType: Domestic
+2025-01-28 01:45:08.689 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 01:45:08.870 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 01:45:09.599 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 01:46:55.686 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 01:46:55.885 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 01:46:56.640 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 01:51:23.835 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 01:51:24.128 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 01:51:25.016 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 01:55:20.724 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 01:55:20.742 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 01:57:13.418 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 01:57:13.471 +05:30 [INF] No flights found for Source: Bangalore, Destination: Kochi, FlightType: Domestic
+2025-01-28 02:03:06.451 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:03:06.460 +05:30 [INF] 1 flights found for Source: Chennai, Destination: Chicago (ORD), FlightType: Domestic
+2025-01-28 02:04:02.272 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:04:02.299 +05:30 [INF] 1 flights found for Source: Seoul, Destination: Manila, FlightType: International
+2025-01-28 02:11:28.479 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:11:28.488 +05:30 [INF] 1 flights found for Source: Nairobi, Destination: Cape Town, FlightType: International
+2025-01-28 02:27:46.402 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 02:27:58.094 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:27:58.430 +05:30 [INF] 1 flights found for Source: Istanbul, Destination: Dubai, FlightType: International
+2025-01-28 02:28:19.755 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 02:28:19.863 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 02:28:31.768 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:28:31.787 +05:30 [INF] 1 flights found for Source: Hong Kong, Destination: Taipei, FlightType: International
+2025-01-28 02:31:47.476 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:31:47.476 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:31:47.485 +05:30 [INF] 1 flights found for Source: Istanbul, Destination: Dubai, FlightType: International
+2025-01-28 02:31:47.489 +05:30 [INF] 1 flights found for Source: Hong Kong, Destination: Taipei, FlightType: International
+2025-01-28 02:33:54.721 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:33:54.725 +05:30 [INF] 1 flights found for Source: Hong Kong, Destination: Taipei, FlightType: International
+2025-01-28 02:34:00.672 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:34:00.677 +05:30 [INF] 1 flights found for Source: Hong Kong, Destination: Taipei, FlightType: International
+2025-01-28 02:34:03.977 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:34:03.979 +05:30 [INF] 1 flights found for Source: Hong Kong, Destination: Taipei, FlightType: International
+2025-01-28 02:34:06.960 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:34:06.965 +05:30 [INF] 1 flights found for Source: Hong Kong, Destination: Taipei, FlightType: International
+2025-01-28 02:34:10.540 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 02:34:10.542 +05:30 [INF] 1 flights found for Source: Hong Kong, Destination: Taipei, FlightType: International
+2025-01-28 02:35:07.145 +05:30 [INF] DeleteFlight invoked for FlightId: DF2006
+2025-01-28 02:35:07.353 +05:30 [INF] Flight deleted successfully for FlightId: DF2006
+2025-01-28 02:47:14.244 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 03:29:51.548 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 11:29:17.909 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 11:29:18.078 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Helpers.FlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method10(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 11:30:51.765 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 11:30:51.907 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'FlightDetailsApi.Controllers.FlightController'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.CreateActivator(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.CreateControllerFactory(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 11:32:47.785 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'FlightDetailsApi.Controllers.FlightController'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.CreateActivator(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.CreateControllerFactory(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 11:33:43.355 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'FlightDetailsApi.Controllers.FlightController'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.CreateActivator(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.CreateControllerFactory(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 11:35:04.024 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'FlightDetailsApi.Controllers.FlightController'. There should only be one applicable constructor.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.TryFindMatchingConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfoEx[] constructors, ConstructorInfo& matchingConstructor, Nullable`1[]& matchingParameterMap)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactoryInternal(Type instanceType, Type[] argumentTypes, ParameterExpression& provider, ParameterExpression& argumentArray, Expression& factoryExpressionBody)
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(Type instanceType, Type[] argumentTypes)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.CreateActivator(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.CreateControllerFactory(ControllerActionDescriptor descriptor)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvokerCache.GetCachedResult(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Routing.ControllerRequestDelegateFactory.<>c__DisplayClass12_0.<CreateRequestDelegate>b__0(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 11:35:41.657 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 11:35:42.128 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 11:35:43.749 +05:30 [INF] Returning 18 flight numbers for FlightType: International
+2025-01-28 11:35:50.981 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-28 11:35:51.032 +05:30 [INF] Returning 6 flight numbers for FlightType: Domestic
+2025-01-28 16:58:19.978 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 16:58:20.194 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 16:58:21.239 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 16:59:52.007 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Controllers.HelperMethods.IFlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method44(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 17:00:38.475 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Controllers.HelperMethods.IFlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method52(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 17:01:05.411 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Controllers.HelperMethods.IFlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method60(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 17:01:19.110 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Controllers.HelperMethods.IFlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method52(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 17:01:19.118 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Controllers.HelperMethods.IFlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method52(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 17:04:06.391 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Controllers.HelperMethods.IFlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method52(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 17:06:03.315 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'FlightDetailApi.Controllers.HelperMethods.IFlightHelper' while attempting to activate 'FlightDetailsApi.Controllers.FlightController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method68(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-28 17:10:00.484 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 17:11:23.824 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 17:11:47.286 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 17:12:10.342 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF801
+2025-01-28 17:12:15.467 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF806
+2025-01-28 17:12:20.622 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF804
+2025-01-28 17:12:26.288 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF001
+2025-01-28 17:15:04.542 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 17:15:04.645 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 17:15:23.107 +05:30 [INF] AddFlight request received for FlightId: DF001
+2025-01-28 17:15:30.990 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF001
+2025-01-28 17:17:39.969 +05:30 [INF] UpdateFlight request received for FlightId: IF822
+2025-01-28 17:20:38.357 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 17:20:38.359 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 17:24:00.257 +05:30 [INF] AddFlight request received for FlightId: DF121
+2025-01-28 17:24:10.205 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-28 17:24:13.703 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:24:13.705 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:24:27.641 +05:30 [INF] UpdateFlight request received for FlightId: DF2005
+2025-01-28 17:24:27.667 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:26:53.567 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:26:55.012 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:01.637 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:04.186 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:07.472 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:09.347 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:11.018 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:16.140 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:16.186 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:19.322 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:30.947 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:34.490 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:34.500 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:36.468 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:38.841 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:46.696 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:47.472 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:48.547 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:50.136 +05:30 [INF] UpdateFlight request received for FlightId: DF2005
+2025-01-28 17:27:50.148 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:55.340 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:57.847 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:27:59.528 +05:30 [INF] UpdateFlight request received for FlightId: DF2005
+2025-01-28 17:27:59.546 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:29.501 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:31.592 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:36.038 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:39.598 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:47.231 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:50.043 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:51.415 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:28:53.253 +05:30 [INF] UpdateFlight request received for FlightId: DF2005
+2025-01-28 17:28:53.264 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:31:26.242 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF2005
+2025-01-28 17:31:54.742 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 17:31:54.819 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 17:32:06.079 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 17:32:24.697 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 17:57:55.016 +05:30 [INF] AddFlight request received for FlightId: 122
+2025-01-28 17:57:55.407 +05:30 [WRN] Invalid flight type for FlightId: 122
+2025-01-28 17:58:34.253 +05:30 [INF] AddFlight request received for FlightId: 122
+2025-01-28 17:58:34.271 +05:30 [WRN] Invalid flight type for FlightId: 122
+2025-01-28 17:59:22.525 +05:30 [INF] AddFlight request received for FlightId: 122
+2025-01-28 17:59:22.532 +05:30 [WRN] Invalid flight type for FlightId: 122
+2025-01-28 18:46:00.458 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 18:46:00.680 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 18:46:01.611 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 19:30:20.922 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 19:30:21.044 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 19:31:31.595 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 19:31:31.766 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 19:31:34.227 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 19:31:51.355 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:41:57.649 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 19:42:03.173 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 19:42:03.173 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 19:45:41.166 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 19:45:51.595 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 19:56:29.277 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:56:54.729 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:56:57.705 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:57:05.523 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:57:07.894 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:57:10.142 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:57:39.395 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:57:48.077 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:57:48.160 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:57:51.393 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:58:13.386 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 19:58:58.025 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-28 19:58:58.048 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-28 19:59:00.957 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 19:59:00.964 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 19:59:02.890 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF814
+2025-01-28 20:45:55.995 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 20:45:56.081 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 20:45:56.118 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 20:45:56.120 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 20:50:19.568 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International

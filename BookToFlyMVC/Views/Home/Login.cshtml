@@ -1,47 +1,22 @@
  <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center text-warning" asp-area="" asp-controller="Home" asp-action="Index">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <p class="navbar-brand d-flex align-items-center text-warning" asp-area="" asp-controller="Home" asp-action="Index">
                     <i class="bi bi-airplane-engines-fill me-2"></i>
                     BookToFlyMVC
-                </a>
+                </p>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-muted " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-muted" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
                     <ul class="navbar-nav">
-                        @if (User.Identity.IsAuthenticated)
-                        {
                             <li class="nav-item">
-                                <span class="nav-link text-light">Welcome, @User.Identity.Name</span>
-                            </li>
-                            <li class="nav-item">
-                                <form method="post" asp-controller="Admin" asp-action="Logout">
-                                    <button type="submit" class="btn btn-link nav-link">Logout</button>
-                                </form>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="UserFunctionality" asp-action="UserDashboard">Dashboard</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-info" asp-controller="User" asp-action="Login">Login</a>
+                                <a class="nav-link text-info" asp-controller="Home" asp-action="Login">Login</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-info" asp-controller="User" asp-action="Register">Register</a>
                             </li>
-                        }
                     </ul>
                 </div>
             </div>
@@ -51,68 +26,180 @@
 @{
     ViewData["Title"] = "Login";
 }
-
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="card shadow-sm p-4" style="width: 30rem;">
-        <h2 class="text-center mt-4">@ViewData["Title"]</h2>
-        <hr/>
-        
-        <!-- Display error messages -->
-        @if (!ViewData.ModelState.IsValid)
-        {
-            <div class="alert alert-danger p-2 m-0">
-                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    <p>@error.ErrorMessage</p>
-                }
-            </div>
-        }
-
-        <!-- Login Form -->
-        <form method="post" asp-controller="Home" asp-action="Login">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username:</label>
-                <input type="text" id="username" name="Username" class="form-control" placeholder="Enter your username" required />
+@if(ViewBag.Registration!=null){
+    <div>
+        <h5 class="alert alert-success p-2 m-0">@ViewBag.Registration</h5>
+    </div>
+}
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="login-card shadow-lg">
+        <div class="card-body p-4 p-md-5">
+            <div class="text-center mb-4">
+                <h2 class="brand-text text-primary mb-3">Welcome Back ✈️</h2>
+                <p class="text-muted">Sign in to manage your bookings</p>
             </div>
 
-             <div class="mb-3 position-relative">
-                <label for="Password" class="form-label">Password</label>
-                <div class="input-group">
-                    <input type="password" id="Password" name="Password" class="form-control" asp-for="Password"
-                        required>
-                    <span class="input-group-text" style="cursor: pointer;"
-                        onmousedown="togglePasswordVisibility(true, this)"
-                        onmouseup="togglePasswordVisibility(false, this)"
-                        onmouseleave="togglePasswordVisibility(false, this)">
-                        <i class="bi bi-eye"></i> <!-- Bootstrap eye icon -->
-                    </span>
+            @if (ViewBag.Registration != null)
+            {
+                <div class="animated-alert alert alert-success p-3 mb-4">
+                    @ViewBag.Registration
                 </div>
-                <span class="text-danger" asp-validation-for="Password"></span>
-            </div>
+            }
 
-            <div class="mb-3">
-                <!-- User/Admin Selection -->
-                <label for="role" class="form-label">Login as:</label>
-                <select id="role" name="Role" class="form-select" required>
-                    <option value="User">User</option>
-                    <option value="Admin">Admin</option>
-                </select>
-            </div>
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="animated-alert alert alert-danger p-3 mb-4">
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <div>@error.ErrorMessage</div>
+                    }
+                </div>
+            }
 
-            <!-- Submit Button -->
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-        </form>
+            <form method="post" asp-controller="Home" asp-action="Login">
+                <div class="mb-4 position-relative">
+                    <i class="bi bi-person-fill input-icon"></i>
+                    <input type="text" id="username" name="Username" class="form-control ps-5" 
+                           placeholder="Enter username" required>
+                </div>
 
-        <hr class="my-4" />
+                <div class="mb-4 position-relative">
+                    <i class="bi bi-lock-fill input-icon"></i>
+                    <div class="position-relative">
+                        <input type="password" id="Password" name="Password" 
+                               class="form-control ps-5" placeholder="••••••••" required>
+                        <i class="bi bi-eye-slash password-toggle" 
+                           onclick="togglePasswordVisibility()"></i>
+                    </div>
+                </div>
 
-        <!-- Register Button (Visible Only for Users) -->
-        <div class="text-center">
-            <p>Don't have an account?</p>
-            <form method="post" asp-action="Register" asp-controller="User">
-                <button type="submit" class="btn btn-outline-secondary">Register as User</button>
+                <div class="mb-4">
+                    <select id="role" name="Role" class="form-select ps-4" required>
+                        <option value="Admin" selected>Administrator Access</option>
+                    </select>
+                </div>
+
+                 <button type="submit" class="btn btn-primary w-100 mb-4">
+                    Sign In →
+                </button>
+                
+                <div class="d-grid gap-3">
+                    
+                    <div class="text-center mt-3">
+                        Don't have an account? 
+                        <a asp-action="Register" asp-controller="User" 
+                           class="text-primary text-decoration-none fw-bold">
+                            Create Account
+                        </a>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById('Password');
+        const toggleIcon = document.querySelector('.password-toggle');
+        
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
+        }
+    }
+
+    // Auto-hide alerts after 5 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            document.querySelectorAll('.animated-alert').forEach(alert => {
+                alert.style.display = 'none';
+            });
+        }, 5000);
+    });
+</script>
+<style>
+    body {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        min-height: 100vh;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 400px;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .login-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 12px 20px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .animated-alert {
+        animation: slideIn 0.5s ease forwards;
+    }
+
+    @@keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .brand-text {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .input-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+    }
+</style>

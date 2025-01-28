@@ -1,0 +1,202 @@
+2025-01-27 00:49:12.052 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 00:49:12.570 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 00:49:14.141 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 09:38:04.789 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 09:38:06.794 +05:30 [INF] Registration attempt for user: saran
+2025-01-27 09:38:07.109 +05:30 [INF] Registration successful for user: saran
+2025-01-27 09:38:31.145 +05:30 [INF] Login attempt for user: saran
+2025-01-27 09:38:31.231 +05:30 [INF] Login successful for user: saran. JWT token generated.
+2025-01-27 09:39:51.891 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.MissingMethodException: Attempted to invoke a deleted lambda or local function implementation. This can happen when lambda or local function is deleted while the application is running.
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(DbContextOptionsBuilder options)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method78(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:41:31.269 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.MissingMethodException: Attempted to invoke a deleted lambda or local function implementation. This can happen when lambda or local function is deleted while the application is running.
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(DbContextOptionsBuilder options)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.<>c__DisplayClass1_0`2.<AddDbContext>b__0(IServiceProvider _, DbContextOptionsBuilder b)
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.DbContextOptionsConfiguration`1.Configure(IServiceProvider serviceProvider, DbContextOptionsBuilder optionsBuilder)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CreateDbContextOptions[TContext](IServiceProvider applicationServiceProvider)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method86(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:42:28.985 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 09:42:29.325 +05:30 [INF] Login attempt for user: saran
+2025-01-27 09:42:30.985 +05:30 [INF] Login successful for user: saran. JWT token generated.
+2025-01-27 09:44:24.042 +05:30 [INF] Login attempt for user: saran
+2025-01-27 09:44:24.152 +05:30 [INF] Login successful for user: saran. JWT token generated.
+2025-01-27 09:47:32.864 +05:30 [INF] AddFlight request received for FlightId: IF1002
+2025-01-27 09:47:33.208 +05:30 [INF] Flight added successfully: IF1002
+2025-01-27 09:48:59.299 +05:30 [INF] AddFlight request received for FlightId: wds1213
+2025-01-27 09:48:59.311 +05:30 [WRN] Invalid flight type for FlightId: wds1213
+2025-01-27 09:49:45.907 +05:30 [INF] AddFlight request received for FlightId: if12
+2025-01-27 09:49:45.935 +05:30 [WRN] Invalid flight type for FlightId: if12
+2025-01-27 09:50:15.599 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-27 09:50:15.614 +05:30 [INF] Returning 6 flight numbers for FlightType: Domestic
+2025-01-27 09:50:20.239 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-27 09:50:20.244 +05:30 [INF] Returning 20 flight numbers for FlightType: International
+2025-01-27 09:50:22.749 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF1002
+2025-01-27 09:50:22.749 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF1002
+2025-01-27 09:50:22.801 +05:30 [INF] Flight found: IF1002
+2025-01-27 09:50:22.801 +05:30 [INF] Flight found: IF1002
+2025-01-27 09:50:37.655 +05:30 [INF] UpdateFlight invoked for FlightId: IF1002
+2025-01-27 09:50:37.669 +05:30 [INF] Flight updated successfully for FlightId: IF1002
+2025-01-27 09:50:37.690 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF1002
+2025-01-27 09:50:37.695 +05:30 [INF] Flight found: IF1002
+2025-01-27 09:51:29.028 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 09:51:29.121 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 09:52:21.214 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 09:52:21.238 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 09:56:31.314 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:56:37.165 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:56:43.812 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:56:44.854 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:59:16.113 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:59:17.308 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 09:59:18.337 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 10:00:34.085 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - FlightDetailsApi.Controllers.FlightController.GetFlightsByType (FlightDetailApi). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-01-27 10:07:19.374 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 10:08:39.745 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 10:08:39.913 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 10:08:40.667 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 10:10:08.961 +05:30 [INF] DeleteFlight invoked for FlightId: IF829
+2025-01-27 10:10:09.070 +05:30 [INF] Flight deleted successfully for FlightId: IF829
+2025-01-27 10:10:24.725 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF1002
+2025-01-27 10:10:24.737 +05:30 [INF] Flight found: IF1002
+2025-01-27 10:11:29.526 +05:30 [INF] UpdateFlight invoked for FlightId: IF1002
+2025-01-27 10:11:29.536 +05:30 [INF] Flight updated successfully for FlightId: IF1002
+2025-01-27 10:11:29.561 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF1002
+2025-01-27 10:11:29.564 +05:30 [INF] Flight found: IF1002
+2025-01-27 14:10:34.613 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 14:10:34.934 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:10:36.010 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 14:11:01.203 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:11:01.264 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 14:12:19.845 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:12:19.861 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 14:13:07.809 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:13:07.811 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 14:14:04.366 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:14:04.370 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 14:15:58.081 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-27 14:15:58.092 +05:30 [INF] Returning 19 flight numbers for FlightType: International
+2025-01-27 14:15:58.103 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-27 14:15:58.106 +05:30 [INF] Returning 19 flight numbers for FlightType: International
+2025-01-27 14:16:02.463 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF1002
+2025-01-27 14:16:02.473 +05:30 [INF] Flight found: IF1002
+2025-01-27 14:16:04.430 +05:30 [INF] DeleteFlight invoked for FlightId: IF1002
+2025-01-27 14:16:04.541 +05:30 [INF] Flight deleted successfully for FlightId: IF1002
+2025-01-27 14:21:40.666 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:21:40.684 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 14:40:06.073 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:40:06.185 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 14:40:35.340 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF824
+2025-01-27 14:40:35.349 +05:30 [INF] Flight found: IF824
+2025-01-27 14:41:36.764 +05:30 [INF] UpdateFlight invoked for FlightId: IF824
+2025-01-27 14:41:36.775 +05:30 [INF] Flight updated successfully for FlightId: IF824
+2025-01-27 14:41:36.793 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF824
+2025-01-27 14:41:36.798 +05:30 [INF] Flight found: IF824
+2025-01-27 14:42:14.393 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-27 14:42:14.406 +05:30 [INF] Returning 6 flight numbers for FlightType: Domestic
+2025-01-27 14:42:14.411 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-27 14:42:14.426 +05:30 [INF] Returning 6 flight numbers for FlightType: Domestic
+2025-01-27 14:56:34.639 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 14:56:34.955 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 15:44:56.853 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 15:44:57.377 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 15:44:59.288 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-27 15:45:15.709 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-27 15:45:15.820 +05:30 [INF] Flight found: IF810
+2025-01-27 23:55:16.039 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-27 23:55:16.425 +05:30 [INF] Login attempt for user: Admin
+2025-01-27 23:55:17.972 +05:30 [INF] Login successful for user: Admin. JWT token generated.

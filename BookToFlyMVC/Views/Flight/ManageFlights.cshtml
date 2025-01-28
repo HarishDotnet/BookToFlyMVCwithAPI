@@ -46,10 +46,10 @@
                             <td>@flight.TicketPrice.ToString("C")</td>
                             <td>@string.Join(", ", flight.AvailableDays)</td>
                             <td class="d-flex justify-content-start">
-                                <a href="@Url.Action("BookTicket", "Flight", new { flightNumber = flight.FlightId })"
+                                @* <a href="@Url.Action("BookTicket", "Flight", new { flightNumber = flight.FlightId })"
                                     class="btn btn-success btn-sm me-2" style="font-size: 0.8rem;">
                                     <i class="bi bi-bookmark-plus"></i> Book Ticket
-                                </a>
+                                </a> *@
                                 <a href="EditGetDetail/@flight.FlightId" class="btn btn-primary btn-sm me-2" style="font-size: 0.8rem;">
                                     <i class="bi bi-pencil"></i> Edit
                                 </a>
@@ -150,5 +150,5 @@
 }
  }
     else{
-         @Html.PartialAsync("~/Views/Home/Login")
+         @await Html.PartialAsync("~/Views/Home/Login")
     }

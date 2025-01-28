@@ -1,46 +1,110 @@
 @model FlightDetailApi.Models.FlightSearchInput;
-@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
-<div class="container mt-5">
-    <h2 class="text-center">@ViewData["Title"]</h2>
-    <div class="d-grid gap-2 d-md-flex justify-content-md">
-        <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
+@if (Context.Session.GetString("JWT_TOKEN") != null)
+{
+    @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
+    <div class="container mt-5">
+        <h2 class="text-center">@ViewData["Title"]</h2>
+        <div class="d-grid gap-2 d-md-flex justify-content-md">
+            <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
+        </div>
+        <hr />
+        <div class="card shadow-sm p-4 blurred-box mx-auto">
+            <h4 class="text-center">Search Flights</h4>
+            <form method="post" asp-controller="Flight" asp-action="SearchFlights">
+                <!-- Flight Type Selection -->
+                <div class="mb-3">
+                    <label for="flightType" class="form-label">Flight Type:</label>
+                    <select id="flightType" name="FlightType" class="form-select" required>
+                        <option value="Select Flight">Select Flight Type</option>
+                        <option value="International">International</option>
+                        <option value="Domestic">Domestic</option>
+                    </select>
+                </div>
+                <!-- From Place -->
+                <div class="mb-3">
+                    <label for="fromPlace" class="form-label">From:</label>
+                    <select id="fromPlace" name="Source" class="form-select">
+                        <option value="">Select Source</option>
+                    </select>
+                </div>
+
+                <!-- To Place -->
+                <div class="mb-3">
+                    <label for="toPlace" class="form-label">To:</label>
+                    <select id="toPlace" name="Destination" class="form-select">
+                        <option value="">Select Destination</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary d-block mx-auto">Search Flights</button>
+            </form>
+        </div>
     </div>
-    <hr/>
-    <div class="card shadow-sm p-4 blurred-box mx-auto">
-        <h4 class="text-center">Search Flights</h4>
-        <form method="post" asp-controller="Flight" asp-action="SearchFlights">
-            <!-- Flight Type Selection -->
-            <div class="mb-3">
-                <label for="flightType" class="form-label">Flight Type:</label>
-                <select id="flightType" name="FlightType" class="form-select" required>
-                    <option value="International">International</option>
-                    <option value="Domestic">Domestic</option>
-                </select>
-            </div>
-            <!-- Flight Number (Optional) -->
-            <div class="mb-3">
-                <label for="flightNumber" class="form-label">Flight Number:</label>
-                <input type="text" id="flightNumber" name="FlightNumber" class="form-control"
-                    placeholder="Enter Flight Number" />
-            </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const flightTypeSelect = document.getElementById("flightType");
+            const fromPlaceSelect = document.getElementById("fromPlace");
+            const toPlaceSelect = document.getElementById("toPlace");
 
-            <h6 class="text-center">(OR)</h6>
+            let flightMap = {}; // Object to store source as key and destinations as values
 
-            <!-- From Place (Optional) -->
-            <div class="mb-3">
-                <label for="fromPlace" class="form-label">From:</label>
-                <input type="text" id="fromPlace" name="Source" class="form-control"
-                    placeholder="Enter Departure City" />
-            </div>
+            flightTypeSelect.addEventListener("change", function () {
+                const flightType = flightTypeSelect.value;
+                if (flightType) {
+                    fetch(`http://localhost:5087/api/Flight/DisplayFlightByType?flightType=${flightType}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Clear previous options
+                            fromPlaceSelect.innerHTML = '<option value="">Select Source</option>';
+                            toPlaceSelect.innerHTML = '<option value="">Select Destination</option>';
 
-            <!-- To Place (Optional) -->
-            <div class="mb-3">
-                <label for="toPlace" class="form-label">To:</label>
-                <input type="text" id="toPlace" name="Destination" class="form-control"
-                    placeholder="Enter Destination City" />
-            </div>
+                            // Populate the flight map
+                            flightMap = data.reduce((map, flight) => {
+                                if (!map[flight.source]) {
+                                    map[flight.source] = new Set();
+                                }
+                                map[flight.source].add(flight.destination);
+                                return map;
+                            }, {});
 
-            <button type="submit" class="btn btn-primary d-block mx-auto">Search Flights</button>
-        </form>
-    </div>
-</div>
+                            // Populate source options
+                            Object.keys(flightMap).forEach(source => {
+                                const option = document.createElement("option");
+                                option.value = source;
+                                option.textContent = source;
+                                fromPlaceSelect.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error("Error fetching flight data:", error));
+                } else {
+                    // Clear fields if no flight type is selected
+                    fromPlaceSelect.innerHTML = '<option value="">Select Source</option>';
+                    toPlaceSelect.innerHTML = '<option value="">Select Destination</option>';
+                }
+            });
+
+            fromPlaceSelect.addEventListener("change", function () {
+                const selectedSource = fromPlaceSelect.value;
+                if (selectedSource && flightMap[selectedSource]) {
+                    // Clear previous destination options
+                    toPlaceSelect.innerHTML = '<option value="">Select Destination</option>';
+
+                    // Populate destination options for the selected source
+                    flightMap[selectedSource].forEach(destination => {
+                        const option = document.createElement("option");
+                        option.value = destination;
+                        option.textContent = destination;
+                        toPlaceSelect.appendChild(option);
+                    });
+                } else {
+                    // Clear destination options if no source is selected
+                    toPlaceSelect.innerHTML = '<option value="">Select Destination</option>';
+                }
+            });
+        });
+    </script>
+}
+else
+{
+    @await Html.PartialAsync("~/Views/Home/Login")
+}

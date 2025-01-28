@@ -1,8 +1,9 @@
 @model BookToFlyMVC.DTO.FlightDetailsDTO
-@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
 @{
     ViewData["Title"] = "Edit Flight Details";
 }
+@if (Context.Session.GetString("JWT_TOKEN") != null){
+    @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
 <div class="container mt-5">
     <h2 class="text-center">@ViewData["Title"]</h2>
     <div class="d-grid gap-2 d-md-flex justify-content-md">
@@ -90,6 +91,101 @@
 
     </div>
 </div>
-    @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
+}
+else{
+    @await Html.PartialAsync("~/Views/Home/Login");
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<style>
+    /* Container Styling for the Form */
+    .container {
+        max-width: 900px;
+        backdrop-filter: blur(8px); /* Blur effect on the container */
+        background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background */
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 50px;
     }
+
+    /* Form Element Styling */
+    .form-group label {
+        color: #f1f1f1; /* Light label text */
+    }
+
+    .form-control {
+        background-color: #333; /* Dark input fields */
+        color: #fff; /* Light text inside inputs */
+        border: 1px solid #555; /* Subtle border */
+    }
+
+    .form-control:focus {
+        border-color: #6c757d; /* Lighter border on focus */
+        background-color: #444; /* Slightly lighter background on focus */
+    }
+
+    /* Buttons Styling */
+    .btn {
+        transition: all 0.3s ease;
+    }
+
+    /* Primary Button */
+    .btn-primary {
+        background-color: #007bff; /* Blue background */
+        border-color: #007bff; /* Blue border */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: scale(1.05); /* Slightly enlarge button on hover */
+    }
+
+    .btn-primary:active {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Pressed effect with shadow */
+        transform: scale(0.98); /* Slight shrink on click */
+    }
+
+    /* Secondary Button */
+    .btn-secondary {
+        background-color: #6c757d; /* Grey background */
+        border-color: #6c757d; /* Grey border */
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268; /* Darker grey on hover */
+    }
+
+    .btn-secondary:active {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transform: scale(0.98);
+    }
+
+    /* Checkbox Styling */
+    .form-check-input {
+        background-color: #444; /* Dark checkboxes */
+        border-color: #555; /* Subtle border for checkboxes */
+    }
+
+    .form-check-input:checked {
+        background-color: #007bff; /* Blue when checked */
+        border-color: #007bff;
+    }
+
+    /* Text Styling for Day Labels */
+    .form-check-label {
+        color: #f1f1f1; /* Light color for day labels */
+    }
+
+    /* Title Styling */
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #f1f1f1; /* Light title color */
+    }
+
+    /* Footer or Links */
+    .text-light {
+        color: #f1f1f1 !important; /* Ensures text is always light on dark background */
+    }
+</style>

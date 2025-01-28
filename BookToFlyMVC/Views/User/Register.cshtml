@@ -1,65 +1,221 @@
-@model BookToFlyMVC.Models.UserRegistrationViewModel
-
 @{
     ViewData["Title"] = "User Registration";
 }
-<div class="d-flex justify-content-center align-items-center ">
-    <div class="card shadow-sm p-5 " style="width: 30rem;">
+<div class="d-flex justify-content-center align-items-center " style=" padding-top: 100px;">
+    <div class="card shadow-sm p-5 " style="width: 40rem; ">
+    
+<div class="d-grid gap-2 d-md-flex justify-content-me " style="height:40px">
+            <a asp-controller="Home" asp-action="Login" class="btn btn-primary">Back</a>
+        </div>
         <h2 class="text-center text-success">User Registration</h2>
         <hr />
+        @if (ViewBag.UsernameError != null || ViewBag.EmailError != null || ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center">
+                @ViewBag.UsernameError
+                @if (ViewBag.EmailError != null)
+                {
+                    <div>@ViewBag.EmailError</div>
+                }
+                @if (ViewBag.Error != null)
+                {
+                    <div>@ViewBag.Error</div>
+                }
+            </div>
+        }
+        <!-- Success Popup -->
+        <div id="successPopup" class="alert alert-success text-center" role="alert" style="display:none;">
+            Registration successful! You will be redirected to login shortly.
+        </div>
+
+        <!-- Failure Popup -->
+        <div id="failurePopup" class="alert alert-danger text-center" role="alert" style="display:none;">
+            Something went wrong. Please try again.
+        </div>
         <!-- Registration Form -->
-        <form asp-action="Register" asp-controller="User" method="post" class="needs-validation" id="registrationForm">
+        <form asp-action="Register" method="post" class="needs-validation" id="registrationForm" novalidate>
             <div class="mb-3">
                 <label for="Username" class="form-label">Username</label>
-                <input type="text" id="Username" name="Username" class="form-control" asp-for="Username" />
-                <span class="text-danger" asp-validation-for="Username"></span>
+                <input type="text" id="Username" name="Username" class="form-control" />
+                <span class="text-danger" id="UsernameError"></span> <!-- Error span for Username -->
             </div>
             <div class="mb-3">
                 <label for="Email" class="form-label">Email</label>
-                <input type="email" id="Email" name="Email" class="form-control" asp-for="Email" />
-                <span class="text-danger" asp-validation-for="Email"></span> <!-- Shows the error message -->
+                <input type="email" id="Email" name="Email" class="form-control" />
+                <span class="text-danger" id="EmailError"></span> <!-- Error span for Email -->
             </div>
 
             <div class="mb-3 position-relative">
                 <label for="Password" class="form-label">Password</label>
                 <div class="input-group">
-                    <input type="password" id="Password" name="Password" class="form-control" asp-for="Password"
-                        required>
+                    <input type="password" id="Password" name="Password" class="form-control" />
                     <span class="input-group-text" style="cursor: pointer;"
                         onmousedown="togglePasswordVisibility(true, this)"
                         onmouseup="togglePasswordVisibility(false, this)"
                         onmouseleave="togglePasswordVisibility(false, this)">
-                        <i class="bi bi-eye"></i> <!-- Bootstrap eye icon -->
+                        <i class="bi bi-eye"></i>
                     </span>
                 </div>
-                <span class="text-danger" asp-validation-for="Password"></span>
+                <span class="text-danger" id="PasswordError"></span> <!-- Error span for Password -->
             </div>
 
-            <!-- Confirm Password Field (for client-side validation only) -->
             <div class="mb-3">
                 <label for="ConfirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" required />
-                <span class="text-danger" id="confirmPasswordError"></span>
+                <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control" />
+                <span class="text-danger" id="ConfirmPasswordError"></span> <!-- Error span for Confirm Password -->
             </div>
 
             <div class="mb-3">
                 <label for="FullName" class="form-label">Full Name</label>
-                <input type="text" id="FullName" name="FullName" class="form-control" asp-for="FullName" />
-                <span class="text-danger" asp-validation-for="FullName"></span>
+                <input type="text" id="FullName" name="FullName" class="form-control" />
+                <span class="text-danger" id="FullNameError"></span> <!-- Error span for Full Name -->
             </div>
 
             <div class="mb-3">
                 <label for="PhoneNumber" class="form-label">Phone Number</label>
-                <input type="tel" id="PhoneNumber" name="PhoneNumber" class="form-control" asp-for="PhoneNumber" />
-                <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                <input type="tel" id="PhoneNumber" name="PhoneNumber" class="form-control" />
+                <span class="text-danger" id="PhoneNumberError"></span> <!-- Error span for Phone Number -->
             </div>
 
             <button type="submit" class="btn btn-primary w-100">Register</button>
         </form>
     </div>
-
-    <!-- Validation Summary -->
-    @* <div class="validation-summary">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger mt-3" })
-    </div> *@
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("registrationForm");
+
+        // Event listener for form submission
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();  // Prevent form submission to trigger validation
+
+            let isValid = true;
+
+            // Check each field using the validation function
+            const fields = form.querySelectorAll("input");
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+
+            // Submit the form if valid
+            if (isValid) {
+                // Simulating form submission success or failure
+                const success = true; // Change this to `false` for failure simulation
+
+                if (success) {
+                    // Show success popup and hide after 3 seconds
+                    var successPopup = document.getElementById('successPopup');
+                    successPopup.style.display = 'block';
+                    setTimeout(function () {
+                        successPopup.style.display = 'none';
+                        form.submit(); // Submit the form after 3 seconds (success)
+                    }, 3000);
+                } else {
+                    // Show failure popup and hide after 3 seconds
+                    var failurePopup = document.getElementById('failurePopup');
+                    failurePopup.style.display = 'block';
+                    setTimeout(function () {
+                        failurePopup.style.display = 'none';
+                    }, 3000);
+                }
+            }
+        });
+
+        // Event listener for each input field to validate on typing
+        form.addEventListener("input", function (e) {
+            validateField(e.target);
+        });
+
+        function validateField(field) {
+            const id = field.id;
+            const value = field.value.trim();
+            const errorSpan = document.getElementById(id + "Error");
+
+            // Clear any previous error messages
+            if (errorSpan) {
+                errorSpan.textContent = "";
+            }
+
+            switch (id) {
+                case "Username":
+                    if (value === "") {
+                        errorSpan.textContent = "Username is required.";
+                    } else if (!/[a-zA-Z]/.test(value)) {
+                        errorSpan.textContent = "Username must contain at least one alphabet character.";
+                    } else if (value.length < 6) {
+                        errorSpan.textContent = "Username must be at least 6 characters long.";
+                    }
+                    return value !== "" && /[a-zA-Z]/.test(value) && value.length >= 6;
+
+                case "Email":
+                    if (value === "") {
+                        errorSpan.textContent = "Email is required.";
+                    } else if (!field.validity.valid) {
+                        errorSpan.textContent = "Please enter a valid email address.";
+                    }
+                    return field.validity.valid;
+
+                case "Password":
+                    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,15}$/; // Password validation pattern
+                    if (value.length < 6 || value.length > 15) {
+                        errorSpan.textContent = "Password must be between 6 and 15 characters.";
+                    } else if (!passwordPattern.test(value)) {
+                        errorSpan.textContent = "Password must contain at least one uppercase letter, one lowercase letter, and one special character.";
+                    }
+                    return passwordPattern.test(value);
+
+                case "ConfirmPassword":
+                    const password = document.getElementById("Password").value;
+                    if (value !== password) {
+                        errorSpan.textContent = "Passwords do not match.";
+                    }
+                    return value === password;
+
+                case "FullName":
+                    const namePattern = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+                    if (value === "") {
+                        errorSpan.textContent = "Full Name is required.";
+                    } else if (!namePattern.test(value)) {
+                        errorSpan.textContent = "Full Name should only contain letters and spaces.";
+                    }
+                    return namePattern.test(value);
+
+                case "PhoneNumber":
+                    const phonePattern = /^(?:[6-9][0-9]{9}|10[0-9]{8})$/;
+                    if (value === "") {
+                        errorSpan.textContent = "Phone number is required.";
+                    } else if (!phonePattern.test(value)) {
+                        errorSpan.textContent = "Enter a valid 10-digit phone number.";
+                    }
+                    return phonePattern.test(value);
+
+                default:
+                    return true;
+            }
+        }
+    });
+
+    function togglePasswordVisibility(show, element) {
+        const input = element.previousElementSibling;
+        input.type = show ? "text" : "password";
+    }
+
+</script>
+<style>
+body{background:linear-gradient(135deg,#1e3c72,#2a5298);min-height:100vh;}
+.registration-card{width:100%;max-width:500px;background:rgba(255,255,255,0.98);border-radius:15px;transition:transform 0.3s ease;}
+.registration-card:hover{transform:translateY(-5px);}
+.form-control{border-radius:8px;padding:12px 45px;transition:all 0.3s ease;}
+.form-control:focus{box-shadow:0 0 0 3px rgba(66,153,225,0.3);}
+.input-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#6c757d;z-index:2;}
+.password-toggle{position:absolute;right:15px;top:50%;transform:translateY(-50%);cursor:pointer;z-index:2;}
+.validation-icon{position:absolute;right:15px;top:50%;transform:translateY(-50%);display:none;}
+.btn-gradient{background:linear-gradient(135deg,#667eea,#764ba2);border:none;color:white;padding:12px;border-radius:8px;font-weight:600;}
+.progress-bar{height:4px;background-color:#e9ecef;border-radius:2px;margin-top:5px;}
+.progress-bar-fill{height:100%;border-radius:2px;transition:width 0.3s ease;}
+.animated-alert{animation:slideIn 0.5s ease forwards;}
+@@keyframes slideIn{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+</style>

@@ -1,9 +1,9 @@
 @model BookToFlyMVC.DTO.FlightDetailsDTO;
 
-@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
 
 @if (Context.Session.GetString("JWT_TOKEN") != null)
 {
+@await Html.PartialAsync("~/Views/Admin/Header.cshtml")
     @if (Model != null)
     {
         <div class="container mt-5">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-6">
                             <p><i class="bi bi-check-circle-fill"></i> <strong>Available Seats:</strong> @Model.AvailableSeats</p>
-                            <p><i class="bi bi-card-list"></i> <strong>Flight Type:</strong> @Model.FlightType</p>
+                            <p><i class="bi bi-card-list"></i> <strong>Flight Type:</strong> @(Model.FlightType.StartsWith("IF") ? "International" : "Domestic")</p>
                         </div>
                     </div>
 
@@ -112,7 +112,7 @@
 }
 else
 {
-    @Html.PartialAsync("~/Views/Home/Login")
+    @await Html.PartialAsync("~/Views/Home/Login")
 }
 
 <script>

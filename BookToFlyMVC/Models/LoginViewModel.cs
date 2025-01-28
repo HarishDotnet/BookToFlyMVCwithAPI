@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 namespace BookToFlyMVC.Models
 {
     public class LoginViewModel
-{
+    {
     [Required]
     [StringLength(100, ErrorMessage = "Username must be between 1 and 100 characters.", MinimumLength = 1)]
     public string Username { get; set; }
@@ -13,7 +13,6 @@ namespace BookToFlyMVC.Models
 
     [Required]
     public string Role { get; set; }  // 'User' or 'Admin'
-
-}
+    }
 
 }

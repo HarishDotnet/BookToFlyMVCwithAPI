@@ -1,11 +1,8 @@
 namespace BookToFlyMVC.DTO
 {
-    //need to delte dto
-    //sarvice 
-    
     public class FlightDetailsDTO
     {   
-         public string FlightId { get; set; }
+        public string FlightId { get; set; }
 
         public string AirlineName { get; set; }
 

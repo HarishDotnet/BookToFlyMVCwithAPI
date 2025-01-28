@@ -17,18 +17,18 @@ namespace BookToFlyMVC.Middleware
     }
 
     public async Task InvokeAsync(HttpContext httpContext)
+{
+    try
     {
-        try
-        {
-            await _next(httpContext);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "An error occurred.");
-            // Optionally, you can redirect to a custom error page here
-            httpContext.Response.Redirect("/Home/Error");
-        }
+        await _next(httpContext);
     }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "An error occurred.");
+        httpContext.Response.Redirect("/Home/Error");
+    }
+}
+
 }
 
 

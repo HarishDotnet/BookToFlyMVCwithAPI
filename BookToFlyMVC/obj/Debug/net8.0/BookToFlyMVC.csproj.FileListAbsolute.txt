@@ -621,10 +621,12 @@ C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\De
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
@@ -644,6 +646,15 @@ C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\De
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Serilog.Sinks.File.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -776,3 +787,5 @@ C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\De
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\Debug\net8.0\BookToFlyMVC.pdb
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\Debug\net8.0\BookToFlyMVC.genruntimeconfig.cache
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\obj\Debug\net8.0\ref\BookToFlyMVC.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\bin\Debug\net8.0\Moq.dll

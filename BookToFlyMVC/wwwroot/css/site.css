@@ -1,74 +1,203 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-}
-
 body {
   background-image: url('/images/BookToFlyBgImp.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: initial;
   background-attachment: fixed;
   font-family: 'Arial', sans-serif;
 }
 
-h2 {
-  color: #0056b3;
-  font-weight: bold;
-}
-.navbar {
-  font-size: 1rem; /* Adjust font size */
-  padding: 0.75rem 1rem; /* Adjust padding */
+
+
+/* General Styling */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
 }
 
-.navbar-brand {
-  font-weight: bold; /* Bold the brand name */
+Main Content .main-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  border-radius: 1px;
+  padding: 20px;
 }
 
-.nav-link {
-  color: #555; /* Change link color */
-}
-
-.nav-link:hover {
-  color: #007bff; /* Highlight color on hover */
-}
-
-.dropdown-menu {
-  border-radius: 0.5rem; /* Rounded corners for dropdown */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-.blurred-box {
-  position: relative; 
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-  backdrop-filter: blur(2px); /* Apply blur to the background */
-  color: black; /* Ensure the text color is not blurred */
-}
-.bg-blur {
-  backdrop-filter: blur(2px); /*Adjust the blur intensity*/
-  background-color: rgba(53, 53, 54, 0.726); /* Optional: Semi-transparent background */
-}
-/* .card {
+/* Cards */
+.card {
+  background-color: #464545;
+  border: none;
+  border-radius: 5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 15px;
-  overflow: hidden;
-  height: 100%; 
-  display: flex;
-  flex-direction: column;
 }
 
 .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.card-title {
+  color: #f0f0f0;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 50px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #218838;
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-} */
+}
+
+.btn-success:active {
+  transform: scale(0.98);
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal */
+.modal-content {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  color: #e0e0e0;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  background-color: #2c2c2c;
+  border-bottom: 1px solid #444;
+}
+
+.modal-header h5 {
+  color: #fff;
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(5px);
+}
+
+/* Icons */
+.bi {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.bi:hover {
+  transform: rotate(10deg);
+}
+
+/* Text Colors */
+.text-warning {
+  color: #ffc107 !important;
+}
+
+.text-muted {
+  color: #b0b0b0 !important;
+}
+
+  /* Sidebar Styling */
+  #sideNav {
+      transform: translateX(-100%);
+      /* Initially hidden */
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+      /* Smooth transition */
+  }
+
+  #sideNav.show {
+      transform: translateX(0);
+      /* Fully visible when toggled */
+      box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  #sideNav ul {
+      padding: 0;
+      list-style: none;
+  }
+
+  #sideNav li a {
+      color: #f1f1f1;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #sideNav li a:hover {
+      background-color: #444;
+      color: #ffdd57;
+  }
+
+  /* Navbar Styling */
+  .navbar {
+      background-color: rgba(32, 33, 36, 0.9);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar-brand {
+      color: #ffdd57 !important;
+      font-weight: bold;
+  }
+
+  .navbar-toggler-icon {
+      background-color: #ffdd57;
+      /* Make the toggle icon more visible */
+  }
+
+  .navbar-nav .nav-link {
+      color: #e0e0e0 !important;
+      transition: color 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+      color: #ffdd57 !important;
+  }
+
+  /* User Profile Dropdown */
+  .dropdown-menu {
+      background-color: rgba(32, 33, 36, 0.85);
+      border: 1px solid #444;
+  }
+
+  .dropdown-item {
+      color: #f1f1f1;
+  }
+
+  .dropdown-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Left Option Icon Hover */
+  #leftOptionIcon:hover {
+      color: #e1bc25;
+      transform: scale(1.1);
+      transition: transform 0.2s ease;
+  }
+  .flight-form {
+    background: rgba(131, 235, 105, 0.7);
+    backdrop-filter: blur(10px);
+    min-height: 10vh;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+}
+
+#successMessage, #errorMessage {
+    animation: fadeOut 0.2s linear 1s forwards;
+}
