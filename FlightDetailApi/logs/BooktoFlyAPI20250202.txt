@@ -1,0 +1,54 @@
+2025-02-02 10:52:07.203 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-02 10:54:40.895 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 10:54:40.905 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:01:50.900 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-02 11:07:22.077 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:07:23.496 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:28:59.381 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-02 11:29:00.712 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:29:00.792 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:29:27.614 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:29:27.632 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:29:52.626 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:29:52.636 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:30:06.344 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:30:06.370 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:30:24.661 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:30:24.672 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:34:25.836 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:34:25.843 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:35:50.819 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:35:50.839 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:40:37.986 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:40:38.001 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:40:59.412 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:40:59.440 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:45:03.485 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:45:03.495 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:45:17.345 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:45:17.356 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:45:43.237 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:45:57.809 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:45:57.820 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:50:57.657 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:50:57.668 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:51:21.552 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:51:21.565 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:52:00.356 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:52:00.363 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:52:01.633 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:52:01.641 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:54:11.221 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:54:11.227 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:55:45.845 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:55:45.851 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:58:46.250 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 11:58:46.256 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: undefined
+2025-02-02 12:01:04.846 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF909
+2025-02-02 12:01:04.862 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF909
+2025-02-02 12:01:28.010 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF909
+2025-02-02 12:01:28.015 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF909
+2025-02-02 12:02:38.360 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF909
+2025-02-02 12:02:38.366 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF909
+2025-02-02 19:40:42.413 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-02 23:41:36.178 +05:30 [WRN] Failed to determine the https port for redirect.

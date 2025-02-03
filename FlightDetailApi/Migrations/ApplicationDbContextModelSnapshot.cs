@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FlightDetailsApi.Migrations
+namespace FlightDetailApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,59 @@ namespace FlightDetailsApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FlightDetailsApi.Models.DomesticFlightDetails", b =>
+            modelBuilder.Entity("FlightDetailApi.BookingDetails", b =>
+                {
+                    b.Property<string>("BookingId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("BookingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfTravel")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FlightId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsCanceled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PassengerName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BookingId");
+
+                    b.ToTable("Booking");
+                });
+
+            modelBuilder.Entity("FlightDetailApi.Models.AdminModel", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Admin");
+                });
+
+            modelBuilder.Entity("FlightDetailApi.Models.DomesticFlightDetails", b =>
                 {
                     b.Property<string>("FlightId")
                         .HasColumnType("nvarchar(450)");
@@ -67,7 +119,7 @@ namespace FlightDetailsApi.Migrations
                     b.ToTable("DomesticFlightDetails");
                 });
 
-            modelBuilder.Entity("FlightDetailsApi.Models.InternationalFlightDetails", b =>
+            modelBuilder.Entity("FlightDetailApi.Models.InternationalFlightDetails", b =>
                 {
                     b.Property<string>("FlightId")
                         .HasColumnType("nvarchar(450)");
@@ -110,6 +162,46 @@ namespace FlightDetailsApi.Migrations
                     b.HasKey("FlightId");
 
                     b.ToTable("InternationalFlightDetails");
+                });
+
+            modelBuilder.Entity("FlightDetailApi.Models.TicketDetails", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.PrimitiveCollection<string>("BookingId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("FlightDetailApi.Models.UserRegistrationModel", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -23,14 +23,14 @@ namespace FlightDetailApi.Validations
             string username = value.ToString();
 
             // Get the ApplicationDbContext from the ValidationContext's service provider
-            var dbContext = (ApplicationDbContextMVC)validationContext.GetService(typeof(ApplicationDbContextMVC));
+            var dbContext = (ApplicationDbContext)validationContext.GetService(typeof(ApplicationDbContext));
             if (dbContext == null)
             {
                 return new ValidationResult("Database context is unavailable.");
             }
 
             // Check if the username exists in the Users table
-            bool userExists = dbContext.admin.Any(u => u.Username == username);  // Corrected the logic
+            bool userExists = dbContext.Admin.Any(u => u.Username == username);  // Corrected the logic
             if (userExists)
             {
                 return new ValidationResult(_errorMessage); // If username exists, return the error message

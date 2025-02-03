@@ -63,7 +63,7 @@ Main Content .main-content {
 /* Modal */
 .modal-content {
   background-color: #1e1e1e;
-  border-radius: 12px;
+  border-radius: 8px;
   color: #e0e0e0;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
@@ -130,7 +130,7 @@ Main Content .main-content {
 
   #sideNav li a:hover {
       background-color: #444;
-      color: #ffdd57;
+      color: #ffeb11;
   }
 
   /* Navbar Styling */
@@ -155,7 +155,7 @@ Main Content .main-content {
   }
 
   .navbar-nav .nav-link:hover {
-      color: #ffdd57 !important;
+      color: #ff0000 !important;
   }
 
   /* User Profile Dropdown */

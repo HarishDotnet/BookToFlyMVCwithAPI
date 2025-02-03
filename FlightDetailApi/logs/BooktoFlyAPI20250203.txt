@@ -1,0 +1,24 @@
+2025-02-03 09:24:02.669 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-03 11:33:48.520 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/Ticket/{username}" for actions - FlightDetailApi.Controllers.TicketController.GetTicket (FlightDetailApi),FlightDetailApi.Controllers.TicketController.GetTicket (FlightDetailApi). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 11:36:45.944 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-03 11:37:11.147 +05:30 [INF] Registration attempt for user: Admin
+2025-02-03 11:37:11.335 +05:30 [INF] Registration successful for user: Admin
+2025-02-03 11:37:39.896 +05:30 [INF] Login attempt for user: Admin
+2025-02-03 11:37:39.951 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-03 22:06:06.886 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-03 22:06:07.191 +05:30 [INF] Login attempt for user: Admin
+2025-02-03 22:06:08.460 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-03 23:08:20.727 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:08:21.041 +05:30 [INF] Login attempt for user: Admin
+2025-02-03 23:08:22.771 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-03 23:13:36.570 +05:30 [INF] Login attempt for user: Admin
+2025-02-03 23:13:36.616 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-03 23:33:53.163 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:57:22.220 +05:30 [WRN] Failed to determine the https port for redirect.

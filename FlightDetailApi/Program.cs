@@ -5,7 +5,6 @@ using FlightDetailApi.MappingDTO;
 using FlightDetailApi.Models;
 using FlightDetailApi.Repositories;
 using FlightDetailApi.Services;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,14 +26,9 @@ builder.Services.AddScoped<IFlightHelper, FlightHelper>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<AdminService>();
 builder.Services.AddScoped<IGenericRepository<AdminModel>, GenericRepository<AdminModel>>();
-builder.Services.AddScoped<DbContext, ApplicationDbContextMVC>(); // Ensure that ApplicationDbContextMVC is only registered once
 
 // Ensure you have registered FlightHelper (if used in controllers)
 builder.Services.AddScoped<FlightHelper>(); // Add this line to register FlightHelper if used
-
-// Register the DbContext with the correct connection string
-builder.Services.AddDbContext<ApplicationDbContextMVC>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionMVC")));
 
 var app = builder.Build();
 

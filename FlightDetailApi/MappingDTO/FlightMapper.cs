@@ -22,6 +22,8 @@ namespace FlightDetailApi.MappingDTO
             // Map between FlightInputDTO and DomesticFlightDetails
             CreateMap<FlightInputDTO, DomesticFlightDetails>().ReverseMap();
 
+            CreateMap<UserLoginDTO,UserRegistrationModel>().ReverseMap();
+
             CreateMap<Object,InternationalFlightDetails>().ReverseMap();
             CreateMap<Object,DomesticFlightDetails>().ReverseMap();
 

@@ -351,3 +351,80 @@ System.InvalidOperationException: Unable to resolve service for type 'FlightDeta
 2025-01-28 20:45:56.118 +05:30 [INF] Login attempt for user: Admin
 2025-01-28 20:45:56.120 +05:30 [INF] Login successful for user: Admin. JWT token generated.
 2025-01-28 20:50:19.568 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 22:40:31.173 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 22:40:31.679 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:40:34.103 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:41:05.642 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:41:05.809 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:41:35.673 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:41:35.678 +05:30 [WRN] Login failed: Invalid username or password.
+2025-01-28 22:41:45.579 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:41:45.606 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:42:24.190 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 22:43:04.559 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:43:04.584 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:43:13.083 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 22:43:15.878 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 22:43:15.878 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 22:43:21.173 +05:30 [INF] UpdateFlight request received for FlightId: IF811
+2025-01-28 22:43:21.442 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 22:43:32.694 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:43:32.705 +05:30 [WRN] Login failed: Invalid username or password.
+2025-01-28 22:43:54.397 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:43:54.408 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:44:03.029 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 22:44:05.413 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 22:44:05.455 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 22:48:57.131 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:48:57.143 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:49:16.720 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 22:49:18.744 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 22:49:18.791 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 22:49:31.920 +05:30 [INF] UpdateFlight request received for FlightId: IF810
+2025-01-28 22:49:31.987 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 22:53:11.167 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 22:53:11.362 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:53:12.352 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:56:40.338 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 22:56:40.545 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 22:56:41.465 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 22:57:31.692 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 23:01:37.941 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:01:56.516 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-01-28 23:09:26.172 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:09:26.346 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:09:27.185 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:10:29.443 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:10:29.864 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:10:31.621 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:13:09.216 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:13:09.399 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:13:10.353 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:16:40.441 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:16:40.619 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:16:41.489 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:19:33.510 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:19:33.977 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:19:35.501 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:23:46.265 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:23:46.275 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:25:32.895 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:25:33.082 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:25:33.854 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:39:11.839 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-01-28 23:39:12.282 +05:30 [INF] Login attempt for user: Admin
+2025-01-28 23:39:14.351 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-01-28 23:48:58.346 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 23:49:00.349 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 23:49:00.352 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 23:50:48.191 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-01-28 23:50:51.406 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF001
+2025-01-28 23:50:51.406 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF001
+2025-01-28 23:54:37.214 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 23:54:39.320 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 23:54:39.354 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF810
+2025-01-28 23:59:16.915 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-01-28 23:59:19.260 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 23:59:19.261 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811
+2025-01-28 23:59:30.644 +05:30 [INF] UpdateFlight request received for FlightId: IF811
+2025-01-28 23:59:30.877 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF811

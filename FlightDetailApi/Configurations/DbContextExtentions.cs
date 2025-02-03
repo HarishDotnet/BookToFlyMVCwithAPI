@@ -9,8 +9,8 @@ namespace FlightDetailApi.Configurations
     {
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-        services.AddDbContext<ApplicationDbContextMVC>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionMVC")));
+        // services.AddDbContext<ApplicationDbContextMVC>(options =>
+        //     options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionMVC")));
     }
 }
 

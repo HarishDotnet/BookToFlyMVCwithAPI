@@ -5,10 +5,10 @@ namespace FlightDetailApi.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContextMVC _context;
+        private readonly ApplicationDbContext _context;
         private IGenericRepository<AdminModel> _admins;
 
-        public UnitOfWork(ApplicationDbContextMVC context)
+        public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }

@@ -4,7 +4,6 @@ using BookToFlyMVC.Configurations;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure services
-builder.Services.ConfigureDbContext(builder.Configuration);
 builder.Services.ConfigureCors();
 builder.Services.ConfigureAuthentication();
 builder.Services.ConfigureHttpClient();
@@ -32,7 +31,7 @@ else
 
 app.UseStatusCodePagesWithReExecute("/Home/Error", "?code={0}");
 app.ConfigureMiddleware(); // Use the custom middleware here
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();

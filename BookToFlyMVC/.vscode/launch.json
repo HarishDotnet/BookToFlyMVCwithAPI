@@ -1,6 +1,12 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {   "name": "BookToFlyMVC",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "bin/Debug/net8.0/BookToFlyMVC.dll",
+            "console": "integratedTerminal"
+        },
         {
             "name": "C#: BookToFlyMVC [http]",
             "type": "dotnet",

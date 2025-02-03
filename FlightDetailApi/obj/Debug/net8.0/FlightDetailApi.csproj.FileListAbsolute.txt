@@ -526,3 +526,4 @@ C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\obj
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\obj\Debug\net8.0\FlightDetailApi.pdb
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\obj\Debug\net8.0\FlightDetailApi.genruntimeconfig.cache
 C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\obj\Debug\net8.0\ref\FlightDetailApi.dll
+C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\bin\Debug\net8.0\BCrypt.Net-Next.dll

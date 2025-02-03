@@ -126,6 +126,60 @@ else
     @await Html.PartialAsync("~/Views/Home/Login.cshtml")
 }
 
-<style>
-    
-</style>
+<script>
+    // Duration calculation
+    function calculateDuration() {
+        const start = document.getElementById('departureTime').value;
+        const end = document.getElementById('arrivalTime').value;
+        
+        if (start && end) {
+            const startDate = new Date(`2000-01-01T${start}`);
+            const endDate = new Date(`2000-01-01T${end}`);
+            
+            let diffHours = (endDate - startDate) / 1000 / 60 / 60;
+            
+            // Handle overnight flights
+            if (diffHours < 0) diffHours += 24;
+            
+            document.getElementById('duration').value = diffHours.toFixed(1);
+        }
+    }
+
+    // Flight ID prefix handling
+    function updateFlightPrefix() {
+        const flightType = document.getElementById('flightType');
+        const prefixSpan = document.getElementById('prefixDisplay');
+        const flightIdInput = document.getElementById('flightId');
+        
+        if (flightType.value === 'International') {
+            prefixSpan.textContent = 'IF';
+        } else {
+            prefixSpan.textContent = 'DF';
+        }
+    }
+
+    // Event listeners
+    document.getElementById('departureTime').addEventListener('change', calculateDuration);
+    document.getElementById('arrivalTime').addEventListener('change', calculateDuration);
+    document.getElementById('flightType').addEventListener('change', updateFlightPrefix);
+
+    // Initial setup
+    updateFlightPrefix();
+     // Hide success message after 3 seconds
+    window.onload = function() {
+        var successMessage = document.getElementById("successMessage");
+        if (successMessage) {
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 2000); // 1000 milliseconds = 1 second
+        }
+
+        // Hide error message after 3 seconds
+        var errorMessage = document.getElementById("errorMessage");
+        if (errorMessage) {
+            setTimeout(function() {
+                errorMessage.style.display = 'none';
+            }, 2000); // 1000 milliseconds = 1 second
+        }
+    };
+</script>

@@ -1,0 +1,4 @@
+2025-02-04 00:04:48.491 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-04 00:04:49.108 +05:30 [INF] Login attempt for user: Admin
+2025-02-04 00:04:51.648 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-04 00:06:04.980 +05:30 [WRN] Failed to determine the https port for redirect.

@@ -11,6 +11,10 @@ namespace FlightDetailApi.Data
 
         public DbSet<InternationalFlightDetails> InternationalFlightDetails { get; set; }
         public DbSet<DomesticFlightDetails> DomesticFlightDetails { get; set; }
+        public DbSet<UserRegistrationModel> Users { get; set; }
+        public DbSet<TicketDetails> Tickets { get; set; }
+        public DbSet<BookingDetails> Booking { get; set; }
+        public DbSet<AdminModel> Admin { get; set; }
 
         // Override OnModelCreating to specify precision and scale for decimal properties
         protected override void OnModelCreating(ModelBuilder modelBuilder)

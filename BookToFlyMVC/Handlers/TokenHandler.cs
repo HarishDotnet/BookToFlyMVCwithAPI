@@ -4,6 +4,7 @@ namespace BookToFlyMVC.Handlers{
 public class TokenHandler : DelegatingHandler
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
+    // add logger
 
     public TokenHandler(IHttpContextAccessor httpContextAccessor)
     {
@@ -13,7 +14,7 @@ public class TokenHandler : DelegatingHandler
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
         // Retrieve token from session or context
-        var token = _httpContextAccessor.HttpContext?.Session.GetString("BearerToken");
+        var token = _httpContextAccessor.HttpContext?.Session.GetString("JWT_TOKEN");
 
         if (!string.IsNullOrEmpty(token))
         {
