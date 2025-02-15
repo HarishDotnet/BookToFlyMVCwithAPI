@@ -1,0 +1,53 @@
+/* FlightBookingApp.css */
+.flight-booking-app {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+
+  .app-header {
+    background-color: #0077ff;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .search-bar {
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .flight-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .flight-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flight-card h2 {
+    margin: 0 0 10px;
+    color: #007bff;
+  }
+  
+  .flight-card p {
+    margin: 5px 0;
+    color: #333;
+  }
+  
