@@ -13,13 +13,17 @@ namespace FlightDetailApi.Configurations
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = true,
+                        ValidIssuer = configuration["JWT:Issuer"], // Ensure only tokens from this issuer are accepted.
+
                         ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = configuration["JWT:Issuer"],
                         ValidAudience = configuration["JWT:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:SecretKey"]))
+
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:SecretKey"])),
+
+                        ValidateLifetime = true
                     };
+
                 });
         }
     }

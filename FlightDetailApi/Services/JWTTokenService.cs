@@ -17,15 +17,17 @@ namespace FlightDetailApi.Services
             _audience = configuration["JWT:Audience"];
         }
 
+        //Token Structure HEADER.PAYLOAD.SIGNATURE
+
         public string GenerateJWTToken(string username, string role)
         {
             var claims = new[]
             {
                 new Claim(ClaimTypes.Name, username),
                 new Claim(ClaimTypes.Role, role),
+                //Unique identifier for the token to prevent reuse.
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
-
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 

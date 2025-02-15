@@ -13,7 +13,7 @@ namespace FlightDetailApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250130192753_migrationsupdate")]
-    partial class migrationsupdate
+    partial class Migrationsupdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

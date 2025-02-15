@@ -1,0 +1,33 @@
+2025-02-09 00:48:25.480 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-09 00:48:25.898 +05:30 [INF] Login attempt for user: Admin
+2025-02-09 00:48:27.987 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-09 02:37:37.877 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-09 02:39:38.144 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: The key value at position 0 of the call to 'DbSet<BookingDetails>.Find' was of type 'int', which does not match the property type of 'string'.
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.FindTracked(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.FindAsync(Object[] keyValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.FindAsync(Object[] keyValues)
+   at FlightDetailApi.Controllers.BookingController.DeleteBooking(Int32 id) in C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\Controllers\BookingController.cs:line 117
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-09 04:17:42.645 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-09 12:27:54.542 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-09 12:27:54.751 +05:30 [INF] Login attempt for user: Admin
+2025-02-09 12:27:55.968 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-09 12:30:11.815 +05:30 [INF] AddFlight request received for FlightId: DF821
+2025-02-09 13:52:30.942 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF345
+2025-02-09 13:55:10.665 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF345
+2025-02-09 16:53:06.703 +05:30 [INF] User Sriaknth S registered successfully.

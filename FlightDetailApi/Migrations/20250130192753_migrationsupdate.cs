@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FlightDetailApi.Migrations
 {
     /// <inheritdoc />
-    public partial class migrationsupdate : Migration
+    public partial class Migrationsupdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

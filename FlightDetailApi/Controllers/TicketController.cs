@@ -32,10 +32,8 @@ namespace FlightDetailApi.Controllers
             {
                 return NotFound("No tickets found for this user.");
             }
-
             return Ok(new { TicketList = ticket.BookingId });
         }
-
         // POST: api/Ticket
         // Adds a new ticket booking for a user.
         [HttpPost]

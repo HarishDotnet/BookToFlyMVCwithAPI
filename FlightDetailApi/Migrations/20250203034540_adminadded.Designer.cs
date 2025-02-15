@@ -13,7 +13,7 @@ namespace FlightDetailApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250203034540_adminadded")]
-    partial class adminadded
+    partial class Adminadded
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

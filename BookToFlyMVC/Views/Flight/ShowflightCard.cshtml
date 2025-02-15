@@ -1,85 +1,71 @@
 @model BookToFlyMVC.DTO.FlightDetailsDTO;
-
 @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
-
 @if (Model != null)
 {
-    <div class="container mt-5">
+    <div class="container mt-5" style="width: 800px;">
         <div class="card">
             <div class="card-header bg-primary text-white d-flex justify-content-between">
                 <h3><i class="bi bi-airplane"></i> Flight Details</h3>
                 <span class="badge bg-secondary">Flight ID: @Model.FlightId</span>
             </div>
-            <div class="card-body">
-                <h4 class="card-title text-center">@Model.AirlineName</h4>
-
-                <div class="row mt-4">
+            <div class="card-body " style="width: 800px">
+                <h4 class="text-center">@Model.AirlineName</h4>
+                <div class="row mt-3">
                     <div class="col-md-6">
                         <p><i class="bi bi-geo-alt-fill"></i> <strong>Source:</strong> @Model.Source</p>
                         <p><i class="bi bi-pin-map-fill"></i> <strong>Destination:</strong> @Model.Destination</p>
                     </div>
                     <div class="col-md-6">
-                        <p><i class="bi bi-clock-fill"></i> <strong>Departure Time:</strong> @Model.DepartureTime</p>
-                        <p><i class="bi bi-clock"></i> <strong>Arrival Time:</strong> @Model.ArrivalTime</p>
+                        <p><i class="bi bi-clock-fill"></i> <strong>Departure:</strong> @Model.DepartureTime</p>
+                        <p><i class="bi bi-clock"></i> <strong>Arrival:</strong> @Model.ArrivalTime</p>
                     </div>
                 </div>
-
-                <div class="row mt-4">
+                <div class="row mt-3">
                     <div class="col-md-6">
                         <p><i class="bi bi-hourglass-split"></i> <strong>Duration:</strong> @Model.Duration hrs</p>
-                        <p><i class="bi bi-currency-dollar"></i> <strong>Ticket Price:</strong> $@Model.TicketPrice</p>
+                        <p> <strong>Price:</strong> @Model.TicketPrice.ToString("C")</p>
                     </div>
                     <div class="col-md-6">
-                        <p><i class="bi bi-check-circle-fill"></i> <strong>Available Seats:</strong> @Model.AvailableSeats</p>
-                        <p><i class="bi bi-card-list"></i> <strong>Flight Type:</strong> @Model.FlightType</p>
+                        <p><i class="bi bi-check-circle-fill"></i> <strong>Seats:</strong> @Model.AvailableSeats</p>
+                        <p><i class="bi bi-card-list"></i> <strong>Type:</strong> @Model.FlightType</p>
                     </div>
                 </div>
-
-                <div class="mt-4">
+                <div class="mt-3" style="width:750px;">
                     <h5><i class="bi bi-calendar2-week"></i> Available Days:</h5>
                     <ul class="list-group">
-                        @if (Model.AvailableDays != null && Model.AvailableDays.Any())
+                        @if (Model.AvailableDays?.Any() == true)
                         {
-                            foreach (var day in Model.AvailableDays)
+                            @foreach (var day in Model.AvailableDays)
                             {
                                 <li class="list-group-item"><i class="bi bi-check-circle"></i> @day</li>
                             }
                         }
-                        else
-                        {
-                            <li class="list-group-item text-muted">No days available</li>
-                        }
+                        else { <li class="list-group-item text-muted">No days available</li> }
                     </ul>
                 </div>
             </div>
             <div class="card-footer text-center">
                 <a data-bs-toggle="modal" data-bs-target="#flightTypeModal" class="btn btn-secondary">
-                    <i class="bi bi-arrow-left"></i> Go to Manage Flight
+                    <i class="bi bi-arrow-left"></i> Manage Flight
                 </a>
             </div>
         </div>
     </div>
 }
-else
-{
-    <div class="alert alert-warning">
-        No flight details are available to display.
-    </div>
-}
+else { <div class="alert alert-warning">No flight details available.</div> }
 
-<!-- Modal for Flight Type -->
+<!-- Flight Type Modal -->
 <div class="modal fade" id="flightTypeModal" tabindex="-1" aria-labelledby="flightTypeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="flightTypeModalLabel">Select Flight Type</h5>
+                <h5 class="modal-title">Select Flight Type</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <div class="modal-body">
-                <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="post">
+                <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="get">
                     <div class="mb-3">
-                        <label for="flightType" class="form-label">Flight Type</label>
+                        <label class="form-label">Flight Type</label>
                         <select class="form-select" id="flightType" name="FlightType" required>
                             <option value="" selected disabled>Select an option</option>
                             <option value="International">International</option>
@@ -95,26 +81,24 @@ else
     </div>
 </div>
 
-<!-- Toast Message Container -->
-<div id="toastContainer" class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 11; border-0">
-    <div id="tempDataToast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+<!-- Toast Message -->
+<div id="toastContainer" class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index: 11;">
+    <div id="tempDataToast" class="toast align-items-center" role="alert">
         <div class="d-flex">
-            <div class="toast-body" id="toastMessageBody">
-                <!-- The message will be set dynamically by JS -->
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            <div class="toast-body" id="toastMessageBody"></div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
         </div>
     </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var message = '@TempData["UpdateErrorMessage"]' || '@TempData["UpdateSuccessMessage"]';
+        var message = '@TempData["UpdateErrorMessage"]' || '@TempData["UpdateSuccessMessage"]' || '@TempData["CreateSuccessMessage"]'|| '@TempData["CreateFailedMessage"]';
         var messageClass = '';
 
-        if ('@TempData["UpdateErrorMessage"]') {
+        if ('@TempData["UpdateErrorMessage"]' ||'@TempData["CreateFailedMessage"]') {
             messageClass = 'text-bg-danger';  // Error message class
-        } else if ('@TempData["UpdateSuccessMessage"]') {
+        } else if ('@TempData["UpdateSuccessMessage"]'||'@TempData["CreateSuccessMessage"]') {
             messageClass = 'text-success';  // Success message class
         } else {
             messageClass = 'text-secondary'; // Default message class

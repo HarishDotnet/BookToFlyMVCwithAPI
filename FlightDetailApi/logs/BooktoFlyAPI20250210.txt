@@ -1,0 +1,227 @@
+2025-02-10 18:19:30.859 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-10 18:19:31.125 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 18:19:32.286 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 18:57:41.685 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 18:57:41.843 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 19:03:40.485 +05:30 [INF] Login attempt for user: dsas
+2025-02-10 19:03:40.514 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:03:51.349 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 19:03:51.354 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 19:05:14.427 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:05:14.434 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:05:22.864 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:05:22.867 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:05:24.425 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:05:24.428 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:05:30.182 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:05:30.191 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:05:46.531 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:05:46.537 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:06:10.359 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:06:10.361 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:06:32.277 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:06:32.281 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:06:37.941 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:06:37.944 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:06:40.511 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:06:40.513 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:06:44.003 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:06:44.009 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:06:52.991 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:06:52.995 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:06:59.391 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:06:59.394 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:07:03.544 +05:30 [INF] Login attempt for user: Gowtham
+2025-02-10 19:07:03.546 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:36:43.840 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 19:36:43.954 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 19:36:52.973 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 19:36:52.979 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 19:37:18.147 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-10 19:37:21.658 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:37:21.658 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:37:38.818 +05:30 [INF] UpdateFlight request received for FlightId: IF125
+2025-02-10 19:37:39.094 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:40:43.989 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:40:57.716 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:05.505 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:24.597 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:31.499 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:46.841 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:46.862 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:50.027 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:51.767 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:56.392 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:43:59.456 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:03.377 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:09.791 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:11.828 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:17.255 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:21.319 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:22.970 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:27.689 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:37.112 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:38.433 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:41.503 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:46.016 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:48.253 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:50.553 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:50.571 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:44:58.837 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:04.516 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:10.081 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:15.681 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:21.913 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:23.127 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:26.330 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:39.310 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:46.573 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:45:53.543 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:02.498 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:04.764 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:06.602 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:10.816 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:17.129 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:18.620 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:21.039 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:21.068 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:27.695 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:46:37.051 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:47:37.741 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:47:47.496 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:47:58.017 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:47:58.040 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:06.691 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:06.713 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:12.634 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:44.588 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:49.246 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:52.875 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:54.354 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:48:54.412 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:03.809 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:03.850 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:05.775 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:11.311 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:14.084 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:20.960 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:28.961 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:33.493 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:37.940 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:37.988 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:42.567 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:48.176 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:49.700 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:52.424 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:55.734 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:49:59.819 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:06.718 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:08.041 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:12.215 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:13.796 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:15.313 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:18.507 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:22.865 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:22.882 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:25.184 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:29.748 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:33.309 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:50:40.698 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:51:05.658 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 19:51:40.112 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF126
+2025-02-10 20:05:15.719 +05:30 [INF] AddFlight request received for FlightId: DF301
+2025-02-10 20:05:15.914 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:06:20.826 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:07:14.445 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:07:18.401 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:07:25.697 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:07:25.717 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:08:26.735 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:08:33.159 +05:30 [INF] UpdateFlight request received for FlightId: DF301
+2025-02-10 20:08:33.201 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF301
+2025-02-10 20:30:15.032 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-10 20:30:15.374 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 20:30:16.981 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 21:32:51.150 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 21:32:51.285 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 21:51:20.882 +05:30 [INF] AddFlight request received for FlightId: DFIF0002
+2025-02-10 21:51:21.347 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DFIF0002
+2025-02-10 22:25:16.707 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-10 22:25:18.469 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:31.274 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:35.212 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:38.264 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:42.605 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:44.687 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:44.710 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:47.463 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:51.727 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:25:56.391 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:02.659 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:04.714 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:07.689 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:17.050 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:31.912 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:35.361 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:37.960 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:51.573 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:26:54.143 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:27:12.112 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:27:53.291 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF100
+2025-02-10 22:28:02.876 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 22:28:02.886 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 22:28:08.361 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-10 22:28:10.003 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:28:10.026 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:28:55.182 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:28:58.962 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:29:03.582 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:29:13.834 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:29:16.756 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:29:19.264 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:30:20.585 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:30:25.733 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-10 22:30:27.589 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:30:27.633 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:30:53.100 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:31:00.216 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:31:24.522 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:31:31.816 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:10.166 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:10.264 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:22.474 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:33.242 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:33.245 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:34.674 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:49.296 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:32:54.825 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:03.197 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:13.862 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:13.911 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:18.697 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:18.716 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:31.288 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:36.424 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:40.216 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:45.259 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:54.927 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:33:57.319 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:34:15.758 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:34:17.339 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:34:26.517 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:34:30.288 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:34:34.690 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:35:05.437 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:35:09.626 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:35:11.881 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:35:27.732 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:35:37.590 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:35:41.274 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-10 22:53:12.126 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 22:53:12.200 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 23:05:07.829 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 23:05:07.843 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-10 23:11:57.222 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 23:11:57.236 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-10 23:12:15.466 +05:30 [INF] Login attempt for user: Admin
+2025-02-10 23:12:15.469 +05:30 [INF] Login successful for user: Admin. JWT token generated.

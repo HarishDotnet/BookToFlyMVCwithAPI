@@ -1,8 +1,8 @@
-using AutoMapper;
 using BookToFlyMVC.Validations;
 using FlightDetailApi.DTO;
 using FlightDetailApi.Models;
 using FlightDetailApi.Repositories;
+using FlightDetailApi.Repositories.IRepository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,15 +12,12 @@ namespace FlightDetailApi.Controllers
     [ApiController]
     public class FlightController : ControllerBase
     {
-        private readonly IFlightHelper _flightHelper;
+        private readonly IFlightRepository _flightRepository;
         private readonly ILogger<FlightController> _logger;
 
-        public FlightController(
-            IFlightHelper flightHelper,
-            ILogger<FlightController> logger
-        )
+        public FlightController(IFlightRepository flightRepository, ILogger<FlightController> logger)
         {
-            _flightHelper = flightHelper;
+            _flightRepository = flightRepository;
             _logger = logger;
         }
 
@@ -45,7 +42,7 @@ namespace FlightDetailApi.Controllers
                 }
 
                 // Check if the flight already exists
-                if (await _flightHelper.FlightExists(flightInput.FlightId))
+                if (await _flightRepository.FlightExists(flightInput.FlightId))
                 {
                     invalidFlights.Add(flightInput.FlightId);
                     continue;
@@ -53,7 +50,7 @@ namespace FlightDetailApi.Controllers
 
                 try
                 {
-                    await _flightHelper.AddFlightAsync(flightInput);
+                    await _flightRepository.AddFlightAsync(flightInput);
                 }
                 catch (FlightApiException flightApiException) // Custom exception handling
                 {
@@ -63,6 +60,7 @@ namespace FlightDetailApi.Controllers
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Error adding flight {FlightId}", flightInput.FlightId);
+                    invalidFlights.Add(flightInput.FlightId);
                 }
             }
 
@@ -100,7 +98,7 @@ namespace FlightDetailApi.Controllers
             }
 
             // Check if flight already exists
-            if (await _flightHelper.FlightExists(flightInput.FlightId))
+            if (await _flightRepository.FlightExists(flightInput.FlightId))
             {
                 _logger.LogWarning("Duplicate FlightId detected: {FlightId}", flightInput.FlightId);
                 return BadRequest($"Flight with FlightId {flightInput.FlightId} already exists.");
@@ -108,7 +106,7 @@ namespace FlightDetailApi.Controllers
 
             try
             {
-                await _flightHelper.AddFlightAsync(flightInput);
+                await _flightRepository.AddFlightAsync(flightInput);
                 return Ok("Flight added successfully.");
             }
             catch (FlightApiException flightApiException)
@@ -135,7 +133,7 @@ namespace FlightDetailApi.Controllers
                 return BadRequest("FlightType is required.");
             }
 
-            var flightNumbers = await _flightHelper.GetFlightNumbersByType(FlightType);
+            var flightNumbers = await _flightRepository.GetFlightNumbersByType(FlightType);
 
             if (!flightNumbers.Any())
             {
@@ -157,7 +155,7 @@ namespace FlightDetailApi.Controllers
                 return BadRequest("FlightType, Source, and Destination must be provided.");
             }
 
-            var flights = await _flightHelper.GetFlightsBySourceAndDestination(searchInput);
+            var flights = await _flightRepository.GetFlightsBySourceAndDestination(searchInput);
 
             if (!flights.Any())
             {
@@ -172,7 +170,7 @@ namespace FlightDetailApi.Controllers
         [HttpGet("DisplayFlightByType")]
         public async Task<List<FlightOutputDTO>> GetFlightsByType(string flightType)
         {
-            return await _flightHelper.GetFlightsByTypeAsync(flightType);
+            return await _flightRepository.GetFlightsByTypeAsync(flightType);
         }
 
         // GET: api/Flight/MatchFlightByNumberAndType
@@ -189,7 +187,7 @@ namespace FlightDetailApi.Controllers
 
             try
             {
-                var flightLists = await _flightHelper.GetFlightsByTypeAsync(FlightType);
+                var flightLists = await _flightRepository.GetFlightsByTypeAsync(FlightType);
                 var flight = flightLists.FirstOrDefault(f => f.FlightId.Equals(flightNumber, StringComparison.OrdinalIgnoreCase));
 
                 if (flight == null)
@@ -236,7 +234,7 @@ namespace FlightDetailApi.Controllers
 
             try
             {
-                await _flightHelper.UpdateFlightAsync(flightInput);
+                await _flightRepository.UpdateFlightAsync(flightInput);
                 return Ok("Flight updated successfully.");
             }
             catch (FlightNotFoundException ex)
@@ -263,7 +261,7 @@ namespace FlightDetailApi.Controllers
         {
             try
             {
-                await _flightHelper.DeleteFlightAsync(flightId);
+                await _flightRepository.DeleteFlightAsync(flightId);
                 return Ok(new { success = true, message = "Flight Deleted Successfully" });
             }
             catch (FlightNotFoundException ex)

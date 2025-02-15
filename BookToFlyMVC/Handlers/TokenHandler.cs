@@ -4,7 +4,6 @@ namespace BookToFlyMVC.Handlers{
 public class TokenHandler : DelegatingHandler
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
-    // add logger
 
     public TokenHandler(IHttpContextAccessor httpContextAccessor)
     {

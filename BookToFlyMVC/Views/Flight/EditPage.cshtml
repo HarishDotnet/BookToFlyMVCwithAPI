@@ -12,52 +12,55 @@
         </div>
         <hr />
         <div class="container mt-4">
-            <h2 class="text-center">Edit Flight Details (FlightId : <strong>@Model.FlightId</strong>)</h2>
+            <h2 class="text-center">Edit Flight Details (FlightId : <strong class="text-primary">@Model.FlightId</strong>)</h2>
 
-            <form asp-action="EditPage" method="post">
-                <div class="form-group">
-                    <label asp-for="FlightId"></label>
-                    <input asp-for="FlightId" class="form-control" readonly />
-                </div>
+            <form asp-action="EditPage" method="post" onsubmit="return validateForm()">
+                <input type="hidden" asp-for="FlightId" />
 
                 <div class="form-group">
                     <label asp-for="AirlineName"></label>
-                    <input asp-for="AirlineName" class="form-control" />
+                    <input asp-for="AirlineName" class="form-control" id="AirlineName" />
+                    <small class="text-danger" id="errorAirline"></small>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Source"></label>
-                    <input asp-for="Source" class="form-control" />
+                    <input asp-for="Source" class="form-control" id="Source" />
+                    <small class="text-danger" id="errorSource"></small>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="Destination"></label>
-                    <input asp-for="Destination" class="form-control" />
+                    <input asp-for="Destination" class="form-control" id="Destination" />
+                    <small class="text-danger" id="errorDestination"></small>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="ArrivalTime"></label>
-                    <input asp-for="ArrivalTime" class="form-control" type="time" />
+                    <label asp-for="DepartureTime">Flight Starting Time(24hrs):</label>
+                    <input asp-for="DepartureTime" class="form-control" type="time" id="DepartureTime" oninput="calculateDuration()"/>
+                    <small class="text-danger" id="errorTime"></small>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ArrivalTime">Flight Reaching Time(24hrs):</label>
+                    <input asp-for="ArrivalTime" class="form-control" type="time" id="ArrivalTime" oninput="calculateDuration()"/>
                 </div>
 
-                <div class="form-group">
-                    <label asp-for="DepartureTime"></label>
-                    <input asp-for="DepartureTime" class="form-control" type="time" />
-                </div>
 
                 <div class="form-group">
                     <label asp-for="Duration"></label>
-                    <input asp-for="Duration" class="form-control" type="number" step="0.01" />
+                    <input asp-for="Duration" class="form-control text-dark fw-bolder" type="number" step="0.01" id="Duration" readonly />
                 </div>
 
                 <div class="form-group">
                     <label asp-for="AvailableSeats"></label>
-                    <input asp-for="AvailableSeats" class="form-control" type="number" />
+                    <input asp-for="AvailableSeats" class="form-control" type="number" id="AvailableSeats" min="1" max="500" />
+                    <small class="text-danger" id="errorSeats"></small>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="TicketPrice"></label>
-                    <input asp-for="TicketPrice" class="form-control" type="number" step="0.01" />
+                    <input asp-for="TicketPrice" class="form-control" type="number" step="0.01" id="TicketPrice" min="1000" max="50000" />
+                    <small class="text-danger" id="errorPrice"></small>
                 </div>
 
                 <div class="form-group">
@@ -75,142 +78,158 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label asp-for="FlightType"></label>
-                    <select asp-for="FlightType" class="form-control">
-                        <option value="International" selected="@(Model.FlightType == "International")">International
-                        </option>
-                        <option value="Domestic" selected="@(Model.FlightType == "Domestic")">Domestic</option>
-                    </select>
-                </div>
-
                 <div class="form-group mt-3">
                     <button type="submit" class="btn btn-primary">Save Changes</button>
-                    <a asp-action="GetFlightnumber" class="btn btn-secondary">Cancel</a>
+                    <a asp-action="Update" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
-
         </div>
     </div>
 }
 else
 {
-    @await Html.PartialAsync("~/Views/Home/Login");
+    @await Html.PartialAsync("~/Views/Home/Login.cshtml");
 }
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+
+<script>
+    function calculateDuration() {
+    let arrival = document.getElementById("ArrivalTime").value;
+    let departure = document.getElementById("DepartureTime").value;
+    let durationField = document.getElementById("Duration");
+
+    if (arrival && departure) {
+        let arrivalParts = arrival.split(":").map(Number);
+        let departureParts = departure.split(":").map(Number);
+
+        let arrivalMinutes = arrivalParts[0] * 60 + arrivalParts[1];
+        let departureMinutes = departureParts[0] * 60 + departureParts[1];
+
+        let duration;
+        if (arrivalMinutes < departureMinutes) {
+            // Flight reaches the destination on the next day
+            duration = (1440 - departureMinutes) + arrivalMinutes;
+        } else {
+            duration = arrivalMinutes - departureMinutes;
+        }
+
+        durationField.value = (duration / 60).toFixed(1);
+    }
 }
+
+    function validateForm() {
+        let valid = true;
+        let nameRegex = /^[a-zA-Z ]{3,}$/;
+        let airline = document.getElementById("AirlineName").value;
+        let source = document.getElementById("Source").value;
+        let destination = document.getElementById("Destination").value;
+        let arrival = document.getElementById("ArrivalTime").value;
+        let departure = document.getElementById("DepartureTime").value;
+        let durationField = document.getElementById("Duration");
+        let availableSeats = document.getElementById("AvailableSeats").value;
+        let ticketPrice = document.getElementById("TicketPrice").value;
+
+        document.getElementById("errorAirline").innerText = "";
+        document.getElementById("errorSource").innerText = "";
+        document.getElementById("errorDestination").innerText = "";
+        document.getElementById("errorTime").innerText = "";
+        document.getElementById("errorSeats").innerText = "";
+        document.getElementById("errorPrice").innerText = "";
+
+        if (!nameRegex.test(airline)) {
+            document.getElementById("errorAirline").innerText = "Invalid airline name.";
+            valid = false;
+        }
+        if (!nameRegex.test(source)) {
+            document.getElementById("errorSource").innerText = "Invalid source.";
+            valid = false;
+        }
+        if (!nameRegex.test(destination)) {
+            document.getElementById("errorDestination").innerText = "Invalid destination.";
+            valid = false;
+        }
+        if (arrival === departure) {
+            document.getElementById("errorTime").innerText = "Arrival and Departure time cannot be the same.";
+            valid = false;
+        }
+        if (availableSeats < 1 || availableSeats > 500) {
+            document.getElementById("errorSeats").innerText = "Seats should be between 1 and 500.";
+            valid = false;
+        }
+        if (ticketPrice < 1000 || ticketPrice > 50000) {
+            document.getElementById("errorPrice").innerText = "Ticket price should be between 1000 and 50000.";
+            valid = false;
+        }
+
+    }
+</script>
+
 <style>
     /* Container Styling for the Form */
-    .container {
-        max-width: 900px;
-        backdrop-filter: blur(8px);
-        /* Blur effect on the container */
-        background-color: rgba(0, 0, 0, 0.7);
-        /* Slightly transparent dark background */
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 50px;
-    }
+.container {
+    max-width: 900px;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
 
-    /* Form Element Styling */
-    .form-group label {
-        color: #f1f1f1;
-        /* Light label text */
-    }
+/* Form Element Styling */
+.form-group label {
+    color: #f1f1f1;
+}
 
-    .form-control {
-        background-color: #333;
-        /* Dark input fields */
-        color: #fff;
-        /* Light text inside inputs */
-        border: 1px solid #555;
-        /* Subtle border */
-    }
+.form-control {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
 
-    .form-control:focus {
-        border-color: #6c757d;
-        /* Lighter border on focus */
-        background-color: #444;
-        /* Slightly lighter background on focus */
-    }
+.form-control:focus {
+    border-color: #38de06;
+    background-color: #45ff42;
+}
 
-    /* Buttons Styling */
-    .btn {
-        transition: all 0.3s ease;
-    }
+/* Buttons Styling */
+.btn {
+    transition: all 0.3s ease;
+}
 
-    /* Primary Button */
-    .btn-primary {
-        background-color: #007bff;
-        /* Blue background */
-        border-color: #007bff;
-        /* Blue border */
-    }
+.btn-primary:hover {
+    transform: scale(1.05);
+}
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-        /* Darker blue on hover */
-        transform: scale(1.05);
-        /* Slightly enlarge button on hover */
-    }
+.btn-primary:active,
+.btn-secondary:active {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(0.98);
+}
 
-    .btn-primary:active {
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        /* Pressed effect with shadow */
-        transform: scale(0.98);
-        /* Slight shrink on click */
-    }
+/* Checkbox Styling */
+.form-check-input {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
 
-    /* Secondary Button */
-    .btn-secondary {
-        background-color: #6c757d;
-        /* Grey background */
-        border-color: #6c757d;
-        /* Grey border */
-    }
+.form-check-input:checked {
+    background-color: #09ff00;
+    border-color: #1af72c;
+}
 
-    .btn-secondary:hover {
-        background-color: #5a6268;
-        /* Darker grey on hover */
-    }
+/* Text Styling for Day Labels */
+.form-check-label {
+    color: #f1f1f1;
+}
 
-    .btn-secondary:active {
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        transform: scale(0.98);
-    }
+/* Title Styling */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f1f1f1;
+}
 
-    /* Checkbox Styling */
-    .form-check-input {
-        background-color: #444;
-        /* Dark checkboxes */
-        border-color: #555;
-        /* Subtle border for checkboxes */
-    }
-
-    .form-check-input:checked {
-        background-color: #007bff;
-        /* Blue when checked */
-        border-color: #007bff;
-    }
-
-    /* Text Styling for Day Labels */
-    .form-check-label {
-        color: #f1f1f1;
-        /* Light color for day labels */
-    }
-
-    /* Title Styling */
-    h2 {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #f1f1f1;
-        /* Light title color */
-    }
-
-    /* Footer or Links */
-    .text-light {
-        color: #f1f1f1 !important;
-        /* Ensures text is always light on dark background */
-    }
+/* Footer or Links */
+.text-light {
+    color: #f1f1f1 !important;
+}
 </style>

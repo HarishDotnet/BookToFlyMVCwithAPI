@@ -1,5 +1,6 @@
 using FlightDetailApi.Data;
 using FlightDetailApi.Repositories;
+using FlightDetailApi.Repositories.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,12 +11,12 @@ namespace FlightDetailApi.Controllers
     public class BookingController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private readonly IFlightHelper _flightHelper;
+        private readonly IFlightRepository _flightRepository;
 
-        public BookingController(ApplicationDbContext context, IFlightHelper flightHelper)
+        public BookingController(ApplicationDbContext context, IFlightRepository flightRepository)
         {
             _context = context;
-            _flightHelper = flightHelper;
+            _flightRepository = flightRepository;
         }
 
         // GET: api/Booking
@@ -42,7 +43,7 @@ namespace FlightDetailApi.Controllers
             string flightType = id.StartsWith("IF") ? "International" : "Domestic";
 
             // Fetch flight details using FlightHelper
-            var flight = await _flightHelper.GetFlightByIdAsync(booking.FlightId);
+            var flight = await _flightRepository.GetFlightByIdAsync(booking.FlightId);
 
             return Ok(new { booking, flight, FlightType = flightType });
         }
@@ -65,7 +66,7 @@ namespace FlightDetailApi.Controllers
                 _context.Booking.Add(booking);
 
                 // Decrement available seats for the flight
-                bool seatsUpdated = await _flightHelper.DecrementAvailableSeats(booking.FlightId);
+                bool seatsUpdated = await _flightRepository.DecrementAvailableSeats(booking.FlightId);
 
                 if (!seatsUpdated)
                 {

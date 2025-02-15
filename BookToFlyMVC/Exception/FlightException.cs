@@ -41,14 +41,16 @@ namespace BookToFlyMVC.Exceptions
     {
         public ApiRequestException(string message, Exception inner) : base(message, inner) { }
     }
-
-     public class ApiException : Exception
+     public class NotFoundException : Exception
     {
-        // public ApiException(string message) : base(message) { }
+        public NotFoundException(string message) : base(message)
+        {
+        }
+
+        public NotFoundException(string message, Exception innerException) 
+            : base(message, innerException)
+        {
+        }
     }
 
-    public class AuthenticationException : Exception
-    {
-        // public AuthenticationException(string message) : base(message) { }
-    }
 }

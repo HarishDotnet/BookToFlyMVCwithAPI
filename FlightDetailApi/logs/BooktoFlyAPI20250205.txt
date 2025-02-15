@@ -1,0 +1,7 @@
+2025-02-05 00:01:07.510 +05:30 [INF] Login attempt for user: Admin
+2025-02-05 00:01:07.533 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-05 00:33:53.687 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-02-05 00:33:55.760 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF114
+2025-02-05 00:33:55.760 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF114
+2025-02-05 00:34:05.203 +05:30 [INF] UpdateFlight request received for FlightId: DF114
+2025-02-05 00:34:05.392 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: Domestic, FlightNumber: DF114

@@ -1,0 +1,69 @@
+2025-02-07 10:30:13.413 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-07 10:30:14.021 +05:30 [INF] Login attempt for user: Admin
+2025-02-07 10:30:16.349 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-07 10:30:52.927 +05:30 [INF] Login attempt for user: Admin
+2025-02-07 10:30:53.099 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-07 10:36:22.076 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-07 10:37:57.706 +05:30 [INF] UpdateFlight request received for FlightId: IF125
+2025-02-07 10:37:57.946 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-07 10:41:51.892 +05:30 [INF] AddFlight request received for FlightId: DF234
+2025-02-07 10:42:17.869 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF333
+2025-02-07 10:42:20.558 +05:30 [INF] UpdateFlight request received for FlightId: IF333
+2025-02-07 10:42:20.611 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF333
+2025-02-07 10:43:07.552 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-07 10:43:19.392 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: Domestic
+2025-02-07 10:43:34.369 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF829
+2025-02-07 10:43:46.321 +05:30 [INF] UpdateFlight request received for FlightId: IF829
+2025-02-07 10:43:46.373 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF829
+2025-02-07 10:44:09.817 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-07 10:44:09.823 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-07 10:44:12.988 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF345
+2025-02-07 10:45:41.341 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-02-07 10:46:29.672 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-02-07 10:58:20.575 +05:30 [INF] User Subash registered successfully.
+2025-02-07 11:00:31.484 +05:30 [WRN] Email subash2002@gmail.com is already registered.
+2025-02-07 11:00:43.034 +05:30 [INF] User Subash T registered successfully.
+2025-02-07 11:05:34.505 +05:30 [INF] User Subash thiru registered successfully.
+2025-02-07 12:02:49.165 +05:30 [INF] Login attempt for user: Admin
+2025-02-07 12:02:49.170 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-07 12:03:27.474 +05:30 [INF] GetFlightsBySourceAndDestination request received.
+2025-02-07 12:43:35.831 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FlightDetailApi.Controllers.HelperMethods.FlightHelper.GetFlightsByTypeAsync(String flightType) in C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\Controllers\HelperMethods\FlightHelper.cs:line 121
+   at FlightDetailApi.Controllers.FlightController.GetFlightsByType(String flightType) in C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\Controllers\FlightController.cs:line 175
+   at lambda_method45(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-07 12:43:35.858 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at FlightDetailApi.Controllers.HelperMethods.FlightHelper.GetFlightsByTypeAsync(String flightType) in C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\Controllers\HelperMethods\FlightHelper.cs:line 121
+   at FlightDetailApi.Controllers.FlightController.GetFlightsByType(String flightType) in C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\FlightDetailApi\Controllers\FlightController.cs:line 175
+   at lambda_method45(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)

@@ -2,3 +2,12 @@
 2025-02-04 00:04:49.108 +05:30 [INF] Login attempt for user: Admin
 2025-02-04 00:04:51.648 +05:30 [INF] Login successful for user: Admin. JWT token generated.
 2025-02-04 00:06:04.980 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-04 23:46:43.664 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-04 23:46:44.196 +05:30 [INF] Login attempt for user: Admin
+2025-02-04 23:46:46.251 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-04 23:52:39.884 +05:30 [INF] Login attempt for user: Admin
+2025-02-04 23:52:39.935 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-04 23:53:03.739 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-04 23:53:03.753 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-04 23:53:47.980 +05:30 [INF] Login attempt for user: Admin
+2025-02-04 23:53:47.986 +05:30 [INF] Login successful for user: Admin. JWT token generated.

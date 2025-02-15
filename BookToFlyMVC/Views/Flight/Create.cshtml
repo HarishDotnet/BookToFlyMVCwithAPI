@@ -1,3 +1,4 @@
+@model BookToFlyMVC.DTO.FlightDetailsDTO
 @{
     ViewData["Title"] = "Add Flight";
 }
@@ -5,8 +6,8 @@
 {
     @await Html.PartialAsync("~/Views/Admin/Header.cshtml")
     <div class="container flight-form">
-        <h2 class="text-center">@ViewData["Title"]</h2>
-        <div class="d-grid gap-2 d-md-flex justify-content-md">
+        <h2 class="text-center text-dark ">@ViewData["Title"]</h2>
+        <div class="d-flex">
             <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary">Back</a>
         </div>
         <hr />
@@ -18,12 +19,12 @@
         }
 
         <!-- Error Message -->
-        @if (TempData["CreateErrorMessage"] != null)
+        @if (TempData["CreateFailedMessage"] != null)
         {
-            <div id="errorMessage" class="alert alert-danger">@TempData["CreateErrorMessage"]</div>
+            <div id="errorMessage" class="alert alert-danger">@TempData["CreateFailedMessage"]</div>
         }
 
-        <form asp-controller="Flight" asp-action="Create" method="post">
+        <form asp-action="Create" method="post" onsubmit="return validateForm()">
             <!-- Flight Type -->
             <div class="mb-3">
                 <label for="flightType" class="form-label">Flight Type:</label>
@@ -39,72 +40,66 @@
                 <label for="flightId" class="form-label">Flight Id:</label>
                 <div class="input-group">
                     <span class="input-group-text" id="prefixDisplay">--</span>
-                    <input type="text" id="flightId" name="FlightId" class="form-control" placeholder="Enter Flight Number"
-                        required />
+                    <input type="number" id="flightId" name="FlightId" class="form-control"
+                        placeholder="Enter Flight Number" required />
                 </div>
             </div>
 
             <!-- Airline Name -->
-            <div class="mb-3">
-                <label for="airlineName" class="form-label">Airline Name:</label>
-                <input type="text" id="airlineName" name="AirlineName" class="form-control" placeholder="Enter Airline Name"
-                    required />
+            <div class="form-group">
+                <label asp-for="AirlineName"></label>
+                <input asp-for="AirlineName" class="form-control" id="AirlineName" />
+                <small class="text-danger" id="errorAirline"></small>
             </div>
 
             <!-- Source -->
-            <div class="mb-3">
-                <label for="source" class="form-label">Source:</label>
-                <input type="text" id="source" name="Source" class="form-control"
-                    placeholder="Enter Source Airport Code (e.g., JFK)" required />
+            <div class="form-group">
+                    <label asp-for="Source"></label>
+                    <input asp-for="Source" class="form-control" id="Source" />
+                    <small class="text-danger" id="errorSource"></small>
             </div>
 
             <!-- Destination -->
-            <div class="mb-3">
-                <label for="destination" class="form-label">Destination:</label>
-                <input type="text" id="destination" name="Destination" class="form-control"
-                    placeholder="Enter Destination Airport Code (e.g., LHR)" required />
-            </div>
+            <div class="form-group">
+                    <label asp-for="Destination"></label>
+                    <input asp-for="Destination" class="form-control" id="Destination" />
+                    <small class="text-danger" id="errorDestination"></small>
+                </div>
 
-
-            <!-- Departure Time -->
-            <div class="mb-3">
-                <label for="departureTime" class="form-label">Flight Starting Time:</label>
-                <input type="time" id="departureTime" name="DepartureTime" class="form-control" required />
-            </div>
-
-
-            <!-- Araival Time -->
-            <div class="mb-3">
-                <label for="arrivalTime" class="form-label">Flight Reaching Time:</label>
-                <input type="time" id="arrivalTime" name="ArrivalTime" class="form-control" required />
-            </div>
-
+           <div class="form-group">
+                    <label asp-for="DepartureTime">Flight Starting Time(24hrs):</label>
+                    <input asp-for="DepartureTime" class="form-control" type="time" id="DepartureTime" oninput="calculateDuration()"/>
+                    <small class="text-danger" id="errorTime"></small>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ArrivalTime">Flight Reaching Time(24hrs):</label>
+                    <input asp-for="ArrivalTime" class="form-control" type="time" id="ArrivalTime" oninput="calculateDuration()"/>
+                </div>
 
             <!-- Modified Duration field -->
-            <div class="mb-3">
-                <label for="duration" class="form-label">Duration (in hours):</label>
-                <input type="number" id="duration" name="Duration" class="form-control" step="0.1" required readonly />
-            </div>
+           <div class="form-group">
+                    <label asp-for="Duration"></label>
+                    <input asp-for="Duration" class="form-control" type="number" step="0.01" id="Duration" readonly />
+                </div>
 
-            <div class="mb-3">
-                <label for="ticketPrice" class="form-label">Price (in Rupees):</label>
-                <input type="number" id="ticketPrice" name="TicketPrice" class="form-control"
-                    placeholder="Enter Ticket Price" step="0.01" required />
-            </div>
+             <div class="form-group">
+                    <label asp-for="TicketPrice"></label>
+                    <input asp-for="TicketPrice" class="form-control" type="number" step="0.01" id="TicketPrice" min="1000" max="50000" />
+                    <small class="text-danger" id="errorPrice"></small>
+                </div>
 
-            <!-- Available Seats -->
-            <div class="mb-3">
-                <label for="availableSeats" class="form-label">Available Seats:</label>
-                <input type="number" id="availableSeats" name="AvailableSeats" class="form-control"
-                    placeholder="Enter Number of Available Seats" required />
-            </div>
+            <div class="form-group">
+                    <label asp-for="AvailableSeats"></label>
+                    <input asp-for="AvailableSeats" class="form-control" type="number" id="AvailableSeats" min="1" max="500" />
+                    <small class="text-danger" id="errorSeats"></small>
+                </div>
 
             <!-- Available Days -->
             <div class="mb-3">
                 <label class="form-label">Available Days:</label>
                 <div class="d-flex flex-wrap gap-2 mt-2">
                     @foreach (var day in new[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
-                "Sunday" })
+                                "Sunday" })
                     {
                         <div class="form-check">
                             <input type="checkbox" id="@day" name="AvailableDays" value="@day" class="form-check-input" />
@@ -112,6 +107,7 @@
                         </div>
                     }
                 </div>
+                <span id="availableDaysError" class="text-danger"></span>
             </div>
 
             <!-- Submit Button -->
@@ -120,66 +116,133 @@
             </div>
         </form>
     </div>
+    <script>
+        // Duration calculation
+        function calculateDuration() {
+    let arrival = document.getElementById("ArrivalTime").value;
+    let departure = document.getElementById("DepartureTime").value;
+    let durationField = document.getElementById("Duration");
+
+    if (arrival && departure) {
+        let arrivalParts = arrival.split(":").map(Number);
+        let departureParts = departure.split(":").map(Number);
+
+        let arrivalMinutes = arrivalParts[0] * 60 + arrivalParts[1];
+        let departureMinutes = departureParts[0] * 60 + departureParts[1];
+
+        let duration;
+        if (arrivalMinutes < departureMinutes) {
+            // Flight reaches the destination on the next day
+            duration = (1440 - departureMinutes) + arrivalMinutes;
+        } else {
+            duration = arrivalMinutes - departureMinutes;
+        }
+
+        durationField.value = (duration / 60).toFixed(1);
+    }
+}
+        function validateForm() {
+            console.log("calculateDuration");
+            let valid = true;
+            let nameRegex = /^[a-zA-Z ]{3,}$/;
+            let airline = document.getElementById("AirlineName").value;
+            let source = document.getElementById("Source").value;
+            let destination = document.getElementById("Destination").value;
+            let arrival = document.getElementById("ArrivalTime").value;
+            let departure = document.getElementById("DepartureTime").value;
+            let durationField = document.getElementById("Duration");
+            let availableSeats = document.getElementById("AvailableSeats").value;
+            let ticketPrice = document.getElementById("TicketPrice").value;
+
+            document.getElementById("errorAirline").innerText = "";
+            document.getElementById("errorSource").innerText = "";
+            document.getElementById("errorDestination").innerText = "";
+            document.getElementById("errorTime").innerText = "";
+            document.getElementById("errorSeats").innerText = "";
+            document.getElementById("errorPrice").innerText = "";
+
+            if (!nameRegex.test(airline)) {
+                document.getElementById("errorAirline").innerText = "Invalid airline name.";
+                valid = false;
+            }
+            if (!nameRegex.test(source)) {
+                document.getElementById("errorSource").innerText = "Invalid source.";
+                valid = false;
+            }
+            if (!nameRegex.test(destination)) {
+                document.getElementById("errorDestination").innerText = "Invalid destination.";
+                valid = false;
+            }
+            if (arrival === departure) {
+                document.getElementById("errorTime").innerText = "Arrival and Departure time cannot be the same.";
+                valid = false;
+            }
+            if (availableSeats < 1 || availableSeats > 500) {
+                document.getElementById("errorSeats").innerText = "Seats should be between 1 and 500.";
+                valid = false;
+            }
+            if (ticketPrice < 1000 || ticketPrice > 50000) {
+                document.getElementById("errorPrice").innerText = "Ticket price should be between 1000 and 50000.";
+                valid = false;
+            }
+            // Available Days validation
+            const availableDays = document.querySelectorAll('input[name="AvailableDays"]:checked');
+            const availableDaysError = document.getElementById('availableDaysError');
+            if (availableDays.length === 0) {
+                availableDaysError.textContent = 'Please select at least one available day.';
+                isValid = false;
+            } else {
+                availableDaysError.textContent = '';
+            }
+            setTimeout(() => {
+            document.querySelectorAll('.text-danger').forEach(el => el.textContent = '');
+        }, 7000);
+
+
+            return isValid; // Form submits only if all validations pass
+        }
+
+
+        // Flight ID prefix handling
+        function updateFlightPrefix() {
+            console.log("updateFlightPrefix");
+            const flightType = document.getElementById('flightType');
+            const prefixSpan = document.getElementById('prefixDisplay');
+            const flightIdInput = document.getElementById('flightId');
+            if (flightType.value === 'International') {
+                prefixSpan.textContent = 'IF';
+            } else if (flightType.value === 'Domestic') {
+                prefixSpan.textContent = 'DF';
+            } else {
+                prefixSpan.textContent = '--'; // Default or empty case
+            }
+        }
+
+        // Event listeners
+        document.getElementById('flightType').addEventListener('change', updateFlightPrefix);
+
+        // Initial setup
+        updateFlightPrefix();
+        // Hide success message after 3 seconds
+        window.onload = function () {
+            var successMessage = document.getElementById("successMessage");
+            if (successMessage) {
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                }, 2000); // 1000 milliseconds = 1 second
+            }
+
+            // Hide error message after 3 seconds
+            var errorMessage = document.getElementById("errorMessage");
+            if (errorMessage) {
+                setTimeout(function () {
+                    errorMessage.style.display = 'none';
+                }, 2000); // 1000 milliseconds = 1 second
+            }
+        };
+    </script>
 }
 else
 {
     @await Html.PartialAsync("~/Views/Home/Login.cshtml")
 }
-
-<script>
-    // Duration calculation
-    function calculateDuration() {
-        const start = document.getElementById('departureTime').value;
-        const end = document.getElementById('arrivalTime').value;
-        
-        if (start && end) {
-            const startDate = new Date(`2000-01-01T${start}`);
-            const endDate = new Date(`2000-01-01T${end}`);
-            
-            let diffHours = (endDate - startDate) / 1000 / 60 / 60;
-            
-            // Handle overnight flights
-            if (diffHours < 0) diffHours += 24;
-            
-            document.getElementById('duration').value = diffHours.toFixed(1);
-        }
-    }
-
-    // Flight ID prefix handling
-    function updateFlightPrefix() {
-        const flightType = document.getElementById('flightType');
-        const prefixSpan = document.getElementById('prefixDisplay');
-        const flightIdInput = document.getElementById('flightId');
-        
-        if (flightType.value === 'International') {
-            prefixSpan.textContent = 'IF';
-        } else {
-            prefixSpan.textContent = 'DF';
-        }
-    }
-
-    // Event listeners
-    document.getElementById('departureTime').addEventListener('change', calculateDuration);
-    document.getElementById('arrivalTime').addEventListener('change', calculateDuration);
-    document.getElementById('flightType').addEventListener('change', updateFlightPrefix);
-
-    // Initial setup
-    updateFlightPrefix();
-     // Hide success message after 3 seconds
-    window.onload = function() {
-        var successMessage = document.getElementById("successMessage");
-        if (successMessage) {
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 2000); // 1000 milliseconds = 1 second
-        }
-
-        // Hide error message after 3 seconds
-        var errorMessage = document.getElementById("errorMessage");
-        if (errorMessage) {
-            setTimeout(function() {
-                errorMessage.style.display = 'none';
-            }, 2000); // 1000 milliseconds = 1 second
-        }
-    };
-</script>

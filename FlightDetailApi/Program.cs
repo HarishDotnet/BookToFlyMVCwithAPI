@@ -1,9 +1,8 @@
 using FlightDetailApi.Configurations;
 using FlightDetailApi.Data;
-using FlightDetailApi.Controllers.HelperMethods;
 using FlightDetailApi.MappingDTO;
-using FlightDetailApi.Models;
 using FlightDetailApi.Repositories;
+using FlightDetailApi.Repositories.IRepository;
 using FlightDetailApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,15 +19,11 @@ builder.Services.AddDatabaseContexts(builder.Configuration); // Ensure this meth
 builder.Services.AddScoped<JWTTokenService>();
 builder.Services.AddCorsPolicy();
 builder.Host.ConfigureLogging();
-builder.Services.AddScoped<IFlightHelper, FlightHelper>();
 
-// Registering IRepository and other services
+// Registering repositories and services
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<AdminService>();
-builder.Services.AddScoped<IGenericRepository<AdminModel>, GenericRepository<AdminModel>>();
-
-// Ensure you have registered FlightHelper (if used in controllers)
-builder.Services.AddScoped<FlightHelper>(); // Add this line to register FlightHelper if used
+builder.Services.AddScoped<IFlightRepository, FlightRepository>();
 
 var app = builder.Build();
 

@@ -2,7 +2,6 @@
     ViewData["Title"] = "Admin Dashboard";
     ViewData["RenderHeader"] = true;
 }
-
 @if (Context.Session.GetString("JWT_TOKEN") != null)
 {
     <div>
@@ -88,12 +87,12 @@
                     <div class="modal-header bg-dark text-light">
                         <h5 class="modal-title" id="flightTypeModalLabel"><i class="bi bi-funnel-fill me-2"></i>Select
                             Flight Type</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <!-- Modal Body -->
                     <div class="modal-body">
-                        <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="post">
+                        <form id="flightTypeForm" asp-controller="Flight" asp-action="ManageFlights" method="get">
                             <div class="mb-3">
                                 <label for="flightType" class="form-label">Flight Type</label>
                                 <select class="form-select" id="flightType" name="FlightType" required>

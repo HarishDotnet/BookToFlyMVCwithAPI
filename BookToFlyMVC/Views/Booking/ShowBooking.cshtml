@@ -1,5 +1,4 @@
 @model List<FlightDetailApi.Models.TicketDetails>
-
 @{
     ViewData["Title"] = "All Tickets";
 }
@@ -7,33 +6,47 @@
 @if (Model != null && Model.Any())
 {
     <div class="container mt-5">
-        <h2 class="text-center text-light mb-4"><i class="bi bi-ticket-detailed-fill"></i> Ticket List</h2>
+        <!-- Back Button -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-3">
+            <a asp-controller="Admin" asp-action="Dashboard" class="btn btn-primary fw-bold shadow-sm rounded-pill">
+                <i class="bi bi-arrow-left"></i> Back
+            </a>
+        </div>
+
+        <h2 class="text-center text-light bg-dark py-2"><i class="bi bi-ticket-detailed-fill"></i> Ticket List</h2>
+
         <div class="table-responsive">
-            <table class="table table-dark table-hover table-bordered text-center">
-                <thead>
+            <table class="table table-light table-hover text-center border border-3 border-dark">
+                <thead class="table-dark">
                     <tr>
-                        <th><i class="bi bi-person-fill"></i> Username</th>
-                        <th><i class="bi bi-receipt"></i> Booking IDs</th>
+                        <th class="text-muted fw-bold align-middle">
+                            <i class="bi bi-person-fill text-primary"></i> Username
+                        </th>
+                        <th class="text-success fw-bold">
+                            <i class="bi bi-receipt text-warning"></i> Booking IDs
+                            <p class="text-danger fw-bold small">(Click on IDs to View Ticket Details)</p>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var ticket in Model)
                     {
                         <tr>
-                            <td>@ticket.Username</td>
-                            <td>
+                            <td class="border border-3 border-dark fw-semibold">@ticket.Username</td>
+                            <td class="border border-3 border-dark">
                                 @if (ticket.BookingId != null)
                                 {
                                     foreach (var bookingId in ticket.BookingId)
                                     {
-                                        <button class="btn btn-info btn-sm m-1 viewTicketBtn" data-booking-id="@bookingId" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                        <button class="btn btn-info btn-sm fw-bold viewTicketBtn m-1 shadow-sm"
+                                            data-booking-id="@bookingId" data-bs-toggle="modal" data-bs-target="#bookingModal">
                                             <i class="bi bi-eye-fill"></i> @bookingId
                                         </button>
                                     }
                                 }
                                 else
                                 {
-                                    <span>No bookings available.</span>
+                                    <span class="text-muted">No bookings available.</span>
                                 }
                             </td>
                         </tr>
@@ -48,11 +61,13 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="bookingModalLabel"><i class="bi bi-card-checklist"></i> Booking Details</h5>
+                    <h5 class="modal-title text-center" id="bookingModalLabel">
+                        <i class="bi bi-card-checklist"></i> Booking Details
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-dark text-light">
-                    <div id="bookingDetails" class="p-3">Loading...</div>
+                    <div id="bookingDetails" class="p-3 text-center">Loading...</div>
                 </div>
             </div>
         </div>
@@ -60,34 +75,34 @@
 }
 else
 {
-    <h2>No Booking Available</h2>
+    <h2 class="text-danger text-center mt-4">No Booking Available</h2>
 }
-
+<!-- Add this in your layout or view -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.viewTicketBtn');
-    buttons.forEach(button => {
-        button.addEventListener('click', function () {
-            const bookingId = button.getAttribute('data-booking-id');
-            fetchBookingDetails(bookingId);
+    $(document).ready(function () {
+        $('.viewTicketBtn').on('click', function () {
+            const bookingId = $(this).data('booking-id'); // Fetch the data attribute (this->Refers to the clicked button inside the event listener.)
+            fetchBookingDetails(bookingId); // Call the function
+            console.log("iam jquery");
         });
     });
-});
 
-function fetchBookingDetails(bookingId) {
-    console.log("Fetching details for booking ID:", bookingId); // Ensure this logs when clicked
 
-    fetch(`http://localhost:5087/api/Booking/${bookingId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            let booking = data.booking;
-            let flight = data.flight;
-            let content = `
+    function fetchBookingDetails(bookingId) {
+        console.log("Fetching details for booking ID:", bookingId);
+
+        fetch(`http://localhost:5087/api/Booking/${bookingId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                let booking = data.booking;
+                let flight = data.flight;
+                let content = `
                 <p><strong>Booking ID:</strong> ${booking.bookingId}</p>
                 <p><strong>Passenger:</strong> ${booking.passengerName}</p>
                 <p><strong>Email:</strong> ${booking.email}</p>
@@ -96,7 +111,7 @@ function fetchBookingDetails(bookingId) {
                 <p><strong>Date of Travel:</strong> ${new Date(booking.dateOfTravel).toLocaleDateString()}</p>
                 <p><strong>Status:</strong> ${booking.isCanceled ? "<span class='text-danger'>Canceled</span>" : "<span class='text-success'>Confirmed</span>"}</p>
                 <hr>
-                <h5><i class="bi bi-airplane"></i> Flight Details</h5>
+                <h5 class="text-center"><i class="bi bi-airplane"></i> Flight Details</h5>
                 <p><strong>Flight:</strong> ${flight.flightId} - ${flight.airlineName}</p>
                 <p><strong>Route:</strong> ${flight.source} to ${flight.destination}</p>
                 <p><strong>Departure:</strong> ${flight.departureTime}</p>
@@ -105,11 +120,11 @@ function fetchBookingDetails(bookingId) {
                 <p><strong>Available Seats:</strong> ${flight.availableSeats}</p>
                 <p><strong>Ticket Price:</strong> ₹${flight.ticketPrice}</p>
             `;
-            document.getElementById('bookingDetails').innerHTML = content;
-        })
-        .catch(error => {
-            document.getElementById('bookingDetails').innerHTML = '<p class="text-danger">Failed to load booking details.</p>';
-            console.error("Error fetching booking details:", error);
-        });
-}
+                document.getElementById('bookingDetails').innerHTML = content;
+            })
+            .catch(error => {
+                document.getElementById('bookingDetails').innerHTML = '<p class="text-danger">Failed to load booking details.</p>';
+                console.error("Error fetching booking details:", error);
+            });
+    }
 </script>

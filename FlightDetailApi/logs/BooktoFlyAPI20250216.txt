@@ -1,0 +1,6 @@
+2025-02-16 01:42:22.695 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-16 02:06:36.449 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-16 02:06:38.099 +05:30 [INF] User Test1 registered successfully.
+2025-02-16 02:14:34.818 +05:30 [INF] User Test2 registered successfully.
+2025-02-16 03:01:00.464 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF901
+2025-02-16 03:01:08.735 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF910

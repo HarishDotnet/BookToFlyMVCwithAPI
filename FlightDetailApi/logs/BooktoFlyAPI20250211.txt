@@ -1,0 +1,17 @@
+2025-02-11 15:20:15.519 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-11 15:20:15.785 +05:30 [INF] Login attempt for user: Admin@123
+2025-02-11 15:20:16.886 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-11 15:21:09.717 +05:30 [INF] Login attempt for user: Admin
+2025-02-11 15:21:09.967 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-11 15:23:16.529 +05:30 [INF] Login attempt for user: Admin@123
+2025-02-11 15:23:16.552 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-11 15:23:26.115 +05:30 [INF] Login attempt for user: Admin
+2025-02-11 15:23:26.151 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-11 15:23:44.783 +05:30 [INF] Login attempt for user: Admin@123
+2025-02-11 15:23:44.789 +05:30 [WRN] Login failed: Invalid username or password.
+2025-02-11 15:23:54.568 +05:30 [INF] Login attempt for user: Admin
+2025-02-11 15:23:54.587 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-11 15:27:19.653 +05:30 [INF] Login attempt for user: Admin
+2025-02-11 15:27:19.670 +05:30 [INF] Login successful for user: Admin. JWT token generated.
+2025-02-11 15:28:40.539 +05:30 [INF] Login attempt for user: Admin
+2025-02-11 15:28:40.548 +05:30 [INF] Login successful for user: Admin. JWT token generated.

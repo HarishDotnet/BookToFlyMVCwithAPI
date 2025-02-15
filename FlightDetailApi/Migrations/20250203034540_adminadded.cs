@@ -5,7 +5,7 @@
 namespace FlightDetailApi.Migrations
 {
     /// <inheritdoc />
-    public partial class adminadded : Migration
+    public partial class Adminadded : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

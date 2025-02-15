@@ -17,83 +17,83 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookToFlyMVC
 build_property.RootNamespace = BookToFlyMVC
-build_property.ProjectDir = C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC\
+build_property.ProjectDir = C:\Users\harish.muthu\Desktop\Dotnet Traning\BookToFlyMVCwithAPI\BookToFlyMVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\BookToFlyMVC
+build_property.MSBuildProjectDirectory = C:\Users\harish.muthu\Desktop\Dotnet Traning\BookToFlyMVCwithAPI\BookToFlyMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Admin/Dashboard.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Admin/Header.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Admin/Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSGVhZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Booking/ShowBooking.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Booking/ShowBooking.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xTaG93Qm9va2luZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Create.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Delete.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/EditPage.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/EditPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XEVkaXRQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ManageFlights.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ManageFlights.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XE1hbmFnZUZsaWdodHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/SearchFlights.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/SearchFlights.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFNlYXJjaEZsaWdodHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ShowflightCard.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ShowflightCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFNob3dmbGlnaHRDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ShowFlights.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/ShowFlights.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFNob3dGbGlnaHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Update.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Flight/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmxpZ2h0XFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Home/Error.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Home/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Home/Login.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Shared/_YetToDevelop.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Shared/_YetToDevelop.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9ZZXRUb0RldmVsb3AuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/_ViewImports.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/_ViewStart.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/harish.muthu/Desktop/c\# Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Shared/_Layout.cshtml]
+[C:/Users/harish.muthu/Desktop/Dotnet Traning/BookToFlyMVCwithAPI/BookToFlyMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-v51akyi7xv

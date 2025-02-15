@@ -18,9 +18,7 @@ namespace FlightDetailApi.Data
 
         // Override OnModelCreating to specify precision and scale for decimal properties
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
+        {            base.OnModelCreating(modelBuilder);
             // For DomesticFlightDetails entity
             modelBuilder.Entity<DomesticFlightDetails>()
                 .Property(f => f.TicketPrice)

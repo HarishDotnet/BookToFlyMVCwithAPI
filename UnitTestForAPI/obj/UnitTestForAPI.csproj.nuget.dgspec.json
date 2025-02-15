@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj": {}
+    "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
+    "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
+        "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
         "projectName": "FlightDetailApi",
-        "projectPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
+        "projectPath": "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj",
         "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\obj\\",
+        "outputPath": "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -46,6 +46,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -115,14 +119,14 @@
         }
       }
     },
-    "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj": {
+    "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj",
+        "projectUniqueName": "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj",
         "projectName": "UnitTestForAPI",
-        "projectPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj",
+        "projectPath": "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\UnitTestForAPI.csproj",
         "packagesPath": "C:\\Users\\harish.muthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\obj\\",
+        "outputPath": "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\UnitTestForAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\harish.muthu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -137,8 +141,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
-                "projectPath": "C:\\Users\\harish.muthu\\Desktop\\c# Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj"
+              "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj": {
+                "projectPath": "C:\\Users\\harish.muthu\\Desktop\\Dotnet Traning\\BookToFlyMVCwithAPI\\FlightDetailApi\\FlightDetailApi.csproj"
               }
             }
           }

@@ -1,0 +1,31 @@
+2025-02-15 00:00:41.199 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:00:41.218 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:00:49.445 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:00:49.447 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:00:51.217 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:00:51.222 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:00:53.297 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:00:53.298 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:01:04.490 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:01:04.493 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:01:06.028 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:01:06.030 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:01:43.782 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:01:43.786 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:01:57.726 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:01:57.729 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:02:12.175 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:02:12.177 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:02:12.268 +05:30 [INF] AddFlight request received for FlightId: IF100
+2025-02-15 00:02:12.287 +05:30 [WRN] Duplicate FlightId detected: IF100
+2025-02-15 00:02:28.185 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-15 00:02:28.191 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-15 00:02:32.130 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF44
+2025-02-15 00:02:43.893 +05:30 [INF] DisplayAllFlightNumbersByType request received for FlightType: International
+2025-02-15 00:02:47.549 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-15 00:02:47.549 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-15 00:03:03.130 +05:30 [INF] UpdateFlight request received for FlightId: IF125
+2025-02-15 00:03:03.190 +05:30 [INF] MatchFlightByNumberAndType invoked with FlightType: International, FlightNumber: IF125
+2025-02-15 10:06:11.788 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-02-15 10:06:12.281 +05:30 [INF] Login attempt for user: Admin
+2025-02-15 10:06:14.260 +05:30 [INF] Login successful for user: Admin. JWT token generated.

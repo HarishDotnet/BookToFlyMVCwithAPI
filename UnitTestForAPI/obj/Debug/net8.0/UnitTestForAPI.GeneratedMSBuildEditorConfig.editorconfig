@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UnitTestForAPI
-build_property.ProjectDir = C:\Users\harish.muthu\Desktop\c# Traning\BookToFlyMVCwithAPI\UnitTestForAPI\
+build_property.ProjectDir = C:\Users\harish.muthu\Desktop\Dotnet Traning\BookToFlyMVCwithAPI\UnitTestForAPI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

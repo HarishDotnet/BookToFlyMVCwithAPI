@@ -1,27 +1,27 @@
 using Newtonsoft.Json;      // For JsonConvert
 using Newtonsoft.Json.Linq; // For JObject
-using FlightDetailApi.Controllers.HelperMethods;
 using FlightDetailApi.DTO;
 using FlightDetailApi.Models;
 using FlightDetailApi.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Xunit;
+using FlightDetailApi.Repositories;
+using FlightDetailApi.Repositories.IRepository;
 
 namespace FlightDetailApi.Tests
 {
     public class FlightControllerTests
     {
-        private readonly Mock<IFlightHelper> _mockFlightHelper;
+        private readonly Mock<IFlightRepository> _mockflightRepository;
         private readonly Mock<ILogger<FlightController>> _mockLogger;
         private readonly FlightController _controller;
 
         public FlightControllerTests()
         {
-            _mockFlightHelper = new Mock<IFlightHelper>();
+            _mockflightRepository = new Mock<IFlightRepository>();
             _mockLogger = new Mock<ILogger<FlightController>>();
-            _controller = new FlightController(_mockFlightHelper.Object, _mockLogger.Object);
+            _controller = new FlightController(_mockflightRepository.Object, _mockLogger.Object);
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace FlightDetailApi.Tests
             // Arrange
             var flightInput = new FlightInputDTO { FlightId = "IF123" };
 
-            _mockFlightHelper.Setup(x => x.FlightExists(flightInput.FlightId))
+            _mockflightRepository.Setup(x => x.FlightExists(flightInput.FlightId))
                 .ReturnsAsync(false);
 
             // Act
@@ -39,26 +39,26 @@ namespace FlightDetailApi.Tests
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal("Flight added successfully.", okResult.Value);
-            _mockFlightHelper.Verify(x => x.AddFlightAsync(flightInput), Times.Once);
+            _mockflightRepository.Verify(x => x.AddFlightAsync(flightInput), Times.Once);
         }
-[Fact]
-public async Task AddFlight_InvalidModel_ReturnsBadRequestWithErrors()
-{
-    // Arrange
-    var invalidFlight = new FlightInputDTO(); // Invalid object
-    _controller.ModelState.AddModelError("FlightId", "FlightId is required.");
+        [Fact]
+        public async Task AddFlight_InvalidModel_ReturnsBadRequestWithErrors()
+        {
+            // Arrange
+            var invalidFlight = new FlightInputDTO(); // Invalid object
+            _controller.ModelState.AddModelError("FlightId", "FlightId is required.");
 
-    // Act
-    var result = await _controller.AddFlight(invalidFlight);
+            // Act
+            var result = await _controller.AddFlight(invalidFlight);
 
-    // Assert
-    var badRequestResult = Assert.IsType<BadRequestObjectResult>(result); // Missing this line!
-    var json = JsonConvert.SerializeObject(badRequestResult.Value); // Fix variable name
-    var response = JObject.Parse(json);
-    
-    // Check for ModelState error structure
-    Assert.Equal("FlightId is required.", response["FlightId"][0].Value<string>());
-}
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result); 
+            var json = JsonConvert.SerializeObject(badRequestResult.Value); // Fix variable name
+            var response = JObject.Parse(json);
+
+            // Check for ModelState error structure
+            Assert.Equal("FlightId is required.", response["FlightId"][0].Value<string>());
+        }
         [Fact]
         public async Task UpdateFlight_ValidInput_ReturnsOk()
         {
@@ -66,7 +66,7 @@ public async Task AddFlight_InvalidModel_ReturnsBadRequestWithErrors()
             var flightId = "IF123";
             var flightInput = new FlightInputDTO { FlightId = flightId };
 
-            _mockFlightHelper.Setup(x => x.UpdateFlightAsync(flightInput))
+            _mockflightRepository.Setup(x => x.UpdateFlightAsync(flightInput))
                 .Returns(Task.CompletedTask);
 
             // Act
@@ -75,23 +75,23 @@ public async Task AddFlight_InvalidModel_ReturnsBadRequestWithErrors()
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal("Flight updated successfully.", okResult.Value);
-            _mockFlightHelper.Verify(x => x.UpdateFlightAsync(flightInput), Times.Once);
+            _mockflightRepository.Verify(x => x.UpdateFlightAsync(flightInput), Times.Once);
         }
-[Fact]
-public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
-{
-    // Act
-    var result = await _controller.AddFlight(null);
+        [Fact]
+        public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
+        {
+            // Act
+            var result = await _controller.AddFlight(null);
 
-    // Assert
-    var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-    
-    // Serialize the result to check the "message" property
-    var json = JsonConvert.SerializeObject(badRequestResult.Value);
-    var response = JObject.Parse(json);
-    
-    Assert.Equal("Flight input is required.", response["message"].Value<string>());
-}
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+
+            // Serialize the result to check the "message" property
+            var json = JsonConvert.SerializeObject(badRequestResult.Value);
+            var response = JObject.Parse(json);
+
+            Assert.Equal("Flight input is required.", response["message"].Value<string>());
+        }
 
         [Fact]
         public async Task UpdateFlight_MismatchedIds_ReturnsBadRequest()
@@ -106,7 +106,7 @@ public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             Assert.Equal("Flight ID in route does not match Flight ID in body.", badRequestResult.Value);
         }
-        
+
 
         [Fact]
         public async Task DeleteFlight_ValidInput_ReturnsOk()
@@ -114,7 +114,7 @@ public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
             // Arrange
             var flightId = "IF123";
 
-            _mockFlightHelper.Setup(x => x.DeleteFlightAsync(flightId))
+            _mockflightRepository.Setup(x => x.DeleteFlightAsync(flightId))
                 .Returns(Task.CompletedTask);
 
             // Act
@@ -129,7 +129,7 @@ public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
 
             Assert.True(response["success"].Value<bool>());
             Assert.Equal("Flight Deleted Successfully", response["message"].Value<string>());
-            _mockFlightHelper.Verify(x => x.DeleteFlightAsync(flightId), Times.Once);
+            _mockflightRepository.Verify(x => x.DeleteFlightAsync(flightId), Times.Once);
         }
         [Fact]
         public async Task GetFlightsBySourceAndDestination_ValidInput_ReturnsFlights()
@@ -147,7 +147,7 @@ public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
                 new FlightOutputDTO { FlightId = "IF123" }
             };
 
-            _mockFlightHelper.Setup(x => x.GetFlightsBySourceAndDestination(searchInput))
+            _mockflightRepository.Setup(x => x.GetFlightsBySourceAndDestination(searchInput))
                 .ReturnsAsync(expectedFlights);
 
             // Act
@@ -166,7 +166,7 @@ public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
             var flightNumber = "IF123";
             var expectedFlight = new FlightOutputDTO { FlightId = flightNumber };
 
-            _mockFlightHelper.Setup(x => x.GetFlightsByTypeAsync(flightType))
+            _mockflightRepository.Setup(x => x.GetFlightsByTypeAsync(flightType))
                 .ReturnsAsync(new List<FlightOutputDTO> { expectedFlight });
 
             // Act
@@ -177,22 +177,23 @@ public async Task AddFlight_NullInput_ReturnsBadRequestWithMessage()
             Assert.Equal(expectedFlight, okResult.Value);
         }
 
-       [Fact]
-public async Task MatchFlightByNumberAndType_NotFound_ReturnsNotFound()
-{
-    // Arrange
-    var flightType = "International";
-    var flightNumber = "IF123";
+        [Fact]
+        public async Task MatchFlightByNumberAndType_NotFound_ReturnsNotFound()
+        {
+            // Arrange
+            var flightType = "International";
+            var flightNumber = "IF123";
 
-    _mockFlightHelper.Setup(x => x.GetFlightsByTypeAsync(flightType))
-        .ReturnsAsync(new List<FlightOutputDTO>());
+            _mockflightRepository.Setup(x => x.GetFlightsByTypeAsync(flightType))
+                .ReturnsAsync(new List<FlightOutputDTO>());
 
-    // Act
-    var result = await _controller.MatchFlightByNumberAndType(flightType, flightNumber);
+            // Act
+            var result = await _controller.MatchFlightByNumberAndType(flightType, flightNumber);
 
-    // Assert
-    var notFoundResult = Assert.IsType<NotFoundObjectResult>(result); // Check for NotFoundObjectResult
-    Assert.Equal("Flight not found with the provided Flight Number.", notFoundResult.Value); // Verify message
-}
+            // Assert
+            var notFoundResult = Assert.IsType<NotFoundObjectResult>(result); // Check for NotFoundObjectResult
+            Assert.Equal("Flight not found with the provided Flight Number.", notFoundResult.Value); // Verify message
+        }
+        
     }
 }

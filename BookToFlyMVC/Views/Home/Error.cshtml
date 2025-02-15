@@ -1,26 +1,85 @@
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml"; // Replace with your layout path if different
-    ViewBag.Title = "Error";
-}
-
 <div class="container text-center mt-5">
     <h1 class="text-danger">Oops! Something went wrong.</h1>
-    <p class="text-muted">
-        We're sorry, but an error occurred while processing your request. 
+    <p class="text-primary">
+        We're sorry, but an error occurred while processing your request.
         Please try again later or contact support if the issue persists.
     </p>
     <div>
-        <a href="/Admin/Dashboard" class="btn btn-primary mt-3">Go to Back</a>
+        <a href="/Admin/Dashboard" class="btn btn-success mt-3">Go to Homepage</a>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 blur-effect">
         <h4>Error Details:</h4>
-        @if (ViewBag.ErrorMessage != null)
+        @if (ViewData["ErrorMessage"] != null)
         {
-            <p class="text-danger">@ViewBag.ErrorMessage</p>
+            <p class="text-danger">@ViewData["ErrorMessage"]</p>
         }
         else
         {
             <p class="text-muted">No additional information is available.</p>
         }
+        <h4>Error Code: @ViewData["ErrorCode"]</h4>
+        <h4>Additional Details:</h4>
+        @if (ViewData["AdditionalDetails"] != null)
+        {
+            <p class="text-info">@ViewData["AdditionalDetails"]</p>
+        }
+        else
+        {
+            <p class="text-muted">No additional details are available.</p>
+        }
     </div>
 </div>
+
+
+<style>
+    /* Brighter background for the page */
+    body {
+        background-color: #f8f9fa; /* Light background color */
+        color: #333;
+    }
+
+    /* Brighter button color */
+    .btn {
+        background-color: #28a745; /* Green button */
+        border-color: #28a745;
+    }
+
+    .btn:hover {
+        background-color: #218838; /* Darker green on hover */
+        border-color: #1e7e34;
+    }
+
+    /* Brighter text for headings */
+    h1 {
+        color: #dc3545; /* Red for emphasis */
+    }
+
+    h4 {
+        color: #007bff; /* Blue color for error sections */
+    }
+
+    .text-primary {
+        color: #007bff !important; /* Blue text for the main message */
+    }
+
+    .text-danger {
+        color: #dc3545 !important; /* Red for error messages */
+    }
+
+    .text-info {
+        color: #17a2b8 !important; /* Light blue for additional details */
+    }
+
+    .text-muted {
+        color: #6c757d !important; /* Grey color for neutral text */
+    }
+
+    /* Blur effect for the error details div */
+    .blur-effect {
+        background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+        backdrop-filter: blur(8px); /* Apply blur effect */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>

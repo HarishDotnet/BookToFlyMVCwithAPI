@@ -1,12 +1,8 @@
-using System;
-
 namespace BookToFlyMVC.Exceptions
 {
     public class AdminException : Exception
     {
-        public AdminException() { }
         public AdminException(string message) : base(message) { }
-        public AdminException(string message, Exception innerException) : base(message, innerException) { }
     }
 
     public class DashboardLoadException : AdminException
